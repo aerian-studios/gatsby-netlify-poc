@@ -1,8 +1,13 @@
-import React from 'react'
+import * as React from "react";
 
-const FeatureGrid = ({ gridItems }) => (
+import { IProductIntro } from "../datatypes/dataTypes";
+
+interface Props {
+  gridItems: IProductIntro;
+}
+const FeatureGrid: React.SFC<Props> = ({ gridItems }) => (
   <div className="columns is-multiline">
-    {gridItems.map(item => (
+    {gridItems.blurbs.map(item => (
       <div key={item.image} className="column is-6">
         <section className="section">
           <p className="has-text-centered">
@@ -13,6 +18,6 @@ const FeatureGrid = ({ gridItems }) => (
       </div>
     ))}
   </div>
-)
+);
 
-export default FeatureGrid
+export default FeatureGrid;

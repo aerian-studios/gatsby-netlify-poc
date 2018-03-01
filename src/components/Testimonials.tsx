@@ -1,6 +1,13 @@
-import React from 'react'
+import * as React from "react";
 
-export default ({ testimonials }) => (
+interface Props {
+  testimonials: Array<{
+    author: string;
+    quote: string;
+  }>;
+}
+
+const Testimonials: React.SFC<Props> = ({ testimonials }) => (
   <div>
     {testimonials.map(testimonial => (
       <article className="message">
@@ -12,4 +19,6 @@ export default ({ testimonials }) => (
       </article>
     ))}
   </div>
-)
+);
+
+export default Testimonials;

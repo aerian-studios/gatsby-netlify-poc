@@ -1,10 +1,14 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import * as React from "react";
+import Link from "gatsby-link";
 
-export default class IndexPage extends React.Component {
+interface Props {
+  data: Data;
+}
+
+export default class IndexPage extends React.Component<Props> {
   render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { data } = this.props;
+    const { edges: posts } = data.allMarkdownRemark;
 
     return (
       <section className="section">
@@ -13,11 +17,11 @@ export default class IndexPage extends React.Component {
             <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
           </div>
           {posts
-            .filter(post => post.node.frontmatter.templateKey === 'blog-post')
+            .filter(post => post.node.frontmatter.templateKey === "blog-post")
             .map(({ node: post }) => (
               <div
                 className="content"
-                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
+                style={{ border: "1px solid #eaecee", padding: "2em 4em" }}
                 key={post.id}
               >
                 <p>
@@ -39,11 +43,34 @@ export default class IndexPage extends React.Component {
             ))}
         </div>
       </section>
-    )
+    );
   }
 }
 
-export const pageQuery = graphql`
+interface FrontMatter {
+  title: string;
+  templateKey: string;
+  date: string;
+}
+
+interface GNode {
+  excerpt: string;
+  id: string;
+  fields: {
+    slug: string;
+  };
+  frontmatter: FrontMatter;
+}
+
+interface Data {
+  allMarkdownRemark: {
+    edges: Array<{
+      node: GNode;
+    }>;
+  };
+}
+
+export const pageQuery: Data = graphql`
   query IndexQuery {
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
@@ -62,4 +89,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

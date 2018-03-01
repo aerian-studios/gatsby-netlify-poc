@@ -1,9 +1,11 @@
-import React from 'react'
-import Features from '../components/Features'
-import Testimonials from '../components/Testimonials'
-import Pricing from '../components/Pricing'
+// NOTE: until I can work out why, this needs to be a *.js file
+import * as React from "react";
+import Features from "../components/Features";
+import Testimonials from "../components/Testimonials";
+import Pricing from "../components/Pricing";
+import { IProductData, IProductFrontmatter } from "../datatypes/dataTypes";
 
-export const ProductPageTemplate = ({
+export const ProductPageTemplate: React.SFC<IProductFrontmatter> = ({
   image,
   title,
   heading,
@@ -11,8 +13,8 @@ export const ProductPageTemplate = ({
   intro,
   main,
   testimonials,
-  fullImage,
-  pricing,
+  full_image,
+  pricing
 }) => (
   <section className="section section--gradient">
     <div className="container">
@@ -27,10 +29,10 @@ export const ProductPageTemplate = ({
                 <h2
                   className="has-text-weight-bold is-size-1"
                   style={{
-                    boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-                    backgroundColor: '#f40',
-                    color: 'white',
-                    padding: '1rem',
+                    boxShadow: "0.5rem 0 0 #f40, -0.5rem 0 0 #f40",
+                    backgroundColor: "#f40",
+                    color: "white",
+                    padding: "1rem"
                   }}
                 >
                   {title}
@@ -44,7 +46,7 @@ export const ProductPageTemplate = ({
                   <p>{description}</p>
                 </div>
               </div>
-              <Features gridItems={intro.blurbs} />
+              <Features gridItems={intro} />
               <div className="columns">
                 <div className="column is-7">
                   <h3 className="has-text-weight-semibold is-size-3">
@@ -59,7 +61,7 @@ export const ProductPageTemplate = ({
                     <div className="tile is-parent is-vertical">
                       <article className="tile is-child">
                         <img
-                          style={{ borderRadius: '5px' }}
+                          style={{ borderRadius: "5px" }}
                           src={main.image1.image}
                           alt={main.image1.alt}
                         />
@@ -68,7 +70,7 @@ export const ProductPageTemplate = ({
                     <div className="tile is-parent">
                       <article className="tile is-child">
                         <img
-                          style={{ borderRadius: '5px' }}
+                          style={{ borderRadius: "5px" }}
                           src={main.image2.image}
                           alt={main.image2.alt}
                         />
@@ -78,7 +80,7 @@ export const ProductPageTemplate = ({
                   <div className="tile is-parent">
                     <article className="tile is-child">
                       <img
-                        style={{ borderRadius: '5px' }}
+                        style={{ borderRadius: "5px" }}
                         src={main.image3.image}
                         alt={main.image3.alt}
                       />
@@ -89,7 +91,7 @@ export const ProductPageTemplate = ({
               <Testimonials testimonials={testimonials} />
               <div
                 className="full-width-image-container"
-                style={{ backgroundImage: `url(${fullImage})` }}
+                style={{ backgroundImage: `url(${full_image})` }}
               />
               <h2 className="has-text-weight-semibold is-size-2">
                 {pricing.heading}
@@ -102,10 +104,10 @@ export const ProductPageTemplate = ({
       </div>
     </div>
   </section>
-)
+);
 
-export default ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+const ProductPage: React.SFC<IProductData> = ({ data }) => {
+  const { frontmatter } = data.markdownRemark;
 
   return (
     <ProductPageTemplate
@@ -116,13 +118,15 @@ export default ({ data }) => {
       intro={frontmatter.intro}
       main={frontmatter.main}
       testimonials={frontmatter.testimonials}
-      fullImage={frontmatter.full_image}
+      full_image={frontmatter.full_image}
       pricing={frontmatter.pricing}
     />
-  )
-}
+  );
+};
 
-export const productPageQuery = graphql`
+export default ProductPage;
+
+export const productPageQuery: IProductData = graphql`
   query ProductPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
@@ -172,4 +176,4 @@ export const productPageQuery = graphql`
       }
     }
   }
-`
+`;

@@ -1,6 +1,12 @@
-import React from 'react'
+import * as React from "react";
 
-export default ({ data }) => (
+import { IProductPlan } from "../datatypes/dataTypes";
+
+interface Props {
+  data: Array<IProductPlan>;
+}
+
+const Pricing: React.SFC<Props> = ({ data }) => (
   <div className="columns">
     {data.map(price => (
       <div key={price.plan} className="column">
@@ -23,4 +29,6 @@ export default ({ data }) => (
       </div>
     ))}
   </div>
-)
+);
+
+export default Pricing;
