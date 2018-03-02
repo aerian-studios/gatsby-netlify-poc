@@ -1,0 +1,20 @@
+.role--authenticated {
+  .page-header {
+    top: 84px;
+  }
+
+  .node--unpublished {
+    margin-top: 60px;
+  }
+}
+
+#toolbar-administration,
+#block-base-theme-local-tasks {
+  ul li {
+    margin: initial;
+    padding-left: initial;
+    &::before {
+      display: none;
+    }
+  }
+}

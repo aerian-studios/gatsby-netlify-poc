@@ -1,0 +1,198 @@
+.block--pagination-nav {
+  @extend %no-before-padding;
+  @extend %no-after-padding;
+}
+
+.pagination-nav {// has .block--full
+  height: 100%;
+  border-bottom: solid 1px $c-black-50;
+  display: block;
+
+  // centre line
+  &::before {
+    content: '';
+    height: 100%;
+    width: 1px;
+    background: $c-black-50;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+  }
+}
+.pagination-nav__content {
+  position: relative;
+  z-index: 1; //to put content above image that fades in behind
+  flex: 1 1 100%;
+}
+.pagination-nav__item {
+  a {
+    display: block;
+    border: none;
+    padding: 0;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+}
+.pagination-nav__title {
+  font-size: $t-small;
+  font-weight: 600;
+  @media (min-width: $bp-s) {
+    font-size: $t1-h3;
+  }
+}
+
+.pagination-nav__context {
+  font-size: $t-xsmall;
+  font-weight: 400;
+  @media (min-width: $bp-s) {
+    font-size: $t1-small;
+  }
+}
+
+.landing {
+  position: absolute;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+
+  @include center(xy);
+
+  a {
+    border-radius: 50%;
+    border: solid 1px $whiteish;
+    background: $c-alt-bg;
+    justify-content: center;
+  }
+}
+// both navs
+.pagination-nav__item:not(.landing) {
+  @extend %no-margin-auto;
+  width: 50%;
+
+  figure {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  img {
+    flex: 1;
+    max-width: none !important;
+    opacity: 0;
+    transition: opacity 0.45s ease 0s;
+    object-fit: cover;
+  }
+
+  a {
+    min-height: 34 * $vertical-rythym;
+    
+    color: $whiteish;
+    @media (min-width: $bp-s) {
+      min-height: 52 * $vertical-rythym;
+    }
+    @media (min-width: $bp-m) {
+      min-height: 54 * $vertical-rythym;
+    }
+    // hover effect
+    &:hover {
+      img {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .arrow {
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    position: absolute;
+    text-indent: 100%;
+    white-space: nowrap;
+    border: solid 1px currentColor;
+    text-align: center;
+    border-radius: 50%;
+    // override general transform
+    transform: none;
+
+    &::before {
+      position: absolute;
+      @include chevron;
+      top: calc(50% - 4px);
+      left: calc(50% - 11px);
+    }
+
+    // display arrows only when there is enough room
+    display: none;
+
+    @media (min-width: $bp-xxl) {
+      display: block;
+    }
+  }
+}
+// previous 
+.pagination-nav__item:not(.landing):first-child {
+  float: left;
+  text-align: left;
+
+  figure {
+    @media (min-width: $bp-xl) {
+      border-left: 1px solid $c-black-50;
+      margin-left: calc((100vw - #{$max-content-width + 14}) / 2);// not sure what the 14 is for, but it doesn't line up otherwise
+    }
+  }
+  .arrow {
+    left: calc((50vw - #{$max-content-width / 2 + 48 + 14}) / 2);
+    transform: rotate(180deg);
+  }
+
+  a {
+    padding-left: 8.33%;
+    padding-right: $side-gutter * 2;
+    @media (min-width: $bp-l) {
+      padding-left: calc(((100vw - #{$max-content-width + 14}) / 2) + 8.33%);
+    }
+  }
+}
+
+// next item
+.pagination-nav__item:not(.landing):last-child {
+  float: right;
+  text-align: right;
+
+  figure {
+    @media (min-width: $bp-xl) {
+      border-right: 1px solid $c-black-50;
+      margin-right: calc((100vw - #{$max-content-width + 14}) / 2);
+    }
+  }
+
+  .arrow {
+    right: calc((50vw - #{$max-content-width / 2 + 48 + 14}) / 2);
+  }
+
+  a {
+    padding-right: 8.33%;
+    padding-left: $side-gutter * 2;
+    @media (min-width: $bp-l) {
+      padding-right: calc(((100vw - #{$max-content-width + 14}) / 2) + 8.33%);
+    }
+  }
+}
+
+// temp remove landing page link from news navigaion
+.news-navigation {
+  .landing {
+    display: none;
+  }
+}
+
+  

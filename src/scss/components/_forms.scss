@@ -1,0 +1,148 @@
+$form-body: $c-black-60;
+
+// used on both contact us and newsletter
+.form-wrapper {
+  position: relative;
+  z-index: 2;
+  .text-wrap {
+    margin-bottom: $s-2 * 2;
+  }
+  .form-item {
+    margin-bottom: $s-4;
+  }
+  legend {
+    font-weight: 400;
+  }
+  // turn off box shadow
+  input:not([type="submit"]):not([type="range"]), select, textarea {
+    box-shadow: none;
+  }
+  label {
+    @extend .visually-hidden;
+  }
+  // display labels for accepting terms
+  .option {
+    width: auto;
+    height: auto;
+    text-transform: initial;
+    line-height: normal;
+    display:inline-block;
+    position: static;
+    overflow: visible;
+    text-indent: 0;
+    color: $form-body;
+  }
+
+  .region-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    text-indent: initial;
+    padding-top: calc(100% + 2.5em);
+    color: $form-body;
+    cursor: pointer;
+  }
+  // display checkbox and accept text next to each other
+  .form-item-field-i-accept-cnn-s-privacy-pol-value,.option {
+    display: inline-block;
+  }
+  .form-select {
+    width: 100%;
+    padding: 10px;
+    color: $whiteish;
+    background: $form-body;
+    // remove arrow and replace with background image
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    background-image: url('../img/select-arrow.png');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px) 18px;
+  }
+}
+legend {
+  margin-bottom: $s-2;
+}
+// placeholder color fix for browsers
+::-webkit-input-placeholder { 
+  opacity: 1;
+  color: $form-body;
+}
+::-moz-placeholder {
+  opacity: 1;
+  color: $form-body
+}
+:-ms-input-placeholder { 
+  opacity: 1;
+  color: $form-body;
+}
+:-moz-placeholder { 
+  opacity: 1;
+  color: $form-body;
+}
+
+// contact form only
+.contact-message-form {
+  .fieldset-wrapper {
+    > * {
+      @extend .group;
+      label {
+        text-transform: capitalize;
+      }
+    }
+    .form-item  {
+      position: relative;
+      max-width: 47%;
+      flex: 1 0 50%;
+      text-align: center;
+      margin-bottom: 0;
+      @media (min-width: $bp-s) {
+          max-width: 30%;
+          flex-basis: 33%;
+      }   
+    }
+  }
+  .form-radio {
+    width: 100%;
+    height: 100%;
+    display: block;
+    @extend .visually-hidden;
+  }
+
+  .form-radio:checked + .region {
+    .map-wrapper.alt {
+      z-index: 1;
+    }
+  }
+}
+.region {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: $s-2 * 4;
+}
+.map-wrapper {
+  text-align: center;
+  border: solid 1px $form-body;
+  margin-bottom: $s-2;
+  &:after {
+    width: 90%;
+    height: 5px;
+    position: absolute;
+    z-index: 2;
+    bottom: -3px;
+    left: 5%;
+    content: " ";
+    background: $form-body;
+  }
+  &.alt {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+}

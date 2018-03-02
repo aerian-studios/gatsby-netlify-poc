@@ -1,0 +1,28 @@
+.page-header,
+.block-base-theme-branding img {
+  height: 55px;
+}
+
+.page-header {
+  position: fixed;
+  width: 100%;
+  background-color: $c-black-90;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  transition: transform .5s ease-in-out 0s, opacity .2s ease .2s;
+
+  &.hide {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .container {
+    margin: 0;
+  }
+}
+
+.site-logo {
+  border: 0 none;
+  padding: 0;
+}

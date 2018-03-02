@@ -1,0 +1,137 @@
+/**
+ * Overrides appear in here. Only 1 thing per rule
+ */
+
+#hidden,
+.hidden,
+.site-name {
+  display: none;
+}
+
+#visually-hidden,
+.visually-hidden,
+.channel-item .list-item__title,
+.helper-text {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  text-indent: 100%;
+}
+
+// Some features take on a top margin that consumes bottom margin on previous elements
+#feature-top-vspace,
+.feature-top-vspace,
+.controlled-carousel,
+.accordion-tab-carousel {
+  margin-top: 5 * $vertical-rythym;
+  @media (min-width: $bp-m) {
+    margin-top: 8 * $vertical-rythym;
+  }
+  @media (min-width:$bp-l) {
+    margin-top: 10 * $vertical-rythym;
+  }
+}
+
+.pale-text {
+  color: $c-black-40;
+}
+
+.increase-import {
+  text-transform: uppercase;
+}
+
+#pull-to-s-screen-edge {
+  margin-left: -1 * $side-gutter;
+  margin-right: -1 * $side-gutter;
+  @media(min-width: $bp-s) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+%full-width-text {
+  max-width: initial !important;
+  margin-left: 0important;
+  margin-right: 0important;
+}
+
+%before-padding {
+  &::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: $pad-0;
+    grid-column: full;
+  }
+  @media (min-width: $bp-s) {
+    &::before {
+      height: $pad-1;
+    }
+  }
+  @media (min-width:$bp-m) {
+    &::before {
+      height: $pad-2;
+    }
+  }
+}
+
+%after-padding {
+  &::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: $pad-0;
+    grid-column: full;
+  }
+  @media (min-width: $bp-s) {
+    &::after {
+      height: $pad-1;
+    }
+  }
+  @media (min-width:$bp-m) {
+    &::after {
+      height: $pad-2;
+    }
+  }
+}
+
+%no-before-padding {
+  &::before {
+    display: none !important;
+  }
+}
+
+%no-after-padding {
+  &::after {
+    display: none !important;
+  }
+}
+
+//addition of top nav bar in calculation
+%before-padding--extended {
+  &::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: $pad-0 + 55;
+    grid-column: full;
+  }
+  @media (min-width: $bp-s) {
+    &::before {
+      height: $pad-1 + 55;
+    }
+  }
+  @media (min-width:$bp-m) {
+    &::before {
+      height: $pad-2 + 55;
+    }
+  }
+}
+
+%no-margin-auto {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}

@@ -1,0 +1,87 @@
+/* No Touch devices */
+.cd-nav-trigger {
+  display: none;
+}
+
+#section-nav {
+  display: none;
+
+  @media(min-width: $bp-m) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    border-top: 1px solid $whiteish;
+    height: 91px;// Safari requires this to be absolute height
+
+    @supports (display:grid) {
+      display: grid;
+      grid-column-gap: $s-1;
+      grid-row-gap: 0;
+      grid-auto-flow: column;
+      align-content: space-around;
+      justify-content: space-between;
+    }
+  }
+}
+
+.section-nav__item {
+  position: relative;
+  /* prevent weird movements on hover when you use a CSS3 transformation - webkit browsers */
+  backface-visibility: hidden;
+  color: $whiteish;
+  border-bottom: 0;
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  // override for safari old
+  -webkit-box-align: center;
+  // override for IE
+  -ms-flex-align: center;
+  padding: 0 $s-1 0 0;
+
+  @supports(display: grid) {
+    padding: 0;
+    display: block;
+  }
+
+  span {
+    display: inline-block;
+    transform: scale(1);
+    transition: transform 0.2s ease 0s;
+  }
+
+  &:hover {
+    &::after,
+    span {
+      color: $whiteish;
+      transition:.5s;
+      opacity:0.5 
+    }
+  }
+  &:visited {
+    span {
+      color: $whiteish;
+    }
+  }
+}
+
+.latest-news-section-item {
+  min-width: 135px;
+  text-align: right;
+  font-weight: 600;
+  align-items: flex-end;
+  padding: 0 0 0 $s-1;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 1px;
+    min-height: 21px;
+    background-color: $whiteish;
+  }
+}

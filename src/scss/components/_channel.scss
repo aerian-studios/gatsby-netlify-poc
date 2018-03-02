@@ -1,0 +1,31 @@
+/**
+ * Cover teaser and full display of channels
+ */
+
+.channel-item {
+  position: relative;
+  min-width: 172px;
+  max-width: 172px;
+  height: 120px;
+  background-color: $whiteish;
+  @include shadow-by-name('light-1');
+  // margin: 0 auto;
+  overflow: hidden;
+
+  @media(min-width: $bp-s) {
+    height: 160px;
+    max-width: none;
+  }
+  @media(min-width: $bp-m) {
+    height: 191px;
+  }
+
+  .main-image-figure {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // h2 hidden with trumps/atoms#visually-hidden
+}

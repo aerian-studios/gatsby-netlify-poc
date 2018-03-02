@@ -1,0 +1,1128 @@
+// These are the styles for different carousels.
+// They are imported separately and ARE THEREFORE NOT INCLUDED IN THE THE MAIN STYLESHEET
+@import 'variables';
+@import 'tools/tools';
+@import 'layout';
+
+.owl-dots {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: $pad-0 / 2;
+  padding-top: ($pad-0 / 2) - ($s-4 - 3px);
+  
+  @media(min-width: $bp-s) {
+    padding-bottom: $pad-1 / 2;
+    padding-top: ($pad-1 / 2);
+  }
+  @media(min-width: $bp-m) {
+    padding-bottom: $pad-2 / 2;
+    padding-top: ($pad-2 / 2);
+  }
+}
+
+.owl-dot {
+  width: 13px;
+  height: 1px;
+  background-color: $c-alt-bg;
+  margin: 0 3px;
+
+  &.active {
+    height: 3px;
+  }
+}
+
+.owl-nav {
+  position: absolute;
+  top: 0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  transition: height 0.3s ease 0s;
+  padding-right: 3%;
+  padding-left: 3%;
+
+  > * {
+    &.disabled {
+      opacity: .2;
+      cursor: auto!important;
+      &:hover {
+        transform: translateX(0%);
+        opacity: .2;
+      }
+    }
+  }
+}
+
+.owl-prev, .owl-next {
+  background-color: $whiteish;
+  border-radius: 50%;
+  color: $c-black-60;
+  height: 48px;
+
+  clip-path: circle(26px at 24px 24px);
+  pointer-events: all;
+  transition: all .6s ease 0s;
+  width: 48px;
+  flex: none;
+
+  // for Edge
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    display: block;
+    height: 10px;
+    width: 10px;
+    margin: 18.5px 16.5px;
+    border-right: 2px solid currentColor;
+    border-top: 2px solid currentColor;
+    transform: rotate(45deg);
+    border-radius: 0.1px;// this is for Safari, which has a strange render issue
+  }
+
+  &:hover {
+    transform: translateX(6%);
+    opacity: 0.7;
+  }
+}
+
+.owl-prev {
+  transform: rotate(180deg);
+  &:hover {
+    transform: translateX(-6%) rotate(180deg);
+  }
+  &.disabled {
+    &:hover {
+      transform: translateX(0%) rotate(180deg);
+    }
+  }
+}
+
+.block--dark-grey_skin .owl-nav {
+  > * {
+    background-color: transparent;
+    color: $whiteish;
+    border: 1px solid currentColor;
+  }
+}
+
+.paragraph--type--carousel {
+  .main-image-figure {
+    transition: all .5s ease .5s;
+    opacity: 0;
+    z-index: 0;
+    height: 100%;
+    @include center(y);
+
+    img {
+      min-width: 100%;
+    }
+
+    &.active {
+      z-index: 1;
+      opacity: .1;
+    }
+  }
+}
+
+.fg-bg-controlled-carousel,
+.pagination-carousel,
+.accordion-tab-carousel {
+
+  .owl-nav {
+    @media(min-width: $bp-xl) {
+      width: calc(((100vw - #{$max-content-width}) / 2) + #{$max-content-width});
+      margin-left: calc(((100vw - #{$max-content-width}) / 4) * -1);
+    }
+  }
+}
+
+// ---- CHANNELS TYPE CAROUSELS ----- //
+.fg-bg-controlled-carousel,
+.simple-carousel {
+  padding-top: 4 * $vertical-rythym;
+  grid-column: full;
+
+  @media(min-width: $bp-m) {
+    padding-top: 7.5 * $vertical-rythym;
+  }
+
+  @media(min-width: $bp-l) {
+    grid-column: main;
+  }
+}
+
+.simple-carousel {
+  @extend %grid-setup;
+  text-align: left;
+
+  @media(min-width: $bp-m) {
+    grid-column: main;
+  }
+
+  .main-image-figure {
+    .img-lazy-cover {
+      display: none;
+    }
+  }
+
+  .ae-carousel-title {
+    max-height: 48px;
+    max-width: 170px;
+
+    @media (min-width: $bp-s) {
+      max-height: 64px;
+      max-width: 227px;
+    }
+
+    @media (min-width: $bp-m) {
+      max-height: 72px;
+      max-width: 255px;
+    }
+  }
+
+  .owl-stage-outer {
+    grid-column: full;
+    margin-bottom: $feature-pad-0;
+
+    @media (min-width: $bp-s) {
+      margin-bottom: $feature-pad-1;
+    }
+    @media (min-width: $bp-m) {
+      margin-bottom: $feature-pad-2;
+    }
+  }
+
+  .ae-carousel-item {
+    opacity: 0;
+    transition: opacity .5s ease 0s;
+
+    // hide the background image
+    > [item-prop="image"],
+    > * > img {
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  .active {
+    .ae-carousel-item {
+      opacity: 1;
+    }
+
+    .media-content__content {
+      opacity: 1;
+    }
+  }
+
+  .media-content {
+    @extend %grid-setup;
+    align-content: flex-start;
+    justify-content: space-between;
+    
+    @media (min-width: $bp-m) {
+      display: flex!important;
+      flex-flow: row;
+    }
+
+    > .media-wrapper {
+      grid-column: full;
+      // Seems to be related to the h2 spacing, hence usage here
+      margin-bottom: $s-h2-xs;
+
+      @media (min-width: $bp-s) {
+        grid-column: main;
+        margin-bottom: $feature-pad-1;
+      }
+      @media (min-width: $bp-m) {
+        flex: 5.7;
+        order: 2;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .media-content__content {
+    opacity: 0;
+    transition: opacity .4s ease .5s;
+
+    @media (min-width: $bp-m) {
+      flex: 4;
+      margin-right: 3%;
+    }
+
+    .ae-carousel-wrapper {
+      height: 48px;
+      width: 170px;
+      // Seems to be related to the h2 spacing, hence usage here
+      margin-bottom: $s-h2-xs;
+  
+      @media (min-width: $bp-s) {
+        height: 64px;
+        width: 227px;
+        margin-bottom: $s-h2-s;
+      }
+      @media (min-width: $bp-m) {
+        height: 72px;
+        width: 255px;
+        margin-bottom: $s-h2-m;
+      }
+    }
+  }
+}
+
+//========= generic display
+$ae-item-w: 233.55px;
+$ae-img-w: 500px;
+$accordion-h: 432px;
+$diff: (($ae-img-w - $ae-item-w) / 2);
+
+.accordion-scroller-wrapper {
+  grid-column: full;
+}
+
+.accordion-tab-carousel {
+  transition: all .6s ease-in-out 0s;
+  color: $whiteish;
+
+  @media (min-width: $bp-l) {
+    transition: all .8s ease-in-out 0s;
+  }
+
+  // All images in all versions
+  .media-wrapper {
+    position: absolute;
+  }
+  
+  // All items in all versions
+  .ae-carousel-item {
+    position: relative;
+    height: $accordion-h;
+    overflow: hidden;
+    padding-top: 4 * $vertical-rythym;
+    
+    // All bg images
+    > .media-wrapper {
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      > * {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+  }
+  
+  // All fg images
+  .media-content {
+    .media-wrapper {
+      width: $ae-img-w;
+      max-width: $ae-img-w; // used for mobile fg images
+    }
+  }
+  
+  .owl-nav {
+    padding: 32px 0 115px;
+
+    > * {
+
+      @media (min-width: 1242px) {
+        border: 1px solid $c-text;
+      }
+    }
+  }
+
+  .owl-item {
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+
+    .media-content {
+      .media-wrapper {
+        width: 100%;
+        right: 0;
+        bottom: 0;
+
+        @media (min-width: $bp-m) {
+          width: $ae-img-w;
+          transition: all 1.3s cubic-bezier(0.215, 0.610, 0.355, 1) .5s;
+        }
+      }
+    }
+    
+    @media (min-width: $bp-m) {
+      min-height: 100%;
+      min-width: initial;
+
+      @for $i from 1 through 5 {
+        &:nth-child(#{6 - $i}) { 
+          .media-content {
+            .media-wrapper {
+              // + 8 is necessary to align the image exactly, not sure why
+              transform: translateX((($i - 1) * -$ae-item-w) + ($diff  + 8));
+            }
+          }
+        }
+      }
+    }
+    
+    &.active {
+      .media-content {
+        .media-wrapper {
+          @media (min-width: $bp-m) {
+            transform: translateX(0%);
+          }
+        }
+      }
+      
+      .media-content__content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .owl-stage-outer,
+  .owl-stage,
+  .owl-item {
+    height: 100%;
+
+    @media (min-width: $bp-m) {
+      height: $accordion-h;
+    }
+  }
+
+  //========= the expanded display
+  &.owl-carousel {
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    bottom: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 100vw;
+    top: -40px;//to negate margin
+    pointer-events: none;
+    @media (min-width: $bp-m) {
+      position: absolute;
+      grid-column: full;
+      bottom: -3px; // this is to align with the margin that is applied (#feature-padding)
+      height: initial;
+      width: 100%;
+      top: auto;
+    }
+
+    @media (min-width: $bp-xl) {
+      grid-column: main;
+    }
+
+    .media-content__content {
+      padding: $feature-pad-1 $side-gutter;
+      @media (min-width: $bp-m) {
+        position: absolute;
+        z-index: 2;
+        width: 60%;
+        text-align: left;
+        padding: $feature-pad-2;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1) .8s;
+      }
+    }
+  
+    .ae-carousel-title {
+      @include font-size($t-h2, 's');
+      font-weight: 100;
+      line-height: (40 / 30) * 1em;
+      margin-bottom: $s-h2-xs;
+      @media (min-width: $bp-s) {
+          @include font-size($t1-h2, 'm');
+          line-height: (64 / 48) * 1em;
+          margin-bottom: $s-h2-s;
+      }
+      @media (min-width: $bp-m) {
+          @include font-size($t2-h2, 'l');
+          line-height: (64 / 64) * 1em;
+          margin-bottom: $s-h2-m;
+      }
+    }
+
+    .ae-carousel-content,
+    > .media-wrapper {
+      display: block;
+      opacity: 1;
+    }
+
+    .ae-carousel-item {
+      width: 100%;
+      height: 100vh;
+      padding-top: 0;
+
+      @media (min-width: $bp-m) {
+        height: $accordion-h;
+        padding-top: 4 * $vertical-rythym;
+      }
+
+      &::after {
+        content: 'x';
+        color: $whiteish;
+        position: absolute;
+        z-index: 5;
+        top: 3 * $vertical-rythym;
+        right: $side-gutter + 10px;
+        font-size: 30px;
+        height: 1em;
+        display: block;
+        font-weight: 100;
+        transform: scaleX(1.3);
+        cursor: pointer;
+
+        @media (min-width: $bp-m) {
+          top: 3 * $vertical-rythym + 26px;
+          right: $side-gutter;
+        }
+      }
+    }
+  }
+}
+
+//========= compact display
+// This element is to hide bottom scroll bars
+.accordion-scroller-wrapper {
+  height: $accordion-h + 5 * $vertical-rythym;
+  overflow: hidden;
+  width: 100%;
+
+  > * {
+    box-sizing: initial;
+    padding-bottom: 30px;
+
+    * {
+      box-sizing: border-box;
+    }
+  }
+
+  @media (min-width: $bp-m) {
+    height: $accordion-h + 8 * $vertical-rythym;
+  }
+  @media (min-width: $bp-l) {
+    height: $accordion-h + 10 * $vertical-rythym;
+  }
+  @media (min-width: $bp-xl) {
+    grid-column: main;
+  }
+}
+
+.accordion-scroller {
+  white-space: nowrap;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  height: 432px;
+  width: 100%;
+  font-size: 0px;// hack to remove spacing between inline-block elements
+  word-spacing: -0.5px;// hack to remove spacing between inline-block elements
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .media-content__content {
+    position: absolute;
+    bottom: 0;
+    height: 23%;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(0deg,rgba(0,0,0,.738) 0%,rgba(0,0,0,.541) 34%,rgba(0,0,0,.382) 47%,rgba(0,0,0,.278) 56.5%,rgba(0,0,0,.194) 65%,rgba(0,0,0,.126) 73%,rgba(0,0,0,.075) 80.2%,rgba(0,0,0,.042) 86.1%,rgba(0,0,0,.021) 91%,rgba(0,0,0,.008) 95.2%,rgba(0,0,0,.002) 98.2%,transparent);
+    color: $whiteish;
+  }
+
+  .ae-carousel-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    width: 233px;
+    @include center('x');
+  }
+
+  .ae-carousel-content {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .media-content {
+    .media-wrapper {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform 1.3s cubic-bezier(0.215, 0.610, 0.355, 1) 0s;
+      height: $accordion-h;
+    }
+  }
+
+  .ae-carousel-item {
+    position: absolute;
+    left: 0;
+    font-size: 1em;// return font-size to normal
+    word-spacing: initial; // undo word-size
+    width: $ae-item-w;
+    display: inline-block;
+    transition: width .5s ease-out 0.1s, margin .5s ease-out 0.1s;
+    white-space: normal;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    @for $i from 1 through 7 {
+      &:nth-child(#{$i + 1}) {
+        left: $i * $ae-item-w;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 399px;
+      background-color: #EFEFEF;
+    }
+
+    > .media-wrapper {
+      z-index: 0;
+      opacity: 0;
+      transition: opacity .2s ease-out 0s;
+    }
+
+    @media (min-width: $bp-m) {
+      &:hover,
+      &:focus {
+        will-change: width margin-left;
+        width: 293px;
+        margin-left: -30px;
+        z-index: 2;
+  
+        > .media-wrapper {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// ---- SOLUTIONS TYPE CAROUSELS ----- //
+.fg-bg-controlled-carousel {
+  margin-bottom: (-$s-4);
+
+  @media (min-width: $bp-s) {
+    margin-bottom: (- (6 * $vertical-rythym ));
+  }
+
+  @media (min-width: $bp-m) {
+    margin-bottom: (- (7 * $vertical-rythym ));
+  }
+
+  .owl-nav {
+    height: 248px;
+    top: 8 * $vertical-rythym - (48px / 2);
+    width: 100%;
+    
+    @media (min-width: $bp-s) {
+      height: 544px;
+      top: 15 * $vertical-rythym - (48px / 2);
+    }
+
+    @media(min-width: $bp-m) {
+      top: 22 * $vertical-rythym - (48px / 2);
+    }
+
+    > * {
+
+      @media (min-width: $bp-m) {
+        border: 1px solid $c-text;
+      }
+    }
+  }
+
+  .owl-dots {
+    padding: 0;
+  }
+  
+  .media-content {
+    transition: transform 0.6s ease-out 0.2s;
+    transform: translateX(-100%);
+  }
+
+  .media-wrapper {
+    transition: opacity 0.8s ease-out 0.5s, transform 0.8s ease-out 0.7s;
+    opacity: 0;
+    transform: translateY(10%);
+  }
+
+  .owl-item {
+    overflow: hidden;
+  }
+
+  // style moving fg images
+  .active {
+    .media-content {
+      transform: translateX(0%);
+    }
+
+    .media-wrapper {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  
+    + .owl-item {
+      .media-content {
+        transform: translateX(100%);
+      }
+    }
+  }
+}
+
+
+// ---- NEWS TYPE CAROUSELS ----- //
+
+// NOTE: has some margin-top applied in trumps/atoms
+.controlled-carousel {
+  // on Mobile, this needs to consume the block padding and be set to white bg
+  background-color: $whiteish;
+  margin-bottom: -1 * $pad-0;
+  text-align: left;
+
+  @supports (display: grid) {
+    grid-column: full !important;
+  }
+
+  @media(min-width: $bp-s) {
+    background-color: initial;
+    margin-bottom: -1 * $pad-1;
+  }
+
+  @media(min-width: $bp-l) {
+    margin-bottom: -1 * $pad-2;
+
+    .js-controlled-content,
+    .owl-nav {
+      margin-top: (115 / 2) * -1px;
+    }
+  }
+
+  .owl-nav {
+    height: (100vw / 1.77777);
+
+    @media (min-width: $bp-s) {
+      height: (100vw / 1.2) / 1.77777;
+    }
+
+    @media(min-width: $bp-l) {
+      height: 100%;
+    }
+  }
+
+  .owl-stage {
+    transition-timing-function: cubic-bezier(.33, .20, .21, .85) !important;
+    transition-delay: 0.2s !important;
+  }
+
+  &.owl-grab {
+    .owl-stage {
+      transition-delay: 0s !important;
+    }
+  }
+
+  .owl-item {
+    opacity: 0.5;
+    transform: translateX(0px);
+    transition: opacity 0.7s ease 0s, transform 0.7s cubic-bezier(.33, .20, .21, .85) 0s;
+    &.active.center {
+      opacity: 1;
+
+      @media (min-width: $bp-l) {
+        transform: translateX(-73px);
+      }
+    }
+  }
+
+  .media-wrapper {
+    min-height: calc(100vw / 1.77);
+    height: 100%;
+
+    @media (min-width: $bp-s) {
+      min-height: calc(100vw / 2.79);
+    }
+  }
+
+  // hidden here and revealed in js-carousel-content
+  .media-content__content {
+    display: none;
+  }
+}
+
+.js-controlled-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  min-height: 200px;
+  background-color: $whiteish;
+  padding: 2 * $s-1;
+  transition: all 0.3s ease 0s;
+  
+  @media(min-width: $bp-s) {
+    width: 69%;
+    padding: $s-4;
+    margin: -(8 * $vertical-rythym) auto 0;
+  }
+  @media(min-width: $bp-l) {
+    position: absolute;
+    top: calc(50% - 5px);// 5px is to do with the container
+    transform: translateY(-50%);
+    right: 13%;
+    width: 332px;
+    min-height: 367px;
+    margin: 0;
+  }
+
+  .media-content__content {
+    display: block;
+  
+    > * {
+      transition: opacity 0.02s ease 0s;
+      opacity: 0;
+      margin-bottom: $vertical-rythym * 3;
+      
+      @media (min-width: $bp-s) {
+        margin-bottom: $vertical-rythym * 4;
+      }
+    }
+
+    .ae-carousel-title {
+      line-height: (40 / 30) * 1em;
+    }
+  
+    &.fade-in {
+      > * {
+        opacity: 1;
+        transition: opacity 1s ease-out 0s;
+      }
+
+      $delay-time: 0.2s;
+      @for $i from 1 through 6 {
+        >*:nth-child(#{$i}) {
+          transition-delay: $delay-time * $i;
+        }
+      }
+    }
+  }
+}
+
+// ---- PAGINATION CAROUSELS ----- //
+.paragraph--type--award-winning-content .content {
+  margin-bottom: $feature-pad-0;
+
+  @media (min-width: $bp-s) {
+    margin-bottom: $feature-pad-1;
+  }
+  @media (min-width: $bp-m) {
+    margin-bottom: $feature-pad-2;
+  }
+}
+$max-m-carousel-width: 568px;
+.pagination-carousel {
+  margin: (-1 * $vertical-rythym) auto;
+
+  @media (min-width: $bp-s) {
+    border-right: 1px solid $c-black-50;
+    border-left: 1px solid $c-black-50;
+    max-width: $max-m-carousel-width;
+    margin: (-2 * $vertical-rythym) auto;
+  }
+
+  @media (min-width: $bp-l) {
+    max-width: 100%;
+    margin: (-2 * $vertical-rythym) auto (-4 * $vertical-rythym);
+  }
+
+  .owl-stage-outer {
+    @media (min-width: $bp-s) {
+      transform: translate3d(-1px, 0, 0);
+    }
+  }
+  .owl-nav {
+    width: calc(100vw - #{2 * $side-gutter});
+    margin-left: calc((((100vw - #{2 * $side-gutter}) - #{$max-m-carousel-width }) / 2) * -1);
+    @media(min-width: $bp-l) {
+      width: 100vw;
+      margin-left: -$side-gutter;
+    }
+  }
+
+  .ae-carousel-title {
+    margin: 0;
+  }
+
+  .ae-carousel-item {
+    padding: ($vertical-rythym) 3.3%;
+    border-left: 1px solid $c-black-50;
+
+    @media (min-width: $bp-s) {
+      padding: (3 * $vertical-rythym) 10%;
+    }
+
+    @media (min-width: $bp-m) {
+      padding: (3 * $vertical-rythym) 13%;
+    }
+  }
+}
+
+
+// ------------- TXT HEAVY, NUMBERED CAROUSELS ---------------//
+.block--text-heavy-carousel {
+  text-align: left;
+
+  .section-title {
+    // hide margin bottom by default and add it when there is content
+    margin-bottom: 0!important;
+    & + .content {
+      margin-top: $s-h2-xs - 8px;
+
+      @media (min-width: $bp-s) {
+        margin-top: ($s-h2-s - 8px);
+      }
+      @media (min-width: $bp-m) {
+        margin-top: ($s-h2-m - 8px);
+      }
+    }
+  }
+
+  .content + .button {
+    margin-top: $s-h2-xs - 8px;
+
+    @media (min-width: $bp-s) {
+      margin-top: ($s-h2-s - 8px);
+    }
+    @media (min-width: $bp-m) {
+      margin-top: ($s-h2-m - 8px);
+    }
+  }
+  .container {
+    display: flex;
+    flex-flow: wrap;
+    max-width: 100%;
+    margin: 0 auto;
+    grid-column: main!important;
+    
+    @media (min-width: $bp-l) {
+      display: -ms-grid;
+      display: grid;
+      grid-auto-flow: dense;
+      grid-template-rows: repeat(3, minmax(0, min-content));
+      -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(12, 1fr);
+      grid-column-gap: 2.74%;
+      text-align: left;
+      &::before, &::after {
+        display: none;
+      }
+      
+    }
+
+    > * {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+
+  .content-wrap,
+  .js-controlled-content {
+    width: auto;
+    margin: 0;
+    order: 1;
+
+    @media (min-width: $bp-l) {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 5 - 1;
+      grid-column: 1/5;
+    }
+  }
+
+  .content-wrap {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2 - 1;
+    grid-row: 1 / 2;
+    margin-bottom: $s-h2-xs;
+
+    @media (min-width: $bp-s) {
+      margin-bottom: $s-h2-s;
+    }
+    @media (min-width: $bp-m) {
+      margin-bottom: $s-h2-xs;
+    }
+  }
+
+  .js-controlled-content {
+    position: static;
+    transform: none;
+    order: 3;
+    padding: 0;
+    background-color: transparent;
+    min-height: auto;
+
+    @media (min-width: $bp-l) {
+      -ms-grid-row: 2;
+      -ms-grid-row-span: 3 - 2;
+      grid-row: 2 / 3;
+    }
+  }
+
+  &.alternate-layout {
+    .container {
+      @media (min-width: $bp-l) {
+        .content-wrap,
+        .js-controlled-content {
+          -ms-grid-column: 9;
+          -ms-grid-column-span: 13 - 9;
+          grid-column: 9/13;
+        }
+  
+        .text-heavy-carousel {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 9 - 1;
+          grid-column: 1/9;
+        }
+      }
+    }
+
+    .owl-nav {
+      float: right;
+    }
+  }
+}
+
+.text-heavy-carousel {
+  text-align: left;
+  order: 2;
+
+  @media (min-width: $bp-l) {
+    // for edge
+    height: 100%;
+  }
+
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 13 - 5;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: -1 - 1;
+  grid-column: 5/13;
+  grid-row: 1/-1;
+
+  .owl-nav {
+    position: relative;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: (4 * $vertical-rythym) 0 0;
+    transform: none;
+    width: 48px + 14px + 48px;
+    height: auto;
+  }
+
+  .owl-prev, .owl-next {
+    border: 1px solid $c-text;
+    color: $c-text;
+
+    &:hover, &.disabled {
+      opacity: 1;
+      color: $whiteish;
+      background-color: $c-text;
+    }
+  }
+
+
+  .media-content__content {
+    display: none;
+  }
+
+  .owl-dots {
+    position: relative;
+    bottom: 0;
+    @include center(x);
+    padding-top: 4 * $vertical-rythym;
+
+    @media screen {
+      padding-top: 6 * $vertical-rythym;
+    }
+
+    &.disabled {
+      display: block;
+      visibility: hidden;
+      padding-top: 0!important;
+
+      @media (min-width: $bp-l) {
+        display: none;
+      }
+    }
+  }
+}
+// Make sure there isn't a margin stack with h2s and carousels
+.section-title + .ae-carousel-container,
+.section-title + .accordion-scroller-wrapper {
+  margin-top: 5 * $vertical-rythym - $s-h2-xs;
+
+  @media (min-width: $bp-s) {
+    margin-top: 5 * $vertical-rythym - $s-h2-s;
+  }
+
+  @media (min-width: $bp-m) {
+    margin-top: 8 * $vertical-rythym - $s-h2-m;
+  }
+
+  @media (min-width: $bp-l) {
+    margin-top: 10 * $vertical-rythym - $s-h2-m;
+  }
+}
+
+.numbered-pagination-wrapper {
+  flex: 1 1 100%;
+  position: relative;
+  margin-bottom: $vertical-rythym;
+  height: 24px;
+  border-color: transparent!important;
+  > * {
+    position: absolute;
+    top: 0;
+  }
+}
+.current-page {
+  font-weight: 500;
+  left: 0;
+
+  &::after {
+    position: absolute;
+    left: auto;
+    top: 50%;
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    background-color: $c-black-40;
+    height: 1px;
+    margin: -0.5px 3px 0;
+    width: 64px;
+  }
+}
+
+.total-page {
+  right: 0;
+}

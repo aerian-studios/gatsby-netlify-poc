@@ -1,0 +1,89 @@
+// currently the assumption is that blcok quotes always appear with citations
+blockquote {
+  margin-bottom: 4 * $vertical-rythym;
+  font-style: italic;
+  font-size: 18px;
+
+  @media(min-width: $bp-m) {
+    margin-bottom: 6 * $vertical-rythym;
+    font-size: 24px;
+  }
+  &::before,
+  &::after {
+    display: block;
+    // may need to set the blockquote to have position if it ever appears by itself
+    position: absolute;
+    z-index: -1;
+
+    content: url('../img/double-quotes.svg');
+    opacity: 0.4;
+    height: 141px;
+    width: 138px;
+
+    @media(min-width: $bp-xs) {
+      height: 177px;
+      width: 172px;
+    }
+
+    @media(min-width: $bp-m) {
+      width: 382px;
+      height: 397px;
+    }
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    transform: translateX(-28.57%);
+    @media(min-width: $bp-s) {
+      top: 50%;
+      transform: translate(-28.57%, -50%);
+    }
+  }
+  &::after {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg) translateX(-28.57%);
+
+    @media(min-width: $bp-s) {
+      top: 50%;
+      bottom: auto;
+      transform: rotate(180deg) translate(-28.57%, 50%);
+    }
+  }
+}
+
+// figure is used to compose a quote with citation
+figure[role="group"] {
+  position: relative;
+  text-align: center;
+  min-height: 177px;
+  padding: 0 $side-gutter;
+  z-index: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  @media(min-width: $bp-xs) {
+    padding: 0 48px;
+  }
+  @media(min-width: $bp-s) {
+    padding: 0 144px;
+  }
+  @media(min-width: $bp-m) {
+    min-height: 397px;
+    padding: 0 325px;
+  }
+}
+
+.citation {
+  > *:first-child {
+    font-size: $t1-small;
+    font-weight: 600;
+  }
+  > *:last-child {
+    font-size: $t1-xsmall;
+    font-weight: 300;
+  }
+}

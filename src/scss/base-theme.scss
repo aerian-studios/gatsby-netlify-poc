@@ -1,0 +1,41 @@
+/**
+ * Following ITCSS idea [https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/]:
+ * Settings - vars, configs, switches, brand colours
+ * Tools - mixins, functions
+ * Generic - normalisers/rules setters
+ * Base - Unclassed HTML elements (type selectors) last layer we see these
+ * Objects - Cosmetic free design patterns
+ * Components - Designed components - chunks of UI
+ * Trumps - helpers and overrides
+ *
+ * All rules only ever ADD and INHERIT from previous layers
+ * Order stylesheets from generic to localised (as above)
+ * write css in specificity order.
+ *
+ */
+
+// SETTINGS
+@import "variables";
+// Fonts is added into /html-dump/html.html directly
+// @import 'font';
+
+// TOOLS
+@import "tools/tools";
+@import "animations";
+// BASE
+@import "base";
+@import "layout";
+@import "base.buttons";
+@import "base.forms";
+
+// OBJECTS
+// COMMON on all pages
+@import "objects/block";
+@import "objects/group";
+@import "objects/media-content";
+
+// TRUMPS
+@import "trumps/atoms";
+
+// ADMIN -- separate into admin only load
+@import "admin";

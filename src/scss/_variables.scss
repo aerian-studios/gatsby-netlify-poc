@@ -1,0 +1,148 @@
+// COLOURS - $c- + name
+// named colours for ease (please use the more generic colours that use them below)
+$whiteish: #fff;
+$blackish: #000;
+$cnn-red: #d01825;
+$red: #e42025;
+$blue: #368aec;
+$menu-red: #ed2025;
+
+$c-black-90: #0c0c0c;
+$c-black-80: #231f20;
+$c-black-70: #282828;
+$c-black-60: #333;
+$c-black-50: #535456;
+$c-black-40: #919191;
+$c-black-35: #acadaf;
+$c-black-30: #dddedf;
+$c-black-20: #f1f1f2; // light-grey bg
+$c-black-10: #f7f7f7;
+$c-black-0: #fff;
+
+$accent-black: #18191a;
+$c-alt-bg: #18191a;
+$dark-grey: #151515;
+$light-grey: #f5f5f5;
+$social-link-colour: #808080;
+
+// Generic variable names for use in the code (so that the colours only need changing on one place)
+$c-brand-a: $cnn-red;
+$c-brand-b: $red;
+$c-brand-c: $blue;
+$c-text: $c-black-60;
+$c-text-alt: #868788;
+$c-link: $c-black-60;
+$c-link-active: $cnn-red;
+$c-link-visited: $c-black-40;
+
+$c-separator: #d8d8d8;
+$c-shadow: rgba(42, 40, 40, 0.4);
+$c-shadow-light: rgba(42, 40, 40, 0.16);
+
+// TYPOGRAPHY - $t- + name
+// https://projects.invisionapp.com/d/main/default/#/console/10686253/226770242/preview
+// NOTE: this is mobile first
+
+// needs to be here for the text calculations
+$t: 16; // base font size without units
+$t1: 16; // base font size without units
+$t2: 16; // base font size without units
+
+// XSmall
+$t-base: $t * 1px; // normal text size
+$t-h1: 30;
+$t-h2: 24;
+$t-h3: 18;
+$t-h4: (18 / $t) * 1em;
+$t-h5: (16 / $t) * 1em;
+$t-h6: (14 / $t) * 1em;
+$t-intro: (18 / $t) * 1em;
+$t-small: 16px;
+$t-xsmall: 12px;
+// as these are very large, not making them ems
+$t-xl: 28 * 1px;
+$t-xxl: 48 * 1px;
+$t-menu: 20;
+
+// Medium
+$t1-base: $t1 * 1px; // normal text size
+$t1-h1: 58;
+$t1-h2: 32;
+$t1-h3: 18;
+$t1-h4: (20 / $t1) * 1em;
+$t1-h5: (18 / $t1) * 1em;
+$t1-h6: (16 / $t1) * 1em;
+$t1-intro: (20 / $t1) * 1em;
+$t1-small: 16px;
+$t1-xsmall: 14px;
+$t1-xl: 42 * 1px;
+$t1-xxl: 82 * 1px;
+$t1-menu: 27;
+
+// Large
+$t2-base: $t2 * 1px; // normal text size
+$t2-h1: 65;
+$t2-h2: 50;
+$t2-h3: 18;
+$t2-h4: (24 / $t2) * 1em;
+$t2-h5: (18 / $t2) * 1em;
+$t2-h6: (16 / $t2) * 1em;
+$t2-intro: (20 / $t2) * 1em;
+$t2-small: 16px;
+$t2-xsmall: 14px;
+$t2-xl: 50 * 1px;
+$t2-xxl: 90 * 1px;
+$t2-menu: 40;
+
+$t-font-basic: Helvetica Neue, Verdana, Helvetica, Arial, Utkal, sans-serif;
+$t-font: CNN, Helvetica Neue, Verdana, Helvetica, Arial, Utkal, sans-serif;
+$t-button: 14px;
+$t-xxs: 10px;
+// SPACING - $s- + name
+$s-1: 12px;
+$s-2: 20px;
+$s-3: 30px;
+$s-4: 32px;
+$s-5: 100px;
+$s-6: 10px;
+$s-7: 10px;
+$s-8: 10px;
+
+// MISC
+$border-radius: 10px;
+$max-content-width: 1168px;
+$min-content-width: 280px;
+$side-gutter: $s-2;
+$h-grid-spacing: 2.5%;
+$h-grid-spacing-1: $s-1 * 2;
+$h-grid-spacing-2: $s-4;
+$v-grid-spacing: $s-1;
+$vertical-rythym: 8px;
+$grid-gap: 2.74%;
+$grid-column: 5.82%;
+
+
+//Header Spacing
+$s-h2-xs: 4 * $vertical-rythym;
+$s-h2-s: 5 * $vertical-rythym;
+$s-h2-m: 6 * $vertical-rythym; 
+
+$s-h3-xs: 4 * $vertical-rythym; 
+$s-h3-s: 4 * $vertical-rythym; 
+$s-h3-m: 4 * $vertical-rythym; 
+
+$pad-0: 8 * $vertical-rythym;
+$pad-1: 12 * $vertical-rythym;
+$pad-2: 14 * $vertical-rythym;
+$feature-pad-0: 5 * $vertical-rythym;
+$feature-pad-1: 8 * $vertical-rythym;
+$feature-pad-2: 10 * $vertical-rythym;
+
+
+// BREAKPOINTS
+$bp-xs: 370px; // > standard mobile
+$bp-s: 590px; // > mobile or no mq support
+$bp-m: 800px; // > portrait tablet
+$bp-l: 1080px; // > most tablets
+$bp-xl: 1169px; // very large screens - might need to make an xl font size
+$bp-xxl: 1296px;

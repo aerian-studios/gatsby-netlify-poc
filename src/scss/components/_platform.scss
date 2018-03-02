@@ -1,0 +1,41 @@
+/**
+ * Cover teaser and full display of platforms
+ */
+
+.platform-item {
+  position: relative;
+
+  .list-item__title {
+    //centered
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $whiteish;
+    // to centre the title, disregarding the height of the svg
+    margin-top: 13.32px;
+
+    @media(min-width: $bp-s) {
+      margin-bottom: 0;
+      top: auto;
+      bottom: 3px;
+    }
+    @media(min-width: $bp-m) {
+      top: auto;
+      bottom: 24px;
+    }
+
+  svg {
+      display: block;
+      margin: 10px auto 0;
+      fill: $menu-red;
+      width: 36px;
+      height: 21px;
+
+      > * {
+        transform: scale(0.65);
+      }
+    }
+  }
+}

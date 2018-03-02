@@ -1,12 +1,29 @@
+const config = require("./site-config");
+const cssnext = require("postcss-cssnext");
+
+const postCssPlugins = [
+  cssnext({
+    browsers: ["last 2 versions", "IE 11", "iOS 9"]
+  })
+];
+
 module.exports = {
-  siteMetadata: {
-    title: "Gatsby + Netlify CMS Proof of Concept"
-  },
+  pathPrefix: config.pathPrefix,
+  siteMetadata: config.siteMetadata,
   plugins: [
-    `gatsby-plugin-react-next`,
-    "gatsby-plugin-react-helmet",
+    `gatsby-plugin-react-next`, // use react 16
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
-    "gatsby-plugin-sass",
+    `gatsby-plugin-glamor`,
+    {
+      resolve: `gatsby-plugin-postcss-sass`,
+      options: {
+        postCssPlugins,
+        precision: 8 // SASS default: 5
+      }
+    },
+
+    // @TODO: make this into a section controlled by site-config
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -21,12 +38,22 @@ module.exports = {
         name: "images"
       }
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    // transform all iamge files
+    `gatsby-plugin-sharp`, // Used manipulate images
+    `gatsby-transformer-sharp`, // used to insert images
+    `gatsby-plugin-svg-sprite`, // creates sprite from imported svg when used as sprites
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: "gatsby-transformer-remark", // to modify MD
       options: {
-        plugins: []
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1168,
+              backgroundColor: `#f7f0eb`
+            }
+          }
+        ]
       }
     },
     {
@@ -35,33 +62,14 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.tsx`
       }
     },
-    `gatsby-plugin-offline`,
+    `gatsby-plugin-accessibilityjs`, // Inserts accessibility warnings in the code
+    // Manifest for AppCache and PWA compatibility
     {
       resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: "GatsbyJS",
-        short_name: "GatsbyJS",
-        start_url: "/",
-        background_color: "#f7f0eb",
-        theme_color: "#a2466c",
-        display: "minimal-ui",
-        icons: [
-          {
-            // Everything in /static will be copied to an equivalent
-            // directory in /public during development and build, so
-            // assuming your favicons are in /static/favicons,
-            // you can reference them here
-            src: `/favicons/android-chrome-192x192.png`,
-            sizes: `192x192`,
-            type: `image/png`
-          },
-          {
-            src: `/favicons/android-chrome-512x512.png`,
-            sizes: `512x512`,
-            type: `image/png`
-          }
-        ]
-      }
-    }
+      options: config.manifest
+    },
+    // must come AFTER manifest plugin
+    // Generates a service worker and AppShell
+    `gatsby-plugin-offline`
   ]
 };

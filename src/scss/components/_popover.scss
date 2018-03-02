@@ -1,0 +1,219 @@
+.js-popover-content {
+  display: hidden;
+}
+
+.popover {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  color: $whiteish;
+  transition: opacity .5s ease-out .16s;
+
+  &.showing {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+    z-index: 300;
+    transform: translateZ(300px);
+  }
+}
+
+.popover__content,
+.popover-content {
+  color: $whiteish;
+  background-color: $c-black-90;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.popover-content {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  overflow: auto;
+
+  @media(min-width: $bp-s) {
+    align-items: stretch;
+  }
+
+  .media-wrapper {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    position: relative;
+    margin: 0 !important;
+    flex-basis: 100%;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 3;
+      bottom: -0.5px;
+      transform: translateY(-80%);
+      width: 0;
+      height: 0;
+      border: 0 solid transparent;
+      border-bottom-width: 3 * $vertical-rythym;
+      border-bottom-color: $c-black-90;
+
+      // Chrome has a different way to render this border
+      // so this mq hack tries to select just that
+      @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+        transform: none;
+      }
+    }
+
+    img {
+      object-fit: cover;
+      max-width: initial;
+      margin: 0 auto;
+      max-width: 100%;
+
+      @media(min-width: $bp-s) {
+        max-width: initial;
+        min-width: 100%;
+      }
+    }
+
+    @media(min-width: $bp-s) {
+      width: auto;
+      height: 100%;
+      max-width: 50%;
+      flex-basis: 50%;
+
+      &::before {
+        border-top-width: 100vh;
+        border-top-color: transparent;
+        border-bottom-width: 0;
+        transform: none;
+      }
+    }
+  }
+
+}
+
+.popover-content__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  flex-basis: 100%;
+
+  > * {
+    max-width: 544px;
+  }
+
+  .section-title,
+  .content {
+    padding-left: $s-2;
+    padding-right: $s-2;
+    width: 100%;
+  }
+  .content {
+    margin-bottom: (3 * $vertical-rythym) - 18px;
+  }
+  .button {
+    margin-left: $s-2;
+    margin-right: $s-2;
+    margin-bottom: 4 * $vertical-rythym;
+  }
+
+  @media(min-width: $bp-s) {
+    flex-basis: 50%;
+  }
+}
+
+.right {
+  .media-wrapper {
+    &::before {
+      border-right-width: 100vw;
+      border-right-color: transparent;
+    }
+
+    @media(min-width: $bp-s) {
+      &::before {
+        right: 0;
+        border-right-width: 110px;
+        border-right-color: $c-black-90;
+      }
+    }
+  }
+}
+
+.left {
+  .popover-content__content {
+    @media(min-width: $bp-s) {
+      order: 1;
+      align-items: flex-end;
+    }
+  }
+
+  .media-wrapper {
+    &::before {
+      border-right-width: 100vw;
+      border-right-color: transparent;
+      border-bottom-width: 3 * $vertical-rythym;
+      border-bottom-color: $c-black-90;
+      border-top-width: 0;
+      border-top-color: transparent;
+    }
+    @media(min-width: $bp-s) {
+      order: 2;
+
+      &::before {
+        left: 0;
+        border-left-width: 110px;
+        border-left-color: $c-black-90;
+      }
+    }
+  }
+}
+
+.popover__close {
+  position: absolute;
+  top: 2 * $vertical-rythym;
+  right: 2 * $s-1;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  color: $whiteish;
+  background-color: transpatent!important;
+  border-color: transparent!important;
+  z-index: 300;
+  text-align: center;
+
+  &::before,
+  &::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #fff;
+    pointer-events: none;
+    content: "";
+  }
+  &::before {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  .toggle-text {
+    line-height: 44px;
+  }
+}

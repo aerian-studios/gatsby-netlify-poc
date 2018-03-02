@@ -1,0 +1,398 @@
+  /**
+ * Blocks of content in no particular grouping
+ */
+
+// Light Themes
+/*
+$pad: 52px;
+$pad-0: 3 * $s-1;
+$pad-1: 58px;
+$pad-2: 58px;
+$s-over: 2px;
+$s-over-1: 26px;
+$s-over-2: 26px;
+$m-over: 0;
+$m-over-1: 74px;
+$m-over-2: 90px;
+$l-over: 92px;
+$l-over-1: 150px;
+$l-over-2: 246px;*/
+.meta-information-container {
+  position: absolute;
+  width: 100%;
+  color: $whiteish;
+
+  @supports (display: grid) {
+    position: relative;
+    grid-row-start: 1;
+  }
+  z-index: 10;
+  padding-top: 25vh;
+  margin-top: 75vh;
+  @include smoothScrimGradient(rgba(0,0,0, 0.7), 'to top');
+  
+  
+  @media (min-width: $bp-m) {
+    min-height: 91px;
+    margin-top: calc(75vh - 91px);
+  }
+
+}
+
+// needs this specificity
+.layout-container .scroll-icon-container {
+  position: absolute;
+  left: auto;
+  bottom: 3 * $vertical-rythym;
+  z-index: 3;
+  width: 22px;
+  height: 61px;  
+  margin-left: calc(50% - 11px);
+
+  > * {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+#section-nav + .scroll-icon-container,
+.meta-information--hero + .scroll-icon-container {
+  @media (min-width: $bp-m) {
+    @supports(display: grid) {
+      margin-left: calc(100% - 22px);
+    }
+    bottom: 91px + 3 * $vertical-rythym;
+  }
+}
+
+$timing: 1.4s;
+// $easing: cubic-bezier(.04, .13, .24, .91);
+$easing: cubic-bezier(.18, .08, .25, .80);
+$delay: 2s;
+.animated-scroll-dot {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  margin-left: -1px;
+  width: 2px;
+  height: 2px;
+  opacity: 0.8;
+  border-radius: 50%;
+  will-change: transform;
+  background-color: $whiteish;
+  animation: animated-scroll-dot $timing infinite;
+  animation-timing-function: $easing;
+}
+
+.animated-scroll-arrows {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  margin-left: -6px;
+  color: $whiteish;
+  width: 12px;
+  height: 52px;
+  will-change: transform;
+  animation: animated-scroll-arrow-movement $timing infinite;
+  animation-timing-function: $easing;
+  opacity: 0.8;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke: currentColor;
+    
+    * {
+      stroke: currentColor;
+
+    }
+  }
+
+}
+
+.scroll-icon {
+  fill: $whiteish;
+}
+
+.arrow {
+  // opacity: 0;
+  transform: translateY(9px);
+}
+
+.arrow-first {
+  animation: animated-scroll-arrow-fadein $timing infinite;
+  transform: translateY(0px);
+}
+.arrow-last {
+  animation: animated-scroll-arrow-fadeout $timing infinite;
+  transform: translateY(2 * 9px);
+}
+
+.block--hero_skin {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  text-align: left!important;
+  height: 100vh;
+  grid-row-start: 1;
+  grid-template-rows: 1fr 1fr 1fr;
+  > * {
+    z-index: 2;
+    grid-column: main;
+    flex: 1 0 34%;
+  }
+
+  .background-video {
+    height: 100vh;
+    width: 100%;
+    
+    // @include center();
+    overflow: hidden;
+
+    @supports(display: grid) {
+      grid-column: full !important;
+      // position: relative;
+      grid-row-start: 1;
+    }
+    [itemprop='image'] {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.grid > .block--hero_skin__content,
+.meta-information-container > .section-nav {
+  margin-left: $side-gutter;
+  margin-right: $side-gutter;
+
+  @supports (display: grid) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.meta-information--hero-container {
+  position: absolute;
+  top: 100vh;
+  margin: 0!important;
+  min-height: 12 * $vertical-rythym;
+  padding: 0;
+  transform: translateY(-100%);
+
+  @media (min-width: $bp-s) {
+    min-height: 14 * $vertical-rythym;
+  }
+  @media (min-width: $bp-m) {
+    min-height: 16 * $vertical-rythym
+  }
+}
+
+.meta-information--hero + .scroll-icon-container {
+  top: -61px + -3 * $vertical-rythym;
+
+  @supports(display: grid) {
+    margin-left: calc(100% - 22px);
+  }
+}
+
+.meta-information--hero.group {
+  min-height: 115px; // this is needed for mobile
+  border-top: 1px solid $whiteish;
+  padding: $s-4 0;
+  margin: 0;
+  flex-wrap: nowrap;
+}
+
+.meta-information--hero {
+  .button-container {
+    display: none;
+    padding-top: 6px;
+    // display button only on tablet and above
+    @media(min-width: $bp-s) {
+      position: relative;
+      display: block;
+    }
+
+    @media(min-width: $bp-m) {
+      display: inline-block; // allow button to sit along side tags
+    }
+  }
+
+  .hero-text {
+    br {
+      display: none;
+    }
+  }
+
+  .meta-information--item {
+    width: auto; // override detault width
+    margin: -6px 0 0!important;// to efficiently override the .group-item mq (which possibly shouldn't be there)
+
+    &::after {
+      @include chevron();
+      float: right;
+      transform: translate(-5px, -139%) rotate(45deg);
+    }
+    
+    @media (min-width: $bp-s) {
+      flex: 50% 1 1;
+      &::after {
+        display: none;
+      }
+    }
+    
+    @media (min-width: $bp-m) {
+      flex: 33.3% 1 1;
+    }
+
+    &:nth-child(2) {
+      display: none;
+      
+      // display only on desktop
+      @media (min-width: $bp-m) {
+        display: block;
+      }
+    }
+
+    &:last-child {
+      display: none;
+
+      @media (min-width: $bp-s) {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+      }
+      
+      @media (min-width: $bp-m) {
+        justify-content: space-between;
+        min-width: 300px; // min width to allow enough room for button and tags
+      }
+    }
+  }
+
+  // tags
+  .meta-info-wrap  {
+    display: none;
+
+    // display only on desktop
+    @media(min-width: $bp-m) {
+      width: 48%;
+      display: inline-block;
+    }  
+  }
+  .meta-info {
+    margin-bottom: 0; // remove space below tag
+  }
+}
+
+
+
+
+
+// animation
+$timing: 1s;
+.block--hero_skin,
+.meta-information-container {
+  .js-layered-control,
+  .block--hero_skin__title {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out $timing, transform 1.3s cubic-bezier(0.165, 0.84, 0.44, 1) $timing;
+  }
+  .layer-1,
+  .block--hero_skin__title {
+    transition-delay: $timing, $timing;
+    transform: translateY(50%);
+  }
+  .layer-2 {
+    transition-delay: $timing + 0.2s, $timing + 0.2s;
+    transform: translateY(50%);
+  }
+  .layer-3 {
+    transition-delay: $timing + 0.4s, $timing + 0.4s;
+    transform: translateY(50%);
+  }
+  .layer-4 {
+    transition-delay: $timing + 0.6s, $timing + 0.6s;
+    transition-duration: 1.3s, 1.3s;
+    transform: translateY(80%);
+  }
+  .layer-5 {
+    transition-delay: $timing + 0.8s, $timing + 0.8s;
+    transition-duration: 1.3s, 1.3s;
+    transform: translateY(80%);
+  }
+  .layer-6 {
+    transition-delay: $timing + 1s, $timing + 1s;
+    transition-duration: 1.3s, 1.3s;
+    transform: translateY(80%);
+  }
+  .layer-7 {
+    transition-delay: $timing + 1.2s, $timing + 1.2s;
+    transition-duration: 1.3s, 1.3s;
+    transform: translateY(100%);
+  }
+  .layer-8 {
+    transition-delay: $timing + 1.4s, $timing + 1.4s;
+    transition-duration: 1.5s, 1.5s;
+    transform: translateY(100%);
+  }
+  .layer-9 {
+    transition-delay: $timing + 1.6s, $timing + 1.6s;
+    transition-duration: 1.5s, 1.5s;
+    transform: translateY(100%);
+  }
+  .layer-10 {
+    transition-delay: $timing + 1.8s, $timing + 1.8s;
+    transition-duration: 1.5s, 1.5s;
+    transform: translateY(100%);
+  }
+}
+
+.loaded {
+  .block--hero_skin,
+  .meta-information-container {
+    .js-layered-control,
+    .block--hero_skin__title {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+}
+
+.block--hero_skin__content {
+  // for legacy
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  // for grid
+  grid-row-start: 2;
+  @media (min-width: $bp-s) {
+    margin-left: calc((100% - #{(9 * $h-grid-spacing-1)}) / 12);
+  }
+}
+
+// cases studies landing hero text
+.content.grid > .block--hero_skin__title {
+  position: relative;
+  z-index: 3;
+  color: $whiteish;
+  -ms-grid-column: 2;
+  grid-column: main;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2 - 1;
+  grid-row: 1 / 2;
+  align-self: center;
+  margin-top: -55px;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: opacity 0.8s ease-in-out $timing, transform 1.3s cubic-bezier(0.165, 0.84, 0.44, 1) $timing;
+}
+
+.loaded .content.grid > .block--hero_skin__title {
+  opacity: 1;
+  transform: translateY(0%);
+}

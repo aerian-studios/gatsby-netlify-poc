@@ -11,7 +11,7 @@ export default class IndexPage extends React.Component<Props> {
     const { edges: posts } = data.allMarkdownRemark;
 
     return (
-      <section className="section">
+      <main className="grid layout">
         <div className="container">
           <div className="content">
             <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
@@ -42,7 +42,7 @@ export default class IndexPage extends React.Component<Props> {
               </div>
             ))}
         </div>
-      </section>
+      </main>
     );
   }
 }

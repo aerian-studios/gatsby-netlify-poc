@@ -1,0 +1,617 @@
+/**
+ * This is typically a relationship where there is an image/medium + some text
+ * It is used for a good many of the rows in the grid.
+ */
+
+.media-content {
+  width: 100%;
+  margin: 0 auto;
+
+  .content-wrap {
+    background-color: $whiteish;
+    position: relative;
+  }
+}
+
+// not all content is correctly nested
+.media-content--centred .media-content__content,
+.media-content--centred-flip .media-content__content,
+.paragraph > .content,
+.paragraph > .content-wrap,
+.paragraph--type--carousel:not(.block--text-heavy-carousel)
+  > .container
+  > .content-wrap {
+  max-width: 38em;
+
+  @media (min-width: $bp-s) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.media-content--flip {
+  > .content-wrap {
+    @media (min-width: $bp-m) {
+      margin-bottom: 0;
+      float: right;
+      margin-top: 283px;
+      transform: translate3d(0, 0, 1px);
+
+      + .media-wrapper {
+        bottom: auto;
+        top: 0;
+        right: auto;
+        left: $s-2;
+        align-self: flex-start;
+      }
+    }
+  }
+}
+
+.media-content--centred,
+.media-content--centred-flip {
+  @media (min-width: $bp-s) {
+    text-align: center;
+  }
+
+  .content,
+  .section-title {
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .content:not(:last-child) {
+    margin-bottom: $s-h2-xs;
+
+    @media (min-width: $bp-s) {
+      margin-bottom: $s-h2-s;
+    }
+
+    @media (min-width: $bp-m) {
+      margin-bottom: $s-h2-m;
+    }
+  }
+
+  .section-title:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+.media-content--centred {
+  .media-content__content {
+    padding-bottom: $pad-0;
+
+    @media (min-width: $bp-s) {
+      padding-bottom: $pad-1;
+    }
+
+    @media (min-width: $bp-m) {
+      padding-bottom: $pad-2;
+    }
+  }
+}
+
+.media-content--centred-flip {
+  img {
+    margin-bottom: $pad-0;
+  }
+
+  @media (min-width: $bp-s) {
+    img {
+      margin-bottom: $pad-1;
+    }
+  }
+
+  @media (min-width: $bp-m) {
+    img {
+      margin-bottom: $pad-2;
+    }
+  }
+}
+
+.media-content--text-led {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  .media-wrapper {
+    order: 1;
+    flex: 1 1 100%;
+    margin: 0 auto (6 * $vertical-rythym);
+
+    @media (min-width: $bp-s) {
+      margin: 0 8.33% 6.5 * $vertical-rythym;
+    }
+
+    @media (min-width: $bp-m) {
+      margin: 0;
+    }
+  }
+
+  .content-wrap {
+    order: 2;
+    background-color: $whiteish;
+    padding: 0;
+    flex: 1;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: initial !important;
+    margin-top: initial !important;
+    text-align: center;
+
+    @media (min-width: $bp-s) {
+      // padding: 0 8.33%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: $bp-m) {
+      order: 1;
+      flex: 0 0 74.32%;
+      width: 74.32%;
+      padding: (6.75 * $vertical-rythym) calc((74.32% - 51.37%) + #{$s-4})
+        (9.25 * $vertical-rythym) $s-4;
+      margin-left: 0;
+      margin-right: calc(51.37% - 74.32%);
+      text-align: center;
+
+      transform: initial;
+
+      > * {
+        max-width: 376px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      + .media-wrapper {
+        order: 2;
+        position: static;
+        flex: 0 0 48.63%;
+        width: 48.63%;
+        z-index: 1;
+      }
+    }
+
+    p:last-of-type {
+      margin-bottom: 4 * $vertical-rythym;
+    }
+  }
+
+  &.media-content--flip {
+    .content-wrap {
+      @media (min-width: $bp-m) {
+        order: 2;
+        padding: (6.75 * $vertical-rythym) $s-4 (9.25 * $vertical-rythym)
+          calc((74.32% - 51.37%) + #{$s-4});
+        margin-right: 0;
+        margin-left: calc((51.37% - 74.32%));
+      }
+
+      + .media-wrapper {
+        order: 1;
+      }
+    }
+  }
+}
+
+.main-image-figure,
+/*.paragraph--type--case-studies > .media-wrapper*/ {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+
+  // @include center();
+  overflow: hidden;
+  @supports (display: grid) {
+    // position: relative;
+    grid-column: full !important;
+    grid-row-start: 1;
+  }
+  [itemprop="image"] {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// .paragraph--type--case-studies {
+//   .group {
+//     margin-bottom: (-$s-4);
+//   }
+
+//   > .media-wrapper {
+//     position: absolute;
+//     opacity: 0.3;
+//     top: 0;
+//     left: 0;
+//     height: 100%;
+//   }
+
+//   .section-title {
+//     position: relative;
+//     margin-bottom: $feature-pad-0;
+
+//     @media (min-width: $bp-s) {
+//       margin-bottom: $feature-pad-1;
+//     }
+//     @media (min-width: $bp-m) {
+//       margin-bottom: $feature-pad-2;
+//     }
+//   }
+
+//   .group-item {
+//     position: relative;
+//   }
+// }
+
+// .block--fixed-background-image {
+//   > *:last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .media-content__content {
+//     text-align: left;
+//     background: $whiteish;
+//     padding: $s-4 ($s-1 + 10px) $pad-0;
+//     margin-top: $pad-0 * -1;
+
+//     @media (min-width: $bp-m) {
+//       width: 58.33%;
+//       padding: $feature-pad-2 2 * $s-3;
+//       margin: 0;
+//     }
+//     .content + .button {
+//       margin-top: $s-2;
+//       @media (min-width: $bp-s) {
+//         margin-top: $s-3;
+//       }
+//       @media (min-width: $bp-m) {
+//         margin-top: $s-4;
+//       }
+//     }
+//   }
+
+//   .media-wrapper {
+//     width: 100%;
+//     height: 77.5vw;
+//     grid-column: full;
+//     margin: 0;
+//     left: 0;
+//     top: 0;
+
+//     @media (min-width: $bp-m) {
+//       position: fixed;
+//       min-height: 100%;
+//       width: 100vw;
+//       left: 0;
+//       top: 0;
+//     }
+
+//     * {
+//       position: absolute;
+//       left: 50%;
+//       top: 50%;
+//       transform: translate3d(-50%, -50%, 1px);
+//       width: auto;
+//       min-width: 100%;
+//       max-width: initial;
+//       height: 100%;
+
+//       @media (min-width: $bp-m) {
+//         min-height: 100vh;
+//       }
+//     }
+//   }
+// }
+
+// .paragraph--type--contact-call-to-action {
+//   .content-wrap {
+//     margin: 0 auto;
+
+//     @media (min-width: $bp-s) {
+//       max-width: 482px;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       max-width: 568px;
+//     }
+//   }
+
+//   .content {
+//     padding-bottom: $vertical-rythym * 4;
+
+//     @media (min-width: $bp-s) {
+//       padding-bottom: $vertical-rythym * 5;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       padding-bottom: $vertical-rythym * 6;
+//     }
+//   }
+// }
+
+// .paragraph--type--video-or-image-led-text-on-left {
+//   // switch left to right
+//   &.alternate-layout {
+//     .media-content {
+//       @media (min-width: $bp-m) {
+//         flex-direction: row-reverse;
+//       }
+//     }
+
+//     .media-content__content {
+//       @media (min-width: $bp-m) {
+//         padding-right: 0;
+//         padding-left: $grid-gap;
+//       }
+//     }
+//   }
+
+//   .media-content {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     text-align: left;
+
+//     > * {
+//       flex: 1;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       flex-direction: row;
+//     }
+//   }
+
+//   .media-content__content {
+//     @media (min-width: $bp-m) {
+//       flex-basis: (4 * $grid-column) + (4 * $grid-gap);
+//       padding-right: $grid-gap;
+//     }
+//   }
+
+//   .media-wrapper {
+//     margin-bottom: $s-4;
+
+//     @media (min-width: $bp-m) {
+//       margin-bottom: $s-2 * 2;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       flex-basis: (8 * $grid-column) + (7 * $grid-gap);
+//       margin-bottom: 0;
+//     }
+//   }
+
+//   .content {
+//     padding-bottom: $s-4;
+//   }
+
+//   .button {
+//     position: absolute;
+//     bottom: $s-4;
+
+//     @media (min-width: $bp-s) {
+//       bottom: $s-2 * 2;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       position: relative;
+//       bottom: 0;
+//     }
+//   }
+// }
+
+// .card--solution,
+// .fg-bg-controlled-carousel .ae-carousel-item {
+//   .media-content {
+//     position: relative;
+//     z-index: 2;
+//     height: 100%;
+//     width: 320px;
+//     color: $c-text;
+
+//     @media (min-width: $bp-s) {
+//       width: 632px;
+//     }
+//   }
+
+//   .media-wrapper {
+//     height: 278px;
+
+//     @media (min-width: $bp-s) {
+//       height: 550px;
+//     }
+//   }
+
+//   .media-content__content {
+//     position: relative;
+//     z-index: 10;
+//     background-color: $whiteish;
+//     padding: (4 * $vertical-rythym) $s-2 0;
+//     margin-top: -1 * (12 * $vertical-rythym);
+//     padding-bottom: $pad-0 / 2;
+//     overflow: hidden; // to make bottom margin not be consumed
+
+//     @media (min-width: $bp-s) {
+//       min-height: 192px;
+//       padding-top: (5 * $vertical-rythym);
+//       margin-top: -1 * (16 * $vertical-rythym);
+//       padding-bottom: $pad-2 / 2;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       min-height: 180px;
+//       padding-top: $s-h2-m;
+//       margin-top: -1 * (13 * $vertical-rythym);
+//       padding-bottom: $pad-2 / 2;
+//     }
+
+//     // nested here for card--solution
+//     .button {
+//       @extend %button-normal;
+//     }
+//   }
+
+//   .ae-carousel-content {
+//     margin-bottom: $s-h2-xs;
+
+//     @media (min-width: $bp-s) {
+//       margin-bottom: $s-h2-s;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       margin-bottom: $s-h2-m;
+//     }
+//   }
+
+//   .background-video {
+//     &::after {
+//       display: none;
+//     }
+//   }
+
+//   > [itemprop="image"],
+//   > .img-lazy-cover,
+//   .background-video {
+//     position: absolute;
+//     top: 4 * $vertical-rythym;
+//     left: 0;
+//     margin: 0 auto;
+//     transition: opacity 0.3s ease 0s;
+//     transform: translateY(0);
+
+//     @media (min-width: $bp-s) {
+//       top: 7.5 * $vertical-rythym;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       top: 11 * $vertical-rythym;
+//     }
+//   }
+
+//   > [itemprop="image"],
+//   > .img-lazy-cover,
+//   .background-video > *,
+//   .background-video > * > * {
+//     object-fit: cover;
+//     // Height might have to change if there is a requirement for more aspect ratios
+//     min-height: 248px;
+
+//     @media (min-width: $bp-s) {
+//       min-height: 544px;
+//     }
+//   }
+// }
+
+// .card--solution {
+//   > [itemprop="image"],
+//   > .img-lazy-cover,
+//   .background-video {
+//     top: 4 * $vertical-rythym;
+
+//     @media (min-width: $bp-s) {
+//       top: 6 * $vertical-rythym;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       top: 7 * $vertical-rythym;
+//     }
+//   }
+
+//   .media-wrapper {
+//     @media (min-width: $bp-s) {
+//       height: 384px;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       height: 550px;
+//     }
+//   }
+
+//   .media-content {
+//     @media (min-width: $bp-s) {
+//       width: 441px;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       width: 632px;
+//     }
+//   }
+
+//   .media-content__content {
+//     @media (min-width: $bp-s) {
+//       margin-left: -81px;
+//       margin-right: -81px;
+//       padding: (5 * $vertical-rythym) 63px (4 * $vertical-rythym);
+//     }
+
+//     @media (min-width: $bp-m) {
+//       margin-left: -22px;
+//       margin-right: -22px;
+//       padding: (6 * $vertical-rythym) (6 * $vertical-rythym)
+//         (4 * $vertical-rythym);
+//     }
+//   }
+// }
+
+// *[data-src-1*="1168_x_544"] + .img-lazy-cover {
+//   max-height: 298px;
+
+//   @media (min-width: $bp-m) {
+//     max-height: 544px;
+//   }
+// }
+
+// .paragraph--type--image-led-text-on-right-equal-split {
+//   .media-content {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     text-align: left;
+//     border-bottom: solid 1px #979797;
+//     padding-bottom: $pad-0;
+
+//     > * {
+//       flex: 1;
+//     }
+
+//     @media (min-width: $bp-s) {
+//       padding-bottom: $pad-1;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       flex-direction: row;
+//       padding-bottom: $pad-2;
+//     }
+//   }
+
+//   .media-content__content {
+//     @media (min-width: $bp-s) {
+//       padding-left: $grid-column;
+//       padding-right: $grid-column;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       flex-basis: 50%;
+//       padding-left: $grid-gap;
+//       padding-right: 0;
+//     }
+//   }
+
+//   .media-wrapper {
+//     margin-left: (-$side-gutter);
+//     margin-right: (-$side-gutter);
+//     margin-bottom: $s-4;
+
+//     @media (min-width: $bp-s) {
+//       margin-right: 0;
+//       margin-left: 0;
+//     }
+
+//     @media (min-width: $bp-m) {
+//       flex-basis: 50%;
+//       margin-bottom: 0;
+//     }
+//   }
+// }

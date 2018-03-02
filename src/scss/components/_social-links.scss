@@ -1,0 +1,18 @@
+.social-links-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-link {
+  border: 0;
+  color: $whiteish;
+  height: 29px;
+  flex: 1;
+
+  .icon {
+    fill: currentColor;
+    height: 100%;
+  }
+}

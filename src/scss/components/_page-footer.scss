@@ -1,0 +1,97 @@
+.page-footer {
+    position: relative;
+    z-index: 2;
+    padding: $s-4 0;
+    color: $c-text-alt;
+    background-color: $c-alt-bg;
+    a {
+        color: $c-text-alt;
+    }
+
+    .container {
+        @extend %no-margin-auto;
+    }
+    //chrome fix to cover up bleed from full height image
+    &:after {
+        content: '';
+        position: fixed;
+        left: 0;
+        right: 0;
+        height: $s-5 * 2;
+        bottom: (-$s-5 * 2);
+        background: $whiteish;
+    }
+}
+.social-wrapper {
+    min-width: 120px;
+    float: right;
+    padding: $s-1/2 0 0;
+    @media (min-width:$bp-s) {
+        min-width: 150px;
+        padding: $s-2 0 0;
+    }
+}
+.footer-nav {
+    padding: $s-2 0 0;
+    li {
+        display: inline-block;
+        font-size: $t1-small;
+        padding: 0;
+        margin: 0;
+        &:first-child {
+            a {
+                border: 0;
+                padding-left: 0;
+            }
+        }
+        &:last-child {
+            a:after {
+                display: none; // hide last pipe
+            }
+        }
+    }
+    a {
+        transition: none;
+        border-bottom: 0;
+        &:after {
+            content: "|";
+            padding-left: $vertical-rythym / 2;
+        }
+        @media (min-width:$bp-xs) {
+            &:after {
+                padding-left: $vertical-rythym;
+            }
+        }    
+        @media (min-width:$bp-s) {
+            &:after {
+                padding-left: $vertical-rythym * 2;
+            }
+        }
+        
+    }
+}
+.footer-logo {
+    height: 48px;
+    @media (min-width:$bp-s) {
+        height: 72px;
+    }
+    
+}
+.copyright-symbol {
+    display: inline;
+}
+.copyright-text {
+    padding-bottom: $s-4;
+    p {
+        display: inline;
+        span {
+            @media (min-width:$bp-s) {
+                display: block;
+            }    
+            @media (min-width:$bp-m) {
+                display: inline;
+            }
+        }
+    }
+}
+

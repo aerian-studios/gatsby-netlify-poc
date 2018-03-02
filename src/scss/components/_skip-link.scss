@@ -1,0 +1,16 @@
+.skip-link_skin {
+  display: block;
+  position: absolute;
+  top: -100px;
+  transform: translate3d(0%, -100%, 100px);
+  transition: transform 0.3s ease 0;
+  opacity: 0;
+  &:focus {
+    transform: translate3d(0%, 0%, 100px);
+    opacity: 1;
+  }
+}
+
+#skip {
+  text-align: center;
+}

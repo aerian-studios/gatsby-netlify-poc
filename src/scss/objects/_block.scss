@@ -1,0 +1,233 @@
+/**
+ * Blocks of content in no particular grouping
+ */
+.block {
+  position: relative;
+  z-index: 1;
+  background-color: $whiteish;
+  text-align: left;
+  @extend %before-padding;
+  @extend %after-padding;
+
+  @media (min-width: $bp-s) {
+    text-align: center;
+  }
+
+  .section-title {
+    &::before {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: $s-3;
+    }
+    &:last-child {
+      margin-bottom: 0; //added in to stop extra gap when no sub heading added with stats
+    }
+  }
+}
+
+.block:not(.block--hero_skin) {
+  &:first-of-type {
+    @extend %before-padding--extended;
+  }
+}
+
+.block--white_skin,
+.block--_skin {
+  + .block--white_skin,
+  + .block--_skin {
+    &::before {
+      height: 0;
+    }
+  }
+}
+
+.block--light_skin {
+  + .block--light_skin {
+    &::before {
+      height: 0;
+    }
+  }
+}
+
+.block--light-grey_skin {
+  + .block--light-grey_skin {
+    &::before {
+      height: 0;
+    }
+  }
+}
+
+.block--mid_skin {
+  + .block--mid_skin {
+    &::before {
+      height: 0;
+    }
+  }
+}
+
+.block--mid-grey_skin {
+  + .block--mid-grey_skin {
+    &::before {
+      height: 0;
+    }
+  }
+}
+
+.block--pattern_skin {
+  + .block--pattern_skin {
+    &::before {
+      height: 0;
+    }
+  }
+}
+
+.block--add-pattern_skin {
+  + .block--add-pattern_skin {
+    &::before {
+      height: 0;
+    }
+  }
+}
+
+.block--dark {
+  + .block--dark {
+    &::before {
+      height: 0;
+    }
+  }
+}
+
+.block--dark_skin {
+  + .block--dark_skin {
+    &::before {
+      height: 0;
+    }
+  }
+}
+
+.block--dark-grey_skin {
+  + .block--dark-grey_skin {
+    &::before {
+      height: 0;
+    }
+  }
+}
+
+.block--light_skin,
+.block--light-grey_skin {
+  background-color: $c-black-20;
+}
+
+.block--mid_skin,
+.block--mid-grey_skin {
+  background-color: $c-black-40;
+}
+
+.block--header {
+  margin-top: $pad-0;
+}
+
+// Dark Themes
+.block--dark_skin,
+.block--black_skin,
+.block--hero_skin,
+.block--dark-grey_skin {
+  color: $whiteish;
+  * {
+    color: currentColor;
+  }
+}
+
+.block--dark_skin {
+  background-color: $dark-grey;
+}
+
+.block--black_skin,
+.block--dark-grey_skin,
+.block--hero_skin {
+  background-color: $accent-black;
+}
+
+// Most styles in _hero-component, these are just block based styles
+.block--fixed-background-image {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+
+  &::before {
+    height: 0 !important;
+  }
+
+  @media (min-width: $bp-m) {
+    grid-column: full;
+    &::before {
+      height: $pad-2 !important;
+    }
+  }
+
+  @media (min-width: $bp-l) {
+    grid-column: main;
+  }
+
+  * {
+    z-index: 1; //for IE edge
+    position: relative;
+  } // === end
+}
+
+.block--fixed-background-image + .block {
+  &::before {
+    height: $pad-0;
+  }
+
+  @media (min-width: $bp-s) {
+    text-align: center;
+    &::before {
+      height: $pad-1;
+    }
+  }
+  @media (min-width: $bp-m) {
+    &::before {
+      height: $pad-2;
+    }
+  }
+}
+
+.block--text-hero {
+  padding-top: 0 !important;
+  > .content-wrap {
+    max-width: 100%;
+    margin-bottom: 0 !important;
+    margin: 0 auto;
+    @media (min-width: $bp-m) {
+      max-width: 769px;
+    }
+  } // sorry about this
+  .content {
+    margin-bottom: 0;
+  }
+}
+
+.block--channels .container {
+  padding-top: $pad-0;
+  padding-bottom: $pad-0;
+
+  @media (min-width: $bp-s) {
+    padding-top: $pad-1;
+    padding-top: $pad-1;
+  }
+  @media (min-width: $bp-m) {
+    padding-bottom: $pad-2;
+    padding-bottom: $pad-2;
+  }
+}
+
+.paragraph--type--full-width-image-with-title-and- {
+  @extend %no-before-padding;
+}
+
+.block--hero_skin,
+.block--channels {
+  @extend %no-before-padding;
+  @extend %no-after-padding;
+}

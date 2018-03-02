@@ -1,0 +1,388 @@
+/**
+ * This file will contain generic styles applied to unclassed HTML elements.
+ */
+
+//=====================
+// TEXT
+//=====================
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// These classes are set on the HTML element once the fonts are loaded
+%fonts-loaded {
+  font-family: $t-font;
+}
+.fonts-stage-1 body, .fonts-stage-2 body {
+  @extend %fonts-loaded;
+  transition: font-size 0.3s ease;
+  // this is for IE11
+  * {
+    @extend %fonts-loaded;
+    transition: font-size 0.3s ease;
+  }
+}
+
+body {
+  font-family: $t-font-basic;
+  font-size: $t-base;
+  line-height: calculateRem(24);
+  font-weight: 200;
+  text-rendering: auto;
+  overflow-x: hidden;
+
+  @media (min-width: $bp-s) {
+    font-size: $t1-base;
+    line-height: calculateRem(24, 'm');
+  }
+
+  @media (min-width: $bp-m) {
+    font-size: $t2-base;
+    line-height: calculateRem(24, 'l');
+  }
+}
+
+.container {
+  margin: 0;
+  max-width: 100%;
+}
+
+main {
+  min-height: calc(100vh - 55px - 150px);// allow space for header and footer 
+}
+
+.layout-container {
+  overflow: hidden;
+}
+
+p {
+  @extend %fonts-loaded;
+  margin-bottom: $vertical-rythym * 3;
+  &:last-child {
+      margin:0;
+  }
+  @media (min-width: $bp-s) {
+      margin-bottom: $vertical-rythym * 4;
+  }
+    
+}
+
+h1,
+.block--hero_skin h2 {
+  @include font-size($t-h1, 's');
+  line-height: calculateRem(40, 's');
+  letter-spacing: 0.3px;
+  font-weight: 100;
+
+  @media (min-width: $bp-s) {
+    @include font-size($t1-h1, 'm');
+    line-height: calculateRem(48, 'm');
+  }
+
+  @media (min-width: $bp-m) {
+    @include font-size($t2-h1, 'l');
+    line-height: calculateRem(72, 'l');
+  }
+}
+
+// h1 is used primarily for useful page title (as opposed to actual copy), but isn't explicitly visible
+.block-base-theme-page-title {
+  position: absolute;
+  z-index: -1;
+  color: $whiteish;
+}
+
+h2 {
+    @include font-size($t-h2, 's');
+    font-weight: 100;
+    line-height: (40 / 30) * 1em;
+    margin-bottom: $s-h2-xs - 8px; // -8 is for the descenders
+    // this is for top 'extra' line height
+    margin-top: -6px;
+
+    @media (min-width: $bp-s) {
+      @include font-size($t1-h2, 'm');
+      line-height: (64 / 48) * 1em;
+      margin-bottom: $s-h2-s - 8px; // -8 is for the descenders
+    }
+    @media (min-width: $bp-m) {
+      @include font-size($t2-h2, 'l');
+      line-height: (64 / 64) * 1em;
+      margin-bottom: $s-h2-m - 8px; // -8 is for the descenders
+    }
+}
+
+h3 {
+  @include font-size($t-h3, 's');
+    line-height: (40 / 30) * 1em;
+    margin-bottom: $s-h3-xs - 3px;
+
+    @media (min-width: $bp-s) {
+      @include font-size($t-h3, 'm');
+      line-height: (64 / 48) * 1em;
+      margin-bottom: $s-h3-s - 3px;
+    }
+
+    @media (min-width: $bp-m) {
+      @include font-size($t-h3, 'l');
+      line-height: (64 / 64) * 1em;
+      margin-bottom: $s-h3-m - 3px;
+    }
+}
+
+h4 {
+  font-size: $t-h4;
+  line-height: (40 / 30) * 1em;
+
+  @media (min-width: $bp-s) {
+    font-size: $t1-h4;
+    line-height: (64 / 48) * 1em;
+  }
+
+  @media (min-width: $bp-m) {
+    font-size: $t2-h4;
+    line-height: (64 / 64) * 1em;
+  }
+}
+
+h5 {
+  font-size: $t-h5;
+  line-height: (40 / 30) * 1em;
+
+  @media (min-width: $bp-s) {
+    font-size: $t1-h5;
+    line-height: (64 / 48) * 1em;
+  }
+
+  @media (min-width: $bp-m) {
+    font-size: $t2-h5;
+    line-height: (64 / 64) * 1em;
+  }
+}
+
+h6 {
+  font-size: $t-h6;
+  line-height: (40 / 30) * 1em;
+
+  @media (min-width: $bp-s) {
+    font-size: $t1-h6;
+    line-height: (64 / 48) * 1em;
+  }
+
+  @media (min-width: $bp-m) {
+    font-size: $t2-h6;
+    line-height: (64 / 64) * 1em;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+ol {
+  padding-left: $s-1 * 2;
+  margin-left: 0;
+  list-style-type: none;
+  text-align: left;
+}
+.list-plain {
+    list-style: none;
+    padding-left: 0;
+    li {
+        &:before {
+          display: none;
+        }
+    }
+}
+.menu {
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 0;
+  line-height: ($s-1 * 2);
+  margin-bottom: $s-1;
+}
+
+ul {
+  list-style: inside;
+  padding: 0;
+  ul {
+    margin-left: 0;
+  }
+
+  li {
+    position: relative;
+    padding: 0;
+  }
+}
+ol {
+  counter-reset: section;
+
+  li {
+    &::before {
+      color: $c-brand-a;
+      counter-increment: section; /* Increments only this instance of the section counter */
+      content: counters(section, '.') '. ';
+      padding-right: 4px;
+    }
+  }
+}
+// add space for margin
+li ul:first-child,
+li ol:first-child {
+  margin-top: $s-1;
+}
+
+.content-title {
+  font-size: $t-base;
+  margin-bottom: 0;
+  font-weight: 600;
+
+  @media (min-width: $bp-s) {
+    margin-bottom: 0;
+    font-size: $t1-base;
+    line-height: (24 / $t1) * 1em;
+  }
+
+  @media (min-width: $bp-m) {
+    margin-bottom: 0;
+    font-size: $t2-base;
+    line-height: (24 / $t2) * 1em;
+  }
+}
+//=====================
+// LINKS
+//=====================
+a {
+  color: $c-link;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-bottom-color: $c-link;
+  padding: 3px 3px 1px;
+  transition: all 0.2s ease-out 0s;
+  position: relative;
+
+  &:hover {
+    
+    text-decoration: none;
+    border-bottom-color: transparent;
+  }
+
+  &:visited {
+    color: $c-link-visited;
+    text-decoration: none;
+    border-bottom-color: transparent;
+  }
+
+  &.block-wrapper {
+    display: block;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+}
+
+//=====================
+// ELEMENTS
+//=====================
+label {
+  color: $c-black-40;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: $vertical-rythym;
+}
+input,
+select,
+textarea,
+q,
+button {
+  font-size: $t-base;
+  font-weight: 400;
+
+  @media (min-width: $bp-s) {
+    font-size: $t1-base;
+  }
+
+  @media (min-width: $bp-m) {
+    font-size: $t2-base;
+  }
+}
+
+figure {
+  position: relative;
+  margin: initial;
+  overflow: hidden;
+
+  picture,
+  img {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  
+  > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0 none;
+  }
+}
+
+.img-lazy-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  filter: blur(8px);
+  overflow: hidden;
+  background-image: url('/themes/base_theme/default.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  transition: opacity 0.8s ease 0s;
+}
+
+q {
+  &::before,
+  &::after {
+    content: '"';
+    display: inline;
+    color: $c-brand-a;
+    font-size: $t-base;
+
+    @media (min-width: $bp-s) {
+      font-size: $t1-base;
+    }
+
+    @media (min-width: $bp-m) {
+      font-size: $t2-base;
+    }
+  }
+}
+
+blockquote {
+  font-size: inherit;
+}
+
+address {
+  font-style: normal;
+}
+
+hr {
+  border-bottom: 0;
+  margin: 0;
+}
+
+svg path,
+svg g,
+svg * {
+  fill: inherit;
+  stroke: inherit;
+}
