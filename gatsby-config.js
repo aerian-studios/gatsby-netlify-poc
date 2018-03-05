@@ -1,7 +1,9 @@
 const config = require("./site-config");
 const cssnext = require("postcss-cssnext");
+const customMedia = require("postcss-custom-media");
 
 const postCssPlugins = [
+  customMedia(),
   cssnext({
     browsers: ["last 2 versions", "IE 11", "iOS 9"]
   })
@@ -14,7 +16,7 @@ module.exports = {
     `gatsby-plugin-react-next`, // use react 16
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-glamor`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-postcss-sass`,
       options: {
