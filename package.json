@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-netlify-cms",
+  "name": "gatsby-netlify-cms-poc",
   "description": "Example Gatsby, and Netlify CMS project",
   "version": "1.1.0",
-  "author": "Austin Green",
+  "author": "sunya.dickman@aerian.com",
   "dependencies": {
     "gatsby": "^1.9.221",
     "gatsby-cli": "^1.1.45",
@@ -10,7 +10,6 @@
     "gatsby-link": "^1.6.38",
     "gatsby-module-loader": "^1.0.11",
     "gatsby-plugin-accessibilityjs": "^1.0.2",
-    "gatsby-plugin-glamor": "^1.6.13",
     "gatsby-plugin-manifest": "^1.0.15",
     "gatsby-plugin-netlify-cms": "^1.0.11",
     "gatsby-plugin-offline": "^1.0.15",
@@ -19,15 +18,19 @@
     "gatsby-plugin-react-next": "^1.0.10",
     "gatsby-plugin-sass": "^1.0.18",
     "gatsby-plugin-sharp": "^1.6.37",
+    "gatsby-plugin-styled-components": "^2.0.9",
     "gatsby-plugin-svg-sprite": "^1.0.0",
     "gatsby-plugin-typescript": "^1.4.17",
     "gatsby-remark-images": "^1.5.53",
     "gatsby-source-filesystem": "^1.5.25",
     "gatsby-transformer-remark": "^1.7.34",
     "gatsby-transformer-sharp": "^1.6.22",
+    "npm": "^5.7.1",
     "postcss-cssnext": "^3.1.0",
+    "postcss-custom-media": "^6.0.0",
     "react": "^16.2.0",
     "react-helmet": "^5.2.0",
+    "styled-components": "^3.2.0",
     "to": "^0.2.9",
     "update": "^0.7.4"
   },
@@ -47,7 +50,13 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.3.14",
+    "@storybook/addon-links": "^3.3.14",
+    "@storybook/addons": "^3.3.14",
+    "@storybook/react": "^3.3.14",
     "@types/jest": "^22.1.4",
+    "@types/react-helmet": "^5.0.5",
+    "babel-core": "^6.26.0",
     "eslint": "^4.18.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -56,11 +65,6 @@
     "jest": "^22.4.2",
     "prettier": "^1.11.1",
     "ts-jest": "^22.4.0",
-    "typescript": "^2.7.2",
-    "@storybook/react": "^3.3.14",
-    "@storybook/addon-actions": "^3.3.14",
-    "@storybook/addon-links": "^3.3.14",
-    "@storybook/addons": "^3.3.14",
-    "babel-core": "^6.26.0"
+    "typescript": "^2.7.2"
   }
 }

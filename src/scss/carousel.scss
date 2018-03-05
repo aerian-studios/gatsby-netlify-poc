@@ -1,8 +1,8 @@
 // These are the styles for different carousels.
 // They are imported separately and ARE THEREFORE NOT INCLUDED IN THE THE MAIN STYLESHEET
-@import 'variables';
-@import 'tools/tools';
-@import 'layout';
+@import "variables";
+@import "tools/tools";
+@import "layout";
 
 .owl-dots {
   display: flex;
@@ -11,12 +11,12 @@
   align-items: center;
   padding-bottom: $pad-0 / 2;
   padding-top: ($pad-0 / 2) - ($s-4 - 3px);
-  
-  @media(min-width: $bp-s) {
+
+  @media (min-width: $bp-s) {
     padding-bottom: $pad-1 / 2;
     padding-top: ($pad-1 / 2);
   }
-  @media(min-width: $bp-m) {
+  @media (min-width: $bp-m) {
     padding-bottom: $pad-2 / 2;
     padding-top: ($pad-2 / 2);
   }
@@ -36,7 +36,7 @@
 .owl-nav {
   position: absolute;
   top: 0;
-  left:0;
+  left: 0;
   height: 100%;
   width: 100%;
   display: flex;
@@ -50,17 +50,18 @@
 
   > * {
     &.disabled {
-      opacity: .2;
-      cursor: auto!important;
+      opacity: 0.2;
+      cursor: auto !important;
       &:hover {
         transform: translateX(0%);
-        opacity: .2;
+        opacity: 0.2;
       }
     }
   }
 }
 
-.owl-prev, .owl-next {
+.owl-prev,
+.owl-next {
   background-color: $whiteish;
   border-radius: 50%;
   color: $c-black-60;
@@ -68,7 +69,7 @@
 
   clip-path: circle(26px at 24px 24px);
   pointer-events: all;
-  transition: all .6s ease 0s;
+  transition: all 0.6s ease 0s;
   width: 48px;
   flex: none;
 
@@ -76,7 +77,7 @@
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     display: block;
     height: 10px;
     width: 10px;
@@ -84,7 +85,7 @@
     border-right: 2px solid currentColor;
     border-top: 2px solid currentColor;
     transform: rotate(45deg);
-    border-radius: 0.1px;// this is for Safari, which has a strange render issue
+    border-radius: 0.1px; // this is for Safari, which has a strange render issue
   }
 
   &:hover {
@@ -115,7 +116,7 @@
 
 .paragraph--type--carousel {
   .main-image-figure {
-    transition: all .5s ease .5s;
+    transition: all 0.5s ease 0.5s;
     opacity: 0;
     z-index: 0;
     height: 100%;
@@ -127,7 +128,7 @@
 
     &.active {
       z-index: 1;
-      opacity: .1;
+      opacity: 0.1;
     }
   }
 }
@@ -135,10 +136,11 @@
 .fg-bg-controlled-carousel,
 .pagination-carousel,
 .accordion-tab-carousel {
-
   .owl-nav {
-    @media(min-width: $bp-xl) {
-      width: calc(((100vw - #{$max-content-width}) / 2) + #{$max-content-width});
+    @media (min-width: $bp-xl) {
+      width: calc(
+        ((100vw - #{$max-content-width}) / 2) + #{$max-content-width}
+      );
       margin-left: calc(((100vw - #{$max-content-width}) / 4) * -1);
     }
   }
@@ -150,11 +152,11 @@
   padding-top: 4 * $vertical-rythym;
   grid-column: full;
 
-  @media(min-width: $bp-m) {
+  @media (min-width: $bp-m) {
     padding-top: 7.5 * $vertical-rythym;
   }
 
-  @media(min-width: $bp-l) {
+  @media (min-width: $bp-l) {
     grid-column: main;
   }
 }
@@ -163,7 +165,7 @@
   @extend %grid-setup;
   text-align: left;
 
-  @media(min-width: $bp-m) {
+  @media (min-width: $bp-m) {
     grid-column: main;
   }
 
@@ -177,12 +179,12 @@
     max-height: 48px;
     max-width: 170px;
 
-    @media (min-width: $bp-s) {
+    @media (--bp-s) {
       max-height: 64px;
       max-width: 227px;
     }
 
-    @media (min-width: $bp-m) {
+    @media (--bp-m) {
       max-height: 72px;
       max-width: 255px;
     }
@@ -192,17 +194,17 @@
     grid-column: full;
     margin-bottom: $feature-pad-0;
 
-    @media (min-width: $bp-s) {
+    @media (--bp-s) {
       margin-bottom: $feature-pad-1;
     }
-    @media (min-width: $bp-m) {
+    @media (--bp-m) {
       margin-bottom: $feature-pad-2;
     }
   }
 
   .ae-carousel-item {
     opacity: 0;
-    transition: opacity .5s ease 0s;
+    transition: opacity 0.5s ease 0s;
 
     // hide the background image
     > [item-prop="image"],
@@ -227,9 +229,9 @@
     @extend %grid-setup;
     align-content: flex-start;
     justify-content: space-between;
-    
-    @media (min-width: $bp-m) {
-      display: flex!important;
+
+    @media (--bp-m) {
+      display: flex !important;
       flex-flow: row;
     }
 
@@ -238,11 +240,11 @@
       // Seems to be related to the h2 spacing, hence usage here
       margin-bottom: $s-h2-xs;
 
-      @media (min-width: $bp-s) {
+      @media (--bp-s) {
         grid-column: main;
         margin-bottom: $feature-pad-1;
       }
-      @media (min-width: $bp-m) {
+      @media (--bp-m) {
         flex: 5.7;
         order: 2;
         margin-bottom: 0;
@@ -252,9 +254,9 @@
 
   .media-content__content {
     opacity: 0;
-    transition: opacity .4s ease .5s;
+    transition: opacity 0.4s ease 0.5s;
 
-    @media (min-width: $bp-m) {
+    @media (--bp-m) {
       flex: 4;
       margin-right: 3%;
     }
@@ -264,13 +266,13 @@
       width: 170px;
       // Seems to be related to the h2 spacing, hence usage here
       margin-bottom: $s-h2-xs;
-  
-      @media (min-width: $bp-s) {
+
+      @media (--bp-s) {
         height: 64px;
         width: 227px;
         margin-bottom: $s-h2-s;
       }
-      @media (min-width: $bp-m) {
+      @media (--bp-m) {
         height: 72px;
         width: 255px;
         margin-bottom: $s-h2-m;
@@ -290,25 +292,25 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
 }
 
 .accordion-tab-carousel {
-  transition: all .6s ease-in-out 0s;
+  transition: all 0.6s ease-in-out 0s;
   color: $whiteish;
 
-  @media (min-width: $bp-l) {
-    transition: all .8s ease-in-out 0s;
+  @media (--bp-l) {
+    transition: all 0.8s ease-in-out 0s;
   }
 
   // All images in all versions
   .media-wrapper {
     position: absolute;
   }
-  
+
   // All items in all versions
   .ae-carousel-item {
     position: relative;
     height: $accordion-h;
     overflow: hidden;
     padding-top: 4 * $vertical-rythym;
-    
+
     // All bg images
     > .media-wrapper {
       width: 100%;
@@ -320,7 +322,7 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
       }
     }
   }
-  
+
   // All fg images
   .media-content {
     .media-wrapper {
@@ -328,12 +330,11 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
       max-width: $ae-img-w; // used for mobile fg images
     }
   }
-  
+
   .owl-nav {
     padding: 32px 0 115px;
 
     > * {
-
       @media (min-width: 1242px) {
         border: 1px solid $c-text;
       }
@@ -351,38 +352,38 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
         right: 0;
         bottom: 0;
 
-        @media (min-width: $bp-m) {
+        @media (--bp-m) {
           width: $ae-img-w;
-          transition: all 1.3s cubic-bezier(0.215, 0.610, 0.355, 1) .5s;
+          transition: all 1.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
         }
       }
     }
-    
-    @media (min-width: $bp-m) {
+
+    @media (--bp-m) {
       min-height: 100%;
       min-width: initial;
 
       @for $i from 1 through 5 {
-        &:nth-child(#{6 - $i}) { 
+        &:nth-child(#{6 - $i}) {
           .media-content {
             .media-wrapper {
               // + 8 is necessary to align the image exactly, not sure why
-              transform: translateX((($i - 1) * -$ae-item-w) + ($diff  + 8));
+              transform: translateX((($i - 1) * -$ae-item-w) + ($diff + 8));
             }
           }
         }
       }
     }
-    
+
     &.active {
       .media-content {
         .media-wrapper {
-          @media (min-width: $bp-m) {
+          @media (--bp-m) {
             transform: translateX(0%);
           }
         }
       }
-      
+
       .media-content__content {
         opacity: 1;
         transform: translateY(0);
@@ -395,7 +396,7 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
   .owl-item {
     height: 100%;
 
-    @media (min-width: $bp-m) {
+    @media (--bp-m) {
       height: $accordion-h;
     }
   }
@@ -409,9 +410,9 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
     left: 0%;
     height: 100vh;
     width: 100vw;
-    top: -40px;//to negate margin
+    top: -40px; //to negate margin
     pointer-events: none;
-    @media (min-width: $bp-m) {
+    @media (--bp-m) {
       position: absolute;
       grid-column: full;
       bottom: -3px; // this is to align with the margin that is applied (#feature-padding)
@@ -420,13 +421,13 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
       top: auto;
     }
 
-    @media (min-width: $bp-xl) {
+    @media (--bp-xl) {
       grid-column: main;
     }
 
     .media-content__content {
       padding: $feature-pad-1 $side-gutter;
-      @media (min-width: $bp-m) {
+      @media (--bp-m) {
         position: absolute;
         z-index: 2;
         width: 60%;
@@ -434,24 +435,24 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
         padding: $feature-pad-2;
         opacity: 0;
         transform: translateY(50px);
-        transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1) .8s;
+        transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.8s;
       }
     }
-  
+
     .ae-carousel-title {
-      @include font-size($t-h2, 's');
+      @include font-size($t-h2, "s");
       font-weight: 100;
       line-height: (40 / 30) * 1em;
       margin-bottom: $s-h2-xs;
-      @media (min-width: $bp-s) {
-          @include font-size($t1-h2, 'm');
-          line-height: (64 / 48) * 1em;
-          margin-bottom: $s-h2-s;
+      @media (--bp-s) {
+        @include font-size($t1-h2, "m");
+        line-height: (64 / 48) * 1em;
+        margin-bottom: $s-h2-s;
       }
-      @media (min-width: $bp-m) {
-          @include font-size($t2-h2, 'l');
-          line-height: (64 / 64) * 1em;
-          margin-bottom: $s-h2-m;
+      @media (--bp-m) {
+        @include font-size($t2-h2, "l");
+        line-height: (64 / 64) * 1em;
+        margin-bottom: $s-h2-m;
       }
     }
 
@@ -466,13 +467,13 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
       height: 100vh;
       padding-top: 0;
 
-      @media (min-width: $bp-m) {
+      @media (--bp-m) {
         height: $accordion-h;
         padding-top: 4 * $vertical-rythym;
       }
 
       &::after {
-        content: 'x';
+        content: "x";
         color: $whiteish;
         position: absolute;
         z-index: 5;
@@ -485,7 +486,7 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
         transform: scaleX(1.3);
         cursor: pointer;
 
-        @media (min-width: $bp-m) {
+        @media (--bp-m) {
           top: 3 * $vertical-rythym + 26px;
           right: $side-gutter;
         }
@@ -510,13 +511,13 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
     }
   }
 
-  @media (min-width: $bp-m) {
+  @media (--bp-m) {
     height: $accordion-h + 8 * $vertical-rythym;
   }
-  @media (min-width: $bp-l) {
+  @media (--bp-l) {
     height: $accordion-h + 10 * $vertical-rythym;
   }
-  @media (min-width: $bp-xl) {
+  @media (--bp-xl) {
     grid-column: main;
   }
 }
@@ -529,8 +530,8 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
   -webkit-overflow-scrolling: touch;
   height: 432px;
   width: 100%;
-  font-size: 0px;// hack to remove spacing between inline-block elements
-  word-spacing: -0.5px;// hack to remove spacing between inline-block elements
+  font-size: 0px; // hack to remove spacing between inline-block elements
+  word-spacing: -0.5px; // hack to remove spacing between inline-block elements
 
   &::-webkit-scrollbar {
     display: none;
@@ -542,7 +543,21 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
     height: 23%;
     width: 100%;
     text-align: center;
-    background: linear-gradient(0deg,rgba(0,0,0,.738) 0%,rgba(0,0,0,.541) 34%,rgba(0,0,0,.382) 47%,rgba(0,0,0,.278) 56.5%,rgba(0,0,0,.194) 65%,rgba(0,0,0,.126) 73%,rgba(0,0,0,.075) 80.2%,rgba(0,0,0,.042) 86.1%,rgba(0,0,0,.021) 91%,rgba(0,0,0,.008) 95.2%,rgba(0,0,0,.002) 98.2%,transparent);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.738) 0%,
+      rgba(0, 0, 0, 0.541) 34%,
+      rgba(0, 0, 0, 0.382) 47%,
+      rgba(0, 0, 0, 0.278) 56.5%,
+      rgba(0, 0, 0, 0.194) 65%,
+      rgba(0, 0, 0, 0.126) 73%,
+      rgba(0, 0, 0, 0.075) 80.2%,
+      rgba(0, 0, 0, 0.042) 86.1%,
+      rgba(0, 0, 0, 0.021) 91%,
+      rgba(0, 0, 0, 0.008) 95.2%,
+      rgba(0, 0, 0, 0.002) 98.2%,
+      transparent
+    );
     color: $whiteish;
   }
 
@@ -551,7 +566,7 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
     bottom: 0;
     width: 100%;
     width: 233px;
-    @include center('x');
+    @include center("x");
   }
 
   .ae-carousel-content {
@@ -566,7 +581,7 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      transition: transform 1.3s cubic-bezier(0.215, 0.610, 0.355, 1) 0s;
+      transition: transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
       height: $accordion-h;
     }
   }
@@ -574,11 +589,11 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
   .ae-carousel-item {
     position: absolute;
     left: 0;
-    font-size: 1em;// return font-size to normal
+    font-size: 1em; // return font-size to normal
     word-spacing: initial; // undo word-size
     width: $ae-item-w;
     display: inline-block;
-    transition: width .5s ease-out 0.1s, margin .5s ease-out 0.1s;
+    transition: width 0.5s ease-out 0.1s, margin 0.5s ease-out 0.1s;
     white-space: normal;
     margin-bottom: 20px;
     cursor: pointer;
@@ -590,30 +605,30 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
     }
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       z-index: 0;
       bottom: 0;
       left: 0;
       width: 100%;
       height: 399px;
-      background-color: #EFEFEF;
+      background-color: #efefef;
     }
 
     > .media-wrapper {
       z-index: 0;
       opacity: 0;
-      transition: opacity .2s ease-out 0s;
+      transition: opacity 0.2s ease-out 0s;
     }
 
-    @media (min-width: $bp-m) {
+    @media (--bp-m) {
       &:hover,
       &:focus {
         will-change: width margin-left;
         width: 293px;
         margin-left: -30px;
         z-index: 2;
-  
+
         > .media-wrapper {
           opacity: 1;
         }
@@ -626,31 +641,30 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
 .fg-bg-controlled-carousel {
   margin-bottom: (-$s-4);
 
-  @media (min-width: $bp-s) {
-    margin-bottom: (- (6 * $vertical-rythym ));
+  @media (--bp-s) {
+    margin-bottom: (-(6 * $vertical-rythym));
   }
 
-  @media (min-width: $bp-m) {
-    margin-bottom: (- (7 * $vertical-rythym ));
+  @media (--bp-m) {
+    margin-bottom: (-(7 * $vertical-rythym));
   }
 
   .owl-nav {
     height: 248px;
     top: 8 * $vertical-rythym - (48px / 2);
     width: 100%;
-    
-    @media (min-width: $bp-s) {
+
+    @media (--bp-s) {
       height: 544px;
       top: 15 * $vertical-rythym - (48px / 2);
     }
 
-    @media(min-width: $bp-m) {
+    @media (min-width: $bp-m) {
       top: 22 * $vertical-rythym - (48px / 2);
     }
 
     > * {
-
-      @media (min-width: $bp-m) {
+      @media (--bp-m) {
         border: 1px solid $c-text;
       }
     }
@@ -659,7 +673,7 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
   .owl-dots {
     padding: 0;
   }
-  
+
   .media-content {
     transition: transform 0.6s ease-out 0.2s;
     transform: translateX(-100%);
@@ -685,7 +699,7 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
       opacity: 1;
       transform: translateY(0%);
     }
-  
+
     + .owl-item {
       .media-content {
         transform: translateX(100%);
@@ -693,7 +707,6 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
     }
   }
 }
-
 
 // ---- NEWS TYPE CAROUSELS ----- //
 
@@ -708,12 +721,12 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
     grid-column: full !important;
   }
 
-  @media(min-width: $bp-s) {
+  @media (min-width: $bp-s) {
     background-color: initial;
     margin-bottom: -1 * $pad-1;
   }
 
-  @media(min-width: $bp-l) {
+  @media (min-width: $bp-l) {
     margin-bottom: -1 * $pad-2;
 
     .js-controlled-content,
@@ -725,17 +738,17 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
   .owl-nav {
     height: (100vw / 1.77777);
 
-    @media (min-width: $bp-s) {
+    @media (--bp-s) {
       height: (100vw / 1.2) / 1.77777;
     }
 
-    @media(min-width: $bp-l) {
+    @media (min-width: $bp-l) {
       height: 100%;
     }
   }
 
   .owl-stage {
-    transition-timing-function: cubic-bezier(.33, .20, .21, .85) !important;
+    transition-timing-function: cubic-bezier(0.33, 0.2, 0.21, 0.85) !important;
     transition-delay: 0.2s !important;
   }
 
@@ -748,11 +761,12 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
   .owl-item {
     opacity: 0.5;
     transform: translateX(0px);
-    transition: opacity 0.7s ease 0s, transform 0.7s cubic-bezier(.33, .20, .21, .85) 0s;
+    transition: opacity 0.7s ease 0s,
+      transform 0.7s cubic-bezier(0.33, 0.2, 0.21, 0.85) 0s;
     &.active.center {
       opacity: 1;
 
-      @media (min-width: $bp-l) {
+      @media (--bp-l) {
         transform: translateX(-73px);
       }
     }
@@ -762,7 +776,7 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
     min-height: calc(100vw / 1.77);
     height: 100%;
 
-    @media (min-width: $bp-s) {
+    @media (--bp-s) {
       min-height: calc(100vw / 2.79);
     }
   }
@@ -781,15 +795,15 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
   background-color: $whiteish;
   padding: 2 * $s-1;
   transition: all 0.3s ease 0s;
-  
-  @media(min-width: $bp-s) {
+
+  @media (min-width: $bp-s) {
     width: 69%;
     padding: $s-4;
     margin: -(8 * $vertical-rythym) auto 0;
   }
-  @media(min-width: $bp-l) {
+  @media (min-width: $bp-l) {
     position: absolute;
-    top: calc(50% - 5px);// 5px is to do with the container
+    top: calc(50% - 5px); // 5px is to do with the container
     transform: translateY(-50%);
     right: 13%;
     width: 332px;
@@ -799,13 +813,13 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
 
   .media-content__content {
     display: block;
-  
+
     > * {
       transition: opacity 0.02s ease 0s;
       opacity: 0;
       margin-bottom: $vertical-rythym * 3;
-      
-      @media (min-width: $bp-s) {
+
+      @media (--bp-s) {
         margin-bottom: $vertical-rythym * 4;
       }
     }
@@ -813,7 +827,7 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
     .ae-carousel-title {
       line-height: (40 / 30) * 1em;
     }
-  
+
     &.fade-in {
       > * {
         opacity: 1;
@@ -822,7 +836,7 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
 
       $delay-time: 0.2s;
       @for $i from 1 through 6 {
-        >*:nth-child(#{$i}) {
+        > *:nth-child(#{$i}) {
           transition-delay: $delay-time * $i;
         }
       }
@@ -834,10 +848,10 @@ $diff: (($ae-img-w - $ae-item-w) / 2);
 .paragraph--type--award-winning-content .content {
   margin-bottom: $feature-pad-0;
 
-  @media (min-width: $bp-s) {
+  @media (--bp-s) {
     margin-bottom: $feature-pad-1;
   }
-  @media (min-width: $bp-m) {
+  @media (--bp-m) {
     margin-bottom: $feature-pad-2;
   }
 }
@@ -845,27 +859,29 @@ $max-m-carousel-width: 568px;
 .pagination-carousel {
   margin: (-1 * $vertical-rythym) auto;
 
-  @media (min-width: $bp-s) {
+  @media (--bp-s) {
     border-right: 1px solid $c-black-50;
     border-left: 1px solid $c-black-50;
     max-width: $max-m-carousel-width;
     margin: (-2 * $vertical-rythym) auto;
   }
 
-  @media (min-width: $bp-l) {
+  @media (--bp-l) {
     max-width: 100%;
     margin: (-2 * $vertical-rythym) auto (-4 * $vertical-rythym);
   }
 
   .owl-stage-outer {
-    @media (min-width: $bp-s) {
+    @media (--bp-s) {
       transform: translate3d(-1px, 0, 0);
     }
   }
   .owl-nav {
     width: calc(100vw - #{2 * $side-gutter});
-    margin-left: calc((((100vw - #{2 * $side-gutter}) - #{$max-m-carousel-width }) / 2) * -1);
-    @media(min-width: $bp-l) {
+    margin-left: calc(
+      (((100vw - #{2 * $side-gutter}) - #{$max-m-carousel-width}) / 2) * -1
+    );
+    @media (min-width: $bp-l) {
       width: 100vw;
       margin-left: -$side-gutter;
     }
@@ -879,16 +895,15 @@ $max-m-carousel-width: 568px;
     padding: ($vertical-rythym) 3.3%;
     border-left: 1px solid $c-black-50;
 
-    @media (min-width: $bp-s) {
+    @media (--bp-s) {
       padding: (3 * $vertical-rythym) 10%;
     }
 
-    @media (min-width: $bp-m) {
+    @media (--bp-m) {
       padding: (3 * $vertical-rythym) 13%;
     }
   }
 }
-
 
 // ------------- TXT HEAVY, NUMBERED CAROUSELS ---------------//
 .block--text-heavy-carousel {
@@ -896,14 +911,14 @@ $max-m-carousel-width: 568px;
 
   .section-title {
     // hide margin bottom by default and add it when there is content
-    margin-bottom: 0!important;
+    margin-bottom: 0 !important;
     & + .content {
       margin-top: $s-h2-xs - 8px;
 
-      @media (min-width: $bp-s) {
+      @media (--bp-s) {
         margin-top: ($s-h2-s - 8px);
       }
-      @media (min-width: $bp-m) {
+      @media (--bp-m) {
         margin-top: ($s-h2-m - 8px);
       }
     }
@@ -912,10 +927,10 @@ $max-m-carousel-width: 568px;
   .content + .button {
     margin-top: $s-h2-xs - 8px;
 
-    @media (min-width: $bp-s) {
+    @media (--bp-s) {
       margin-top: ($s-h2-s - 8px);
     }
-    @media (min-width: $bp-m) {
+    @media (--bp-m) {
       margin-top: ($s-h2-m - 8px);
     }
   }
@@ -924,9 +939,9 @@ $max-m-carousel-width: 568px;
     flex-flow: wrap;
     max-width: 100%;
     margin: 0 auto;
-    grid-column: main!important;
-    
-    @media (min-width: $bp-l) {
+    grid-column: main !important;
+
+    @media (--bp-l) {
       display: -ms-grid;
       display: grid;
       grid-auto-flow: dense;
@@ -935,10 +950,10 @@ $max-m-carousel-width: 568px;
       grid-template-columns: repeat(12, 1fr);
       grid-column-gap: 2.74%;
       text-align: left;
-      &::before, &::after {
+      &::before,
+      &::after {
         display: none;
       }
-      
     }
 
     > * {
@@ -953,7 +968,7 @@ $max-m-carousel-width: 568px;
     margin: 0;
     order: 1;
 
-    @media (min-width: $bp-l) {
+    @media (--bp-l) {
       -ms-grid-column: 1;
       -ms-grid-column-span: 5 - 1;
       grid-column: 1/5;
@@ -966,10 +981,10 @@ $max-m-carousel-width: 568px;
     grid-row: 1 / 2;
     margin-bottom: $s-h2-xs;
 
-    @media (min-width: $bp-s) {
+    @media (--bp-s) {
       margin-bottom: $s-h2-s;
     }
-    @media (min-width: $bp-m) {
+    @media (--bp-m) {
       margin-bottom: $s-h2-xs;
     }
   }
@@ -982,7 +997,7 @@ $max-m-carousel-width: 568px;
     background-color: transparent;
     min-height: auto;
 
-    @media (min-width: $bp-l) {
+    @media (--bp-l) {
       -ms-grid-row: 2;
       -ms-grid-row-span: 3 - 2;
       grid-row: 2 / 3;
@@ -991,14 +1006,14 @@ $max-m-carousel-width: 568px;
 
   &.alternate-layout {
     .container {
-      @media (min-width: $bp-l) {
+      @media (--bp-l) {
         .content-wrap,
         .js-controlled-content {
           -ms-grid-column: 9;
           -ms-grid-column-span: 13 - 9;
           grid-column: 9/13;
         }
-  
+
         .text-heavy-carousel {
           -ms-grid-column: 1;
           -ms-grid-column-span: 9 - 1;
@@ -1017,7 +1032,7 @@ $max-m-carousel-width: 568px;
   text-align: left;
   order: 2;
 
-  @media (min-width: $bp-l) {
+  @media (--bp-l) {
     // for edge
     height: 100%;
   }
@@ -1039,17 +1054,18 @@ $max-m-carousel-width: 568px;
     height: auto;
   }
 
-  .owl-prev, .owl-next {
+  .owl-prev,
+  .owl-next {
     border: 1px solid $c-text;
     color: $c-text;
 
-    &:hover, &.disabled {
+    &:hover,
+    &.disabled {
       opacity: 1;
       color: $whiteish;
       background-color: $c-text;
     }
   }
-
 
   .media-content__content {
     display: none;
@@ -1068,9 +1084,9 @@ $max-m-carousel-width: 568px;
     &.disabled {
       display: block;
       visibility: hidden;
-      padding-top: 0!important;
+      padding-top: 0 !important;
 
-      @media (min-width: $bp-l) {
+      @media (--bp-l) {
         display: none;
       }
     }
@@ -1081,15 +1097,15 @@ $max-m-carousel-width: 568px;
 .section-title + .accordion-scroller-wrapper {
   margin-top: 5 * $vertical-rythym - $s-h2-xs;
 
-  @media (min-width: $bp-s) {
+  @media (--bp-s) {
     margin-top: 5 * $vertical-rythym - $s-h2-s;
   }
 
-  @media (min-width: $bp-m) {
+  @media (--bp-m) {
     margin-top: 8 * $vertical-rythym - $s-h2-m;
   }
 
-  @media (min-width: $bp-l) {
+  @media (--bp-l) {
     margin-top: 10 * $vertical-rythym - $s-h2-m;
   }
 }
@@ -1099,7 +1115,7 @@ $max-m-carousel-width: 568px;
   position: relative;
   margin-bottom: $vertical-rythym;
   height: 24px;
-  border-color: transparent!important;
+  border-color: transparent !important;
   > * {
     position: absolute;
     top: 0;
@@ -1113,7 +1129,7 @@ $max-m-carousel-width: 568px;
     position: absolute;
     left: auto;
     top: 50%;
-    content: '';
+    content: "";
     display: inline-block;
     vertical-align: middle;
     background-color: $c-black-40;

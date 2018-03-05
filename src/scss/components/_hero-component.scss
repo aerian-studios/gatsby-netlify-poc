@@ -1,4 +1,4 @@
-  /**
+/**
  * Blocks of content in no particular grouping
  */
 
@@ -29,14 +29,12 @@ $l-over-2: 246px;*/
   z-index: 10;
   padding-top: 25vh;
   margin-top: 75vh;
-  @include smoothScrimGradient(rgba(0,0,0, 0.7), 'to top');
-  
-  
-  @media (min-width: $bp-m) {
+  @include smoothScrimGradient(rgba(0, 0, 0, 0.7), "to top");
+
+  @media (--bp-m) {
     min-height: 91px;
     margin-top: calc(75vh - 91px);
   }
-
 }
 
 // needs this specificity
@@ -46,7 +44,7 @@ $l-over-2: 246px;*/
   bottom: 3 * $vertical-rythym;
   z-index: 3;
   width: 22px;
-  height: 61px;  
+  height: 61px;
   margin-left: calc(50% - 11px);
 
   > * {
@@ -57,8 +55,8 @@ $l-over-2: 246px;*/
 
 #section-nav + .scroll-icon-container,
 .meta-information--hero + .scroll-icon-container {
-  @media (min-width: $bp-m) {
-    @supports(display: grid) {
+  @media (--bp-m) {
+    @supports (display: grid) {
       margin-left: calc(100% - 22px);
     }
     bottom: 91px + 3 * $vertical-rythym;
@@ -67,7 +65,7 @@ $l-over-2: 246px;*/
 
 $timing: 1.4s;
 // $easing: cubic-bezier(.04, .13, .24, .91);
-$easing: cubic-bezier(.18, .08, .25, .80);
+$easing: cubic-bezier(0.18, 0.08, 0.25, 0.8);
 $delay: 2s;
 .animated-scroll-dot {
   position: absolute;
@@ -102,13 +100,11 @@ $delay: 2s;
     height: 100%;
     fill: transparent;
     stroke: currentColor;
-    
+
     * {
       stroke: currentColor;
-
     }
   }
-
 }
 
 .scroll-icon {
@@ -133,7 +129,7 @@ $delay: 2s;
   display: flex;
   flex-flow: column;
   justify-content: center;
-  text-align: left!important;
+  text-align: left !important;
   height: 100vh;
   grid-row-start: 1;
   grid-template-rows: 1fr 1fr 1fr;
@@ -146,16 +142,16 @@ $delay: 2s;
   .background-video {
     height: 100vh;
     width: 100%;
-    
+
     // @include center();
     overflow: hidden;
 
-    @supports(display: grid) {
+    @supports (display: grid) {
       grid-column: full !important;
       // position: relative;
       grid-row-start: 1;
     }
-    [itemprop='image'] {
+    [itemprop="image"] {
       min-width: 100%;
       height: 100%;
       object-fit: cover;
@@ -177,23 +173,23 @@ $delay: 2s;
 .meta-information--hero-container {
   position: absolute;
   top: 100vh;
-  margin: 0!important;
+  margin: 0 !important;
   min-height: 12 * $vertical-rythym;
   padding: 0;
   transform: translateY(-100%);
 
-  @media (min-width: $bp-s) {
+  @media (--bp-s) {
     min-height: 14 * $vertical-rythym;
   }
-  @media (min-width: $bp-m) {
-    min-height: 16 * $vertical-rythym
+  @media (--bp-m) {
+    min-height: 16 * $vertical-rythym;
   }
 }
 
 .meta-information--hero + .scroll-icon-container {
   top: -61px + -3 * $vertical-rythym;
 
-  @supports(display: grid) {
+  @supports (display: grid) {
     margin-left: calc(100% - 22px);
   }
 }
@@ -211,12 +207,12 @@ $delay: 2s;
     display: none;
     padding-top: 6px;
     // display button only on tablet and above
-    @media(min-width: $bp-s) {
+    @media (min-width: $bp-s) {
       position: relative;
       display: block;
     }
 
-    @media(min-width: $bp-m) {
+    @media (min-width: $bp-m) {
       display: inline-block; // allow button to sit along side tags
     }
   }
@@ -229,30 +225,30 @@ $delay: 2s;
 
   .meta-information--item {
     width: auto; // override detault width
-    margin: -6px 0 0!important;// to efficiently override the .group-item mq (which possibly shouldn't be there)
+    margin: -6px 0 0 !important; // to efficiently override the .group-item mq (which possibly shouldn't be there)
 
     &::after {
       @include chevron();
       float: right;
       transform: translate(-5px, -139%) rotate(45deg);
     }
-    
-    @media (min-width: $bp-s) {
+
+    @media (--bp-s) {
       flex: 50% 1 1;
       &::after {
         display: none;
       }
     }
-    
-    @media (min-width: $bp-m) {
+
+    @media (--bp-m) {
       flex: 33.3% 1 1;
     }
 
     &:nth-child(2) {
       display: none;
-      
+
       // display only on desktop
-      @media (min-width: $bp-m) {
+      @media (--bp-m) {
         display: block;
       }
     }
@@ -260,13 +256,13 @@ $delay: 2s;
     &:last-child {
       display: none;
 
-      @media (min-width: $bp-s) {
+      @media (--bp-s) {
         display: flex;
         justify-content: flex-end;
         align-items: flex-start;
       }
-      
-      @media (min-width: $bp-m) {
+
+      @media (--bp-m) {
         justify-content: space-between;
         min-width: 300px; // min width to allow enough room for button and tags
       }
@@ -274,23 +270,19 @@ $delay: 2s;
   }
 
   // tags
-  .meta-info-wrap  {
+  .meta-info-wrap {
     display: none;
 
     // display only on desktop
-    @media(min-width: $bp-m) {
+    @media (min-width: $bp-m) {
       width: 48%;
       display: inline-block;
-    }  
+    }
   }
   .meta-info {
     margin-bottom: 0; // remove space below tag
   }
 }
-
-
-
-
 
 // animation
 $timing: 1s;
@@ -299,7 +291,8 @@ $timing: 1s;
   .js-layered-control,
   .block--hero_skin__title {
     opacity: 0;
-    transition: opacity 0.8s ease-in-out $timing, transform 1.3s cubic-bezier(0.165, 0.84, 0.44, 1) $timing;
+    transition: opacity 0.8s ease-in-out $timing,
+      transform 1.3s cubic-bezier(0.165, 0.84, 0.44, 1) $timing;
   }
   .layer-1,
   .block--hero_skin__title {
@@ -370,7 +363,7 @@ $timing: 1s;
   align-items: flex-start;
   // for grid
   grid-row-start: 2;
-  @media (min-width: $bp-s) {
+  @media (--bp-s) {
     margin-left: calc((100% - #{(9 * $h-grid-spacing-1)}) / 12);
   }
 }
@@ -389,7 +382,8 @@ $timing: 1s;
   margin-top: -55px;
   opacity: 0;
   transform: translateY(50%);
-  transition: opacity 0.8s ease-in-out $timing, transform 1.3s cubic-bezier(0.165, 0.84, 0.44, 1) $timing;
+  transition: opacity 0.8s ease-in-out $timing,
+    transform 1.3s cubic-bezier(0.165, 0.84, 0.44, 1) $timing;
 }
 
 .loaded .content.grid > .block--hero_skin__title {

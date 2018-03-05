@@ -10,12 +10,12 @@
   .group-item {
     flex: unset;
 
-    @media (min-width: $bp-s) {
+    @media (--bp-s) {
       flex: 100% 1 1;
-      margin-bottom: $s-4;
+      margin-bottom: var(--s-4);
     }
 
-    @media (min-width: $bp-m) {
+    @media (--bp-m) {
       //width: 32%;
       //flex: unset;
       flex: 32% 1 1;
@@ -36,7 +36,7 @@
 //   > * {
 //     position: relative;
 //     flex-basis: 50%;
-//     margin: $feature-pad-0 0 $s-3 0;
+//     margin: --feature-pad-0 0 --s-3 0;
 //     &:before {
 //       width: 1px;
 //       height: 100%;
@@ -54,15 +54,15 @@
 //       }
 //     }
 
-//     @media (min-width: $bp-s) {
-//       margin-top: $feature-pad-1;
+//     @media (--bp-s) {
+//       margin-top: --feature-pad-1;
 //     }
 
-//     @media (min-width: $bp-m) {
-//       margin-top: $feature-pad-2;
+//     @media (--bp-m) {
+//       margin-top: --feature-pad-2;
 //     }
 
-//     @media (min-width: $bp-xl) {
+//     @media (--bp-xl) {
 //       flex-basis: 0;
 //       &:before {
 //         display: block;
@@ -78,12 +78,12 @@
 // }
 
 // .statistic__channel-section-text {
-//   margin-bottom: $s-2;
+//   margin-bottom: var(--s-2);
 // }
 
 // .group--case-study {
 //   position: relative;
-//   padding-bottom: $pad-1;
+//   padding-bottom: --pad-1;
 // }
 
 // .platform-item {
@@ -93,7 +93,7 @@
 //     left: 50%;
 //     bottom: auto;
 //     margin-top: -0.5em;
-//     @media (min-width: $bp-s) {
+//     @media (--bp-s) {
 //       top: auto;
 //       margin-top: 0;
 //     }
@@ -104,27 +104,27 @@
   @supports (display: grid) {
     display: grid;
     grid-template-columns: 1fr;
-    grid-row-gap: $s-2 * 2;
+    grid-row-gap: calc(var(--s-2) * 2);
 
     > * {
       width: 100%;
     }
   }
   // uses tools/atoms to pull in on small screen
-  @media (min-width: $bp-s) {
+  @media (--bp-s) {
     @supports (display: grid) {
-      grid-column-gap: $s-2;
+      grid-column-gap: var(--s-2);
       margin-bottom: 0;
     }
   }
-  @media (min-width: $bp-m) {
+  @media (--bp-m) {
     @supports (display: grid) {
       min-width: none;
       margin-bottom: 0;
       // grid-template-columns: repeat(auto-fill,minmax(216px,1fr));
       grid-template-columns: repeat(
         auto-fill,
-        minmax(calc(33% - #{$s-2}), 1fr)
+        minmax(calc(33% - var(--s-2)), 1fr)
       );
     }
   }
@@ -152,7 +152,7 @@
 //       rgba(0, 0, 0, 0)
 //     );
 
-//     @media (min-width: $bp-s) {
+//     @media (--bp-s) {
 //       display: none;
 //     }
 //   }
@@ -167,8 +167,8 @@
 //     justify-content: space-between;
 //     overflow: auto;
 //     // make some space for scroll bar
-//     padding-bottom: 2 * $s-1;
-//     margin-bottom: -2 * $s-1;
+//     padding-bottom: 2 * --s-1;
+//     margin-bottom: -2 * --s-1;
 //     background-color: rgba(0, 0, 0, 0.1);
 //     position: relative;
 
@@ -176,38 +176,38 @@
 //       display: flex;
 //     }
 //     > * {
-//       margin: $s-1;
+//       margin: --s-1;
 //       min-width: 172px;
 //     }
 
-//     @media (min-width: $bp-s) {
+//     @media (--bp-s) {
 //       background-color: transparent;
-//       margin-left: $side-gutter;
-//       margin-right: $side-gutter;
-//       max-width: $max-content-width - (2 * 18px);
+//       margin-left: --side-gutter;
+//       margin-right: --side-gutter;
+//       max-width: --max-content-width - (2 * 18px);
 
 //       @supports (display: grid) {
 //         display: grid;
-//         grid-row-gap: $s-2;
+//         grid-row-gap: var(--s-2);
 //         grid-template-columns: repeat(
 //           auto-fill,
-//           minmax(calc(33% - #{$s-2}), 1fr)
+//           minmax(calc(33% - #{var(--s-2)}), 1fr)
 //         );
 //         > * {
 //           margin: 0;
 //         }
 //       }
 //     }
-//     @media (min-width: $bp-m) {
+//     @media (--bp-m) {
 //       margin-left: auto;
 //       margin-right: auto;
 //       @supports (display: grid) {
 //         grid-template-columns: repeat(
 //           auto-fill,
-//           minmax(calc(25% - #{$s-3}), 1fr)
+//           minmax(calc(25% - #{--s-3}), 1fr)
 //         );
-//         grid-column-gap: $s-3;
-//         grid-row-gap: $s-3;
+//         grid-column-gap: --s-3;
+//         grid-row-gap: --s-3;
 //       }
 //     }
 //   }

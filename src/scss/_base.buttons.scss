@@ -1,85 +1,88 @@
 /**
  * Buttons are intended to be used as .button + optional modifier class
  */
-$c-action: $c-black-60;
+$c-action: --c-black-60;
 $c-action-bg: transparent;
-$c-action-border: $c-black-60;
-$c-action-active: $whiteish;
-$c-action-hover: $whiteish;
-$c-action-active-bg: $c-black-60;
-$c-action-active-border: $c-black-60;
+$c-action-border: --c-black-60;
+$c-action-active: --whiteish;
+$c-action-hover: --whiteish;
+$c-action-active-bg: --c-black-60;
+$c-action-active-border: --c-black-60;
 
-$c-action-alt: $whiteish;
+$c-action-alt: --whiteish;
 $c-action-alt-bg: transparent;
-$c-action-alt-border: $whiteish;
-$c-action-alt-active: $c-black-60;
-$c-action-alt-hover: $c-black-60;
-$c-action-alt-active-bg: $whiteish;
-$c-action-alt-active-border: $whiteish;
+$c-action-alt-border: --whiteish;
+$c-action-alt-active: --c-black-60;
+$c-action-alt-hover: --c-black-60;
+$c-action-alt-active-bg: --whiteish;
+$c-action-alt-active-border: --whiteish;
 
-$c-action-2: $whiteish;
+$c-action-2: --whiteish;
 $c-action-2-bg: transparent;
-$c-action-2-border: $whiteish;
-$c-action-2-active: $blackish;
-$c-action-2-active-bg: $whiteish;
-$c-action-2-active-border: $blackish;
+$c-action-2-border: --whiteish;
+$c-action-2-active: --blackish;
+$c-action-2-active-bg: --whiteish;
+$c-action-2-active-border: --blackish;
 
-$c-action-primary: $c-black-60;
+$c-action-primary: --c-black-60;
 $c-action-primary-bg: transparent;
-$c-action-primary-border: $c-black-60;
-$c-action-primary-active: $c-black-60;
-$c-action-primary-active-bg: $whiteish;
-$c-action-primary-active-border: $c-black-60;
+$c-action-primary-border: --c-black-60;
+$c-action-primary-active: --c-black-60;
+$c-action-primary-active-bg: --whiteish;
+$c-action-primary-active-border: --c-black-60;
 
 %button-normal {
-    min-width: 189px;
-    display: inline-block;
-    position: relative;
-    text-align: center;
-    border: solid 1px $c-action-border;
-    transition: background-color 0.3s ease-in-out,border-color 0.3s ease-in-out,color 0.1s ease-in-out 0s;
-    padding: 0;
-    color: $c-action;
-    background: $c-action-bg;
+  min-width: 189px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  border: solid 1px $c-action-border;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    color 0.1s ease-in-out 0s;
+  padding: 0;
+  color: $c-action;
+  background: $c-action-bg;
+  &:after {
+    width: calc(100% - 26px);
+    height: 4px;
+    position: absolute;
+    bottom: -2px;
+    left: 13px;
+    content: " ";
+    transition: width 0.3s ease 0s, height 0.3s ease 0s, transform 0.3s ease 0s;
+    background: $c-action;
+  }
+  &:hover {
+    border: solid 1px $c-action-active-bg;
+    background: $c-action-active-bg;
+    a,
+    input[type="submit"] {
+      color: $c-action-hover;
+    }
     &:after {
-        width: calc(100% - 26px);
-        height: 4px;
-        position: absolute;
-        bottom: -2px;
-        left: 13px;
-        content:" ";
-        transition: width .3s ease 0s, height .3s ease 0s, transform .3s ease 0s;
-        background: $c-action;
+      width: 100%;
+      height: 100%;
+      transform: translate(-13px, -2px);
     }
-    &:hover {
-        border: solid 1px $c-action-active-bg;
-        background: $c-action-active-bg;
-        a,input[type="submit"] {
-           color: $c-action-hover; 
-        }
-        &:after {
-            width: 100%;
-            height: 100%;
-            transform: translate(-13px, -2px);
-        }
-    }
-    a,input[type="submit"] {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        z-index: 2;
-        display: block;
-        transition: none;
-        color: $c-action;
-        padding: $s-1 2 * $s-2;
-        margin: 0;
-        border-bottom: 0 none;
-        transition: color .1s ease-in-out 0s;
-    }
+  }
+  a,
+  input[type="submit"] {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    display: block;
+    transition: none;
+    color: $c-action;
+    padding: var(--s-1) calc(2 * var(--s-2));
+    margin: 0;
+    border-bottom: 0 none;
+    transition: color 0.1s ease-in-out 0s;
+  }
 }
 
 .button {
-    @extend %button-normal;
+  @extend %button-normal;
 }
 
 // alternate colours
@@ -87,21 +90,23 @@ $c-action-primary-active-border: $c-black-60;
 .block--black_skin .button,
 .block--dark-grey_skin .button,
 .block--hero_skin .button {
+  border-color: $c-action-alt-border;
+  background: transparent;
+  &:after {
+    background: $c-action-alt;
+  }
+  &:hover {
     border-color: $c-action-alt-border;
-    background: transparent;
-    &:after {
-        background: $c-action-alt;
+    background: $c-action-alt-active-bg;
+    a,
+    input[type="submit"] {
+      color: $c-action-alt-hover;
     }
-    &:hover {
-        border-color: $c-action-alt-border;
-        background: $c-action-alt-active-bg;
-        a,input[type="submit"] {
-            color: $c-action-alt-hover; 
-        }
-    }
-    a,.input[type="submit"] {
-        color: $c-action-alt;
-    }
+  }
+  a,
+  .input[type="submit"] {
+    color: $c-action-alt;
+  }
 }
 
 .video-player .plyr {
@@ -110,12 +115,11 @@ $c-action-primary-active-border: $c-black-60;
   }
 }
 
-
 input[type="submit"] {
-    min-width: auto;
-    font-weight: 400;
-    background: transparent; // override base background colour
-    &:hover {
-        border: 0;
-    }
+  min-width: auto;
+  font-weight: 400;
+  background: transparent; // override base background colour
+  &:hover {
+    border: 0;
+  }
 }

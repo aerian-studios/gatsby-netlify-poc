@@ -3,85 +3,85 @@
  * e.g. <div class="stat"><strong class="stat__number">12m+</strong> Origins video views</div>
  */
 .stat {
-	max-width: 130px;
-	line-height: 1.143em;
-	position: relative;
-	font-size: $t-xsmall;
-	padding: $s-6 0 $s-1;
-	margin:  0 auto;
-	@media (min-width: $bp-s) {
-		max-width: 228px;
-		font-size: $t1-small;
-		padding: $s-2 0;
-	}
-	
-	@media (min-width: $bp-m) {
-		max-width: 300px;
-		font-size: $t2-small;
-	}
-	
-	@media (min-width: $bp-l) { 
-		max-width: none;
-		padding: $s-3;
-	}	
-	
-	> .content {
-		text-align: left;
-		.content p {
-			line-height: calculateRem(24);
-		}
-	}
+  max-width: 130px;
+  line-height: 1.143em;
+  position: relative;
+  font-size: $t-xsmall;
+  padding: $s-6 0 $s-1;
+  margin: 0 auto;
+  @media (--bp-s) {
+    max-width: 228px;
+    font-size: $t1-small;
+    padding: $s-2 0;
+  }
+
+  @media (--bp-m) {
+    max-width: 300px;
+    font-size: $t2-small;
+  }
+
+  @media (--bp-l) {
+    max-width: none;
+    padding: $s-3;
+  }
+
+  > .content {
+    text-align: left;
+    .content p {
+      line-height: calculateRem(24);
+    }
+  }
 }
 
 .stat-text {
-	font-size: $t-xsmall;
-	margin-bottom: $s-1;
-	
-	@media(min-width: $bp-s){
-		font-size: $t1-h6;
-		margin-bottom: $s-2;
-	}      
-	
-	@media(min-width: $bp-m){
-		margin-bottom: $s-3;
-	}
+  font-size: $t-xsmall;
+  margin-bottom: $s-1;
+
+  @media (min-width: $bp-s) {
+    font-size: $t1-h6;
+    margin-bottom: $s-2;
+  }
+
+  @media (min-width: $bp-m) {
+    margin-bottom: $s-3;
+  }
 }
 
 .stat-icon {
-	width: 127px;
-	height: 28px;
-	margin-bottom: $s-6;
-	
-	@media(min-width: $bp-s){
-		width: 220px;
-		height: 48px;
-		margin-bottom: $s-2;
-	}      
-	
-	@media(min-width: $bp-m){
-		margin-bottom: $s-3;
-	}
+  width: 127px;
+  height: 28px;
+  margin-bottom: $s-6;
+
+  @media (min-width: $bp-s) {
+    width: 220px;
+    height: 48px;
+    margin-bottom: $s-2;
+  }
+
+  @media (min-width: $bp-m) {
+    margin-bottom: $s-3;
+  }
 }
 
 .stat__number {
-	display: block;
-	line-height: 1em;
-	font-size: $t-xl;
-	margin-bottom: $s-1 / 2;
-	font-weight: 100!important;
-	
-	@media (min-width: $bp-m) {
-		font-size: $t2-xl;
-	}
-	strong {
-		font-weight: 100;
-		@media (min-width: $bp-s) {
-			font-size: $t1-xxl;
-		}
-		@media (min-width: $bp-m) {
-			font-size: $t2-xxl;
-		}
-	}
+  display: block;
+  line-height: 1em;
+  font-size: $t-xl;
+  margin-bottom: $s-1 / 2;
+  font-weight: 100 !important;
+
+  @media (--bp-m) {
+    font-size: $t2-xl;
+  }
+  strong {
+    font-weight: 100;
+    @media (--bp-s) {
+      font-size: $t1-xxl;
+    }
+    @media (--bp-m) {
+      font-size: $t2-xxl;
+    }
+  }
 }
 
 .js-counter-wrapper {
@@ -89,7 +89,7 @@
   overflow: hidden;
   height: 0.8em;
 
-  @media (min-width: $bp-m) {
+  @media (--bp-m) {
     font-size: $t2-xxl;
   }
 }
@@ -98,7 +98,7 @@
   width: 100%;
   display: inline-block;
   animation: none;
-	.counter {
+  .counter {
     display: block;
     line-height: 0.85em;
   }

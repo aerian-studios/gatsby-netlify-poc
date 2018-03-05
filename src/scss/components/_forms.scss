@@ -14,7 +14,9 @@ $form-body: $c-black-60;
     font-weight: 400;
   }
   // turn off box shadow
-  input:not([type="submit"]):not([type="range"]), select, textarea {
+  input:not([type="submit"]):not([type="range"]),
+  select,
+  textarea {
     box-shadow: none;
   }
   label {
@@ -26,7 +28,7 @@ $form-body: $c-black-60;
     height: auto;
     text-transform: initial;
     line-height: normal;
-    display:inline-block;
+    display: inline-block;
     position: static;
     overflow: visible;
     text-indent: 0;
@@ -46,7 +48,8 @@ $form-body: $c-black-60;
     cursor: pointer;
   }
   // display checkbox and accept text next to each other
-  .form-item-field-i-accept-cnn-s-privacy-pol-value,.option {
+  .form-item-field-i-accept-cnn-s-privacy-pol-value,
+  .option {
     display: inline-block;
   }
   .form-select {
@@ -58,8 +61,8 @@ $form-body: $c-black-60;
     -webkit-appearance: none;
     -moz-appearance: none;
     text-indent: 1px;
-    text-overflow: '';
-    background-image: url('../img/select-arrow.png');
+    text-overflow: "";
+    background-image: url("../img/select-arrow.png");
     background-repeat: no-repeat;
     background-position: calc(100% - 15px) 18px;
   }
@@ -68,19 +71,19 @@ legend {
   margin-bottom: $s-2;
 }
 // placeholder color fix for browsers
-::-webkit-input-placeholder { 
+::-webkit-input-placeholder {
   opacity: 1;
   color: $form-body;
 }
 ::-moz-placeholder {
   opacity: 1;
-  color: $form-body
+  color: $form-body;
 }
-:-ms-input-placeholder { 
+:-ms-input-placeholder {
   opacity: 1;
   color: $form-body;
 }
-:-moz-placeholder { 
+:-moz-placeholder {
   opacity: 1;
   color: $form-body;
 }
@@ -94,16 +97,16 @@ legend {
         text-transform: capitalize;
       }
     }
-    .form-item  {
+    .form-item {
       position: relative;
       max-width: 47%;
       flex: 1 0 50%;
       text-align: center;
       margin-bottom: 0;
-      @media (min-width: $bp-s) {
-          max-width: 30%;
-          flex-basis: 33%;
-      }   
+      @media (--bp-s) {
+        max-width: 30%;
+        flex-basis: 33%;
+      }
     }
   }
   .form-radio {

@@ -1,37 +1,22 @@
 // some of these are from
 // rem fallback - credits: http://zerosixthree.se/
-@function baseSize($bp: 'xs') {
-  $baseSize: $t;
-  @if $bp == 's' {
-    $baseSize: $t;
-  } @else if $bp == 'm' {
-    $baseSize: $t1;
-  } @else if $bp == 'l' {
-    $baseSize: $t2;
-  }
 
-  @return $baseSize;
+@function calculateRem($size, $bp: "xs") {
+  $remSize: calc((#{$size} / 16));
+  @return calc(#{$remSize} * 1rem);
 }
 
-@function calculateRem($size, $bp: 'xs') {
-  $baseSize: baseSize($bp);
-
-  $remSize: $size / $baseSize;
-  @return $remSize * 1rem;
-}
-
-@mixin font-size($size, $bp: 'xs') {
-  font-size: ($size) * 1px;
+@mixin font-size($size, $bp: "xs") {
+  font-size: calc((#{$size}) * 1px);
   font-size: calculateRem($size, $bp);
 }
-
 
 @function pxem($pixel-size, $pixel-context: $t) {
   @return ($pixel-size / $pixel-context) * 1em;
 }
 
 // center vertically and/or horizontally an absolute positioned element
-@mixin center($xy:xy) {
+@mixin center($xy: xy) {
   @if $xy == xy {
     left: 50%;
     top: 50%;
@@ -49,48 +34,47 @@
   }
 }
 
-// border radius
-
-@mixin border-radius($radius:.25em) {
-  border-radius: $radius;
+// Use css variables with fallbacks
+@mixin variable($property, $variable, $fallback) {
+  #{$property}: $fallback;
+  #{$property}: var($variable);
 }
 
 /**
  * Add functions and mixins here
  */
 
-@mixin shadow-by-name($name:'strong-1') {
+@mixin shadow-by-name($name: "strong-1") {
   $fr: 8px;
-  @if $name == 'strong-1' {
+  @if $name == "strong-1" {
     @include shadows(0, $fr / 4, $fr);
-  } @else if $name == 'strong-2' {
+  } @else if $name == "strong-2" {
     @include shadows(0, $fr, $fr * 2);
-  } @else if $name == 'strong-3' {
+  } @else if $name == "strong-3" {
     @include shadows(0, $fr * 2, $fr * 3);
-  } @else if $name == 'strong-4' {
+  } @else if $name == "strong-4" {
     @include shadows(0, $fr * 3, $fr * 4);
-  } @else if $name == 'strong-5' {
+  } @else if $name == "strong-5" {
     @include shadows(0, $fr * 4, $fr * 5);
-  } @else if $name == 'light-1' {
-    @include shadows(0, $fr / 4, $fr, 0, $c-shadow-light);
-  } @else if $name == 'light-2' {
-    @include shadows(0, $fr, $fr * 2, 0, $c-shadow-light);
-  } @else if $name == 'light-3' {
-    @include shadows(0, $fr * 2, $fr * 3, 0, $c-shadow-light);
-  } @else if $name == 'light-4' {
-    @include shadows(0, $fr * 3, $fr * 4, 0, $c-shadow-light);
-  } @else if $name == 'light-5' {
-    @include shadows(0, $fr * 4, $fr * 5, 0, $c-shadow-light);
+  } @else if $name == "light-1" {
+    @include shadows(0, $fr / 4, $fr, 0, --c-shadow-light);
+  } @else if $name == "light-2" {
+    @include shadows(0, $fr, $fr * 2, 0, --c-shadow-light);
+  } @else if $name == "light-3" {
+    @include shadows(0, $fr * 2, $fr * 3, 0, --c-shadow-light);
+  } @else if $name == "light-4" {
+    @include shadows(0, $fr * 3, $fr * 4, 0, --c-shadow-light);
+  } @else if $name == "light-5" {
+    @include shadows(0, $fr * 4, $fr * 5, 0, --c-shadow-light);
   }
 }
 
-@mixin shadows($left, $top, $blur, $offset: 0, $colour: $c-shadow) {
+@mixin shadows($left, $top, $blur, $offset: 0, $colour: --c-shadow) {
   box-shadow: $left $top $blur $offset $colour;
 }
 
-
 @mixin chevron($size: 0.63em, $thickness: 1px) {
-  content: '';
+  content: "";
   display: inline-block;
   width: $size;
   height: $size;
@@ -103,7 +87,7 @@
 @mixin create-dot($position) {
   $size: 5px;
   line-height: 0px;
-  content: '';
+  content: "";
   position: absolute;
   left: $position;
   top: 50%;
@@ -133,7 +117,7 @@ Inspired by Andreas Larson - https://github.com/larsenwork
 https://css-tricks.com/easing-linear-gradients/
 */
 
-@mixin scrimGradient($startColor: $blackish, $direction: 'to bottom') {
+@mixin scrimGradient($startColor: $blackish, $direction: "to bottom") {
   $scrimCoordinates: (
     0: 1,
     47: 0.9,
@@ -164,7 +148,7 @@ https://css-tricks.com/easing-linear-gradients/
   background: linear-gradient(unquote($direction), $stops);
 }
 
-@mixin smoothScrimGradient($startColor: $blackish, $direction: 'to bottom') {
+@mixin smoothScrimGradient($startColor: $blackish, $direction: "to bottom") {
   $hue: hue($startColor);
   $saturation: saturation($startColor);
   $lightness: lightness($startColor);

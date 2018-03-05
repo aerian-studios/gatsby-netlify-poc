@@ -13,9 +13,10 @@ html * {
 
 // These classes are set on the HTML element once the fonts are loaded
 %fonts-loaded {
-  font-family: $t-font;
+  font-family: var(--t-font);
 }
-.fonts-stage-1 body, .fonts-stage-2 body {
+.fonts-stage-1 body,
+.fonts-stage-2 body {
   @extend %fonts-loaded;
   transition: font-size 0.3s ease;
   // this is for IE11
@@ -26,21 +27,21 @@ html * {
 }
 
 body {
-  font-family: $t-font-basic;
-  font-size: $t-base;
+  font-family: var(--t-font-basic);
+  font-size: var(--t-base);
   line-height: calculateRem(24);
   font-weight: 200;
   text-rendering: auto;
   overflow-x: hidden;
 
-  @media (min-width: $bp-s) {
-    font-size: $t1-base;
-    line-height: calculateRem(24, 'm');
+  @media (--bp-s) {
+    font-size: var(--t1-base);
+    line-height: calculateRem(24, "m");
   }
 
-  @media (min-width: $bp-m) {
-    font-size: $t2-base;
-    line-height: calculateRem(24, 'l');
+  @media (--bp-m) {
+    font-size: var(--t2-base);
+    line-height: calculateRem(24, "l");
   }
 }
 
@@ -50,7 +51,7 @@ body {
 }
 
 main {
-  min-height: calc(100vh - 55px - 150px);// allow space for header and footer 
+  min-height: calc(100vh - 55px - 150px); // allow space for header and footer
 }
 
 .layout-container {
@@ -59,31 +60,30 @@ main {
 
 p {
   @extend %fonts-loaded;
-  margin-bottom: $vertical-rythym * 3;
+  margin-bottom: calc(var(--vertical-rythym) * 3);
   &:last-child {
-      margin:0;
+    margin: 0;
   }
-  @media (min-width: $bp-s) {
-      margin-bottom: $vertical-rythym * 4;
+  @media (--bp-s) {
+    margin-bottom: calc(var(--vertical-rythym) * 4);
   }
-    
 }
 
 h1,
 .block--hero_skin h2 {
-  @include font-size($t-h1, 's');
-  line-height: calculateRem(40, 's');
+  @include font-size(var(--t-h1), "s");
+  line-height: calculateRem(40, "s");
   letter-spacing: 0.3px;
   font-weight: 100;
 
-  @media (min-width: $bp-s) {
-    @include font-size($t1-h1, 'm');
-    line-height: calculateRem(48, 'm');
+  @media (--bp-s) {
+    @include font-size(var(--t1-h1), "m");
+    line-height: calculateRem(48, "m");
   }
 
-  @media (min-width: $bp-m) {
-    @include font-size($t2-h1, 'l');
-    line-height: calculateRem(72, 'l');
+  @media (--bp-m) {
+    @include font-size(var(--t2-h1), "l");
+    line-height: calculateRem(72, "l");
   }
 }
 
@@ -91,88 +91,88 @@ h1,
 .block-base-theme-page-title {
   position: absolute;
   z-index: -1;
-  color: $whiteish;
+  color: var(--whiteish);
 }
 
 h2 {
-    @include font-size($t-h2, 's');
-    font-weight: 100;
-    line-height: (40 / 30) * 1em;
-    margin-bottom: $s-h2-xs - 8px; // -8 is for the descenders
-    // this is for top 'extra' line height
-    margin-top: -6px;
+  @include font-size(var(--t-h2), "s");
+  font-weight: 100;
+  line-height: (40 / 30) * 1em;
+  margin-bottom: calc(var(--s-h2-xs) - 8px); // -8 is for the descenders
+  // this is for top 'extra' line height
+  margin-top: -6px;
 
-    @media (min-width: $bp-s) {
-      @include font-size($t1-h2, 'm');
-      line-height: (64 / 48) * 1em;
-      margin-bottom: $s-h2-s - 8px; // -8 is for the descenders
-    }
-    @media (min-width: $bp-m) {
-      @include font-size($t2-h2, 'l');
-      line-height: (64 / 64) * 1em;
-      margin-bottom: $s-h2-m - 8px; // -8 is for the descenders
-    }
+  @media (--bp-s) {
+    @include font-size(var(--t1-h2), "m");
+    line-height: (64 / 48) * 1em;
+    margin-bottom: calc(var(--s-h2-s) - 8px); // -8 is for the descenders
+  }
+  @media (--bp-m) {
+    @include font-size(var(--t2-h2), "l");
+    line-height: (64 / 64) * 1em;
+    margin-bottom: calc(var(--s-h2-m) - 8px); // -8 is for the descenders
+  }
 }
 
 h3 {
-  @include font-size($t-h3, 's');
-    line-height: (40 / 30) * 1em;
-    margin-bottom: $s-h3-xs - 3px;
+  @include font-size(var(--t-h3), "s");
+  line-height: (40 / 30) * 1em;
+  margin-bottom: calc(var(--s-h3-xs) - 3px);
 
-    @media (min-width: $bp-s) {
-      @include font-size($t-h3, 'm');
-      line-height: (64 / 48) * 1em;
-      margin-bottom: $s-h3-s - 3px;
-    }
+  @media (--bp-s) {
+    @include font-size(var(--t-h3), "m");
+    line-height: (64 / 48) * 1em;
+    margin-bottom: calc(var(--s-h3-s) - 3px);
+  }
 
-    @media (min-width: $bp-m) {
-      @include font-size($t-h3, 'l');
-      line-height: (64 / 64) * 1em;
-      margin-bottom: $s-h3-m - 3px;
-    }
+  @media (--bp-m) {
+    @include font-size(var(--t-h3), "l");
+    line-height: (64 / 64) * 1em;
+    margin-bottom: cacl(var(--s-h3-m) - 3px);
+  }
 }
 
 h4 {
-  font-size: $t-h4;
+  font-size: var(--t-h4);
   line-height: (40 / 30) * 1em;
 
-  @media (min-width: $bp-s) {
-    font-size: $t1-h4;
+  @media (--bp-s) {
+    font-size: var(--t1-h4);
     line-height: (64 / 48) * 1em;
   }
 
-  @media (min-width: $bp-m) {
-    font-size: $t2-h4;
+  @media (--bp-m) {
+    font-size: var(--t2-h4);
     line-height: (64 / 64) * 1em;
   }
 }
 
 h5 {
-  font-size: $t-h5;
+  font-size: var(--t-h5);
   line-height: (40 / 30) * 1em;
 
-  @media (min-width: $bp-s) {
-    font-size: $t1-h5;
+  @media (--bp-s) {
+    font-size: var(--t1-h5);
     line-height: (64 / 48) * 1em;
   }
 
-  @media (min-width: $bp-m) {
-    font-size: $t2-h5;
+  @media (--bp-m) {
+    font-size: var(--t2-h5);
     line-height: (64 / 64) * 1em;
   }
 }
 
 h6 {
-  font-size: $t-h6;
+  font-size: var(--t-h6);
   line-height: (40 / 30) * 1em;
 
-  @media (min-width: $bp-s) {
-    font-size: $t1-h6;
+  @media (--bp-s) {
+    font-size: var(--t1-h6);
     line-height: (64 / 48) * 1em;
   }
 
-  @media (min-width: $bp-m) {
-    font-size: $t2-h6;
+  @media (--bp-m) {
+    font-size: var(--t2-h6);
     line-height: (64 / 64) * 1em;
   }
 }
@@ -182,19 +182,19 @@ strong {
 }
 
 ol {
-  padding-left: $s-1 * 2;
+  padding-left: calc(var(--s-1) * 2);
   margin-left: 0;
   list-style-type: none;
   text-align: left;
 }
 .list-plain {
-    list-style: none;
-    padding-left: 0;
-    li {
-        &:before {
-          display: none;
-        }
+  list-style: none;
+  padding-left: 0;
+  li {
+    &:before {
+      display: none;
     }
+  }
 }
 .menu {
   padding-left: 0;
@@ -202,8 +202,8 @@ ol {
 
 li {
   margin-bottom: 0;
-  line-height: ($s-1 * 2);
-  margin-bottom: $s-1;
+  line-height: calc(var(--s-1) * 2);
+  margin-bottom: var(--s-1);
 }
 
 ul {
@@ -223,9 +223,9 @@ ol {
 
   li {
     &::before {
-      color: $c-brand-a;
+      color: var(--c-brand-a);
       counter-increment: section; /* Increments only this instance of the section counter */
-      content: counters(section, '.') '. ';
+      content: counters(section, ".") ". ";
       padding-right: 4px;
     }
   }
@@ -233,46 +233,45 @@ ol {
 // add space for margin
 li ul:first-child,
 li ol:first-child {
-  margin-top: $s-1;
+  margin-top: var(--s-1);
 }
 
 .content-title {
-  font-size: $t-base;
+  font-size: var(--t-base);
   margin-bottom: 0;
   font-weight: 600;
 
-  @media (min-width: $bp-s) {
+  @media (--bp-s) {
     margin-bottom: 0;
-    font-size: $t1-base;
-    line-height: (24 / $t1) * 1em;
+    font-size: var(--t1-base);
+    line-height: calc((24 / var(--t1)) * 1em);
   }
 
-  @media (min-width: $bp-m) {
+  @media (--bp-m) {
     margin-bottom: 0;
-    font-size: $t2-base;
-    line-height: (24 / $t2) * 1em;
+    font-size: var(--t2-base);
+    line-height: calc((24 / var(--t2)) * 1em);
   }
 }
 //=====================
 // LINKS
 //=====================
 a {
-  color: $c-link;
+  color: var(--c-link);
   text-decoration: none;
   border: 1px solid transparent;
-  border-bottom-color: $c-link;
+  border-bottom-color: var(--c-link);
   padding: 3px 3px 1px;
   transition: all 0.2s ease-out 0s;
   position: relative;
 
   &:hover {
-    
     text-decoration: none;
     border-bottom-color: transparent;
   }
 
   &:visited {
-    color: $c-link-visited;
+    color: var(--c-link-visited);
     text-decoration: none;
     border-bottom-color: transparent;
   }
@@ -290,25 +289,25 @@ a {
 // ELEMENTS
 //=====================
 label {
-  color: $c-black-40;
+  color: var(--c-black-40);
   text-transform: uppercase;
   display: block;
-  margin-bottom: $vertical-rythym;
+  margin-bottom: var(--vertical-rythym);
 }
 input,
 select,
 textarea,
 q,
 button {
-  font-size: $t-base;
+  font-size: var(--t-base);
   font-weight: 400;
 
-  @media (min-width: $bp-s) {
-    font-size: $t1-base;
+  @media (--bp-s) {
+    font-size: var(--t1-base);
   }
 
-  @media (min-width: $bp-m) {
-    font-size: $t2-base;
+  @media (--bp-m) {
+    font-size: var(--t2-base);
   }
 }
 
@@ -323,7 +322,6 @@ figure {
     width: 100%;
   }
 
-  
   > a {
     display: block;
     width: 100%;
@@ -342,7 +340,7 @@ figure {
   height: 100%;
   filter: blur(8px);
   overflow: hidden;
-  background-image: url('/themes/base_theme/default.jpg');
+  background-image: url("/themes/base_theme/default.jpg");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -354,15 +352,15 @@ q {
   &::after {
     content: '"';
     display: inline;
-    color: $c-brand-a;
-    font-size: $t-base;
+    color: var(--c-brand-a);
+    font-size: var(--t-base);
 
-    @media (min-width: $bp-s) {
-      font-size: $t1-base;
+    @media (--bp-s) {
+      font-size: var(--t1-base);
     }
 
-    @media (min-width: $bp-m) {
-      font-size: $t2-base;
+    @media (--bp-m) {
+      font-size: var(--t2-base);
     }
   }
 }

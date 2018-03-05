@@ -1,57 +1,57 @@
 .paragraph--type--video-or-image-led-two-column-te {
-   > * {
-        text-align: left;
+  > * {
+    text-align: left;
+  }
+
+  // define grid areas for tablet and desktop
+  .media-wrapper {
+    grid-column: span 2;
+
+    @media (--bp-m) {
+      grid-column: span 3;
     }
-     
-    // define grid areas for tablet and desktop
-    .media-wrapper {
-        grid-column: span 2;
+  }
 
-        @media (min-width: $bp-m) {
-            grid-column: span 3;
-        }
-    }
-    
-    .content:first-of-type:last-of-type {
-        grid-column: span 2;
-    }
+  .content:first-of-type:last-of-type {
+    grid-column: span 2;
+  }
 
-    .content-wrap {
-        @extend %full-width-text;
+  .content-wrap {
+    @extend %full-width-text;
 
-        @media (min-width: $bp-s) {
-            display: grid;
-            grid-template-columns: 0.93fr 1.07fr;
-            grid-column-gap: 4%;
-        }
-
-        @media (min-width: $bp-m) {
-            grid-template-columns: repeat(auto-fill, minmax(276px, 1fr));
-            grid-column-gap: $grid-gap;
-        } 
+    @media (--bp-s) {
+      display: grid;
+      grid-template-columns: 0.93fr 1.07fr;
+      grid-column-gap: 4%;
     }
 
-    .media-wrapper {
-        margin-bottom: $feature-pad-0;
+    @media (--bp-m) {
+      grid-template-columns: repeat(auto-fill, minmax(276px, 1fr));
+      grid-column-gap: $grid-gap;
+    }
+  }
 
-        @media (min-width: $bp-s) {
-            margin-bottom: $feature-pad-1;
-        }
+  .media-wrapper {
+    margin-bottom: $feature-pad-0;
 
-        @media (min-width: $bp-m) {
-            margin-bottom: $feature-pad-2;
-        }
+    @media (--bp-s) {
+      margin-bottom: $feature-pad-1;
     }
 
-    .content {
-        padding-bottom: $s-4;
+    @media (--bp-m) {
+      margin-bottom: $feature-pad-2;
+    }
+  }
 
-        @media (min-width: $bp-s) {
-            padding-bottom: $s-2 * 2;
-        }
+  .content {
+    padding-bottom: $s-4;
 
-        @media (min-width: $bp-m) {
-            padding-bottom: 0;
-        }
-    }    
+    @media (--bp-s) {
+      padding-bottom: $s-2 * 2;
+    }
+
+    @media (--bp-m) {
+      padding-bottom: 0;
+    }
+  }
 }

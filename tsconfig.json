@@ -9,5 +9,5 @@
     // "allowJs": true,
     "lib": ["dom", "es2015", "es2017"]
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "./custom.d.ts"]
 }

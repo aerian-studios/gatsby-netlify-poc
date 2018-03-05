@@ -26,17 +26,17 @@
 .feature-top-vspace,
 .controlled-carousel,
 .accordion-tab-carousel {
-  margin-top: 5 * $vertical-rythym;
-  @media (min-width: $bp-m) {
-    margin-top: 8 * $vertical-rythym;
+  margin-top: calc(5 * var(--vertical-rythym));
+  @media (--bp-m) {
+    margin-top: calc(8 * var(--vertical-rythym));
   }
-  @media (min-width:$bp-l) {
-    margin-top: 10 * $vertical-rythym;
+  @media (--bp-l) {
+    margin-top: calc(10 * var(--vertical-rythym));
   }
 }
 
 .pale-text {
-  color: $c-black-40;
+  color: --c-black-40;
 }
 
 .increase-import {
@@ -44,9 +44,9 @@
 }
 
 #pull-to-s-screen-edge {
-  margin-left: -1 * $side-gutter;
-  margin-right: -1 * $side-gutter;
-  @media(min-width: $bp-s) {
+  margin-left: calc(-1 * var(--side-gutter));
+  margin-right: calc(-1 * var(--side-gutter));
+  @media (--bp-s) {
     margin-left: 0;
     margin-right: 0;
   }
@@ -60,40 +60,40 @@
 
 %before-padding {
   &::before {
-    content: '';
+    content: "";
     display: block;
     width: 1px;
-    height: $pad-0;
+    height: var(--pad-0);
     grid-column: full;
   }
-  @media (min-width: $bp-s) {
+  @media (--bp-s) {
     &::before {
-      height: $pad-1;
+      height: var(--pad-1);
     }
   }
-  @media (min-width:$bp-m) {
+  @media (--bp-m) {
     &::before {
-      height: $pad-2;
+      height: var(--pad-2);
     }
   }
 }
 
 %after-padding {
   &::after {
-    content: '';
+    content: "";
     display: block;
     width: 1px;
-    height: $pad-0;
+    height: var(--pad-0);
     grid-column: full;
   }
-  @media (min-width: $bp-s) {
+  @media (--bp-s) {
     &::after {
-      height: $pad-1;
+      height: var(--pad-1);
     }
   }
-  @media (min-width:$bp-m) {
+  @media (--bp-m) {
     &::after {
-      height: $pad-2;
+      height: var(--pad-2);
     }
   }
 }
@@ -113,20 +113,20 @@
 //addition of top nav bar in calculation
 %before-padding--extended {
   &::before {
-    content: '';
+    content: "";
     display: block;
     width: 1px;
-    height: $pad-0 + 55;
+    height: calc(var(--pad-0) + 55);
     grid-column: full;
   }
-  @media (min-width: $bp-s) {
+  @media (--bp-s) {
     &::before {
-      height: $pad-1 + 55;
+      height: calc(var(--pad-1) + 55);
     }
   }
-  @media (min-width:$bp-m) {
+  @media (--bp-m) {
     &::before {
-      height: $pad-2 + 55;
+      height: calc(var(--pad-2) + 55);
     }
   }
 }

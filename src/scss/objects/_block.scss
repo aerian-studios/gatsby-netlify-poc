@@ -4,12 +4,12 @@
 .block {
   position: relative;
   z-index: 1;
-  background-color: $whiteish;
+  background-color: --whiteish;
   text-align: left;
   @extend %before-padding;
   @extend %after-padding;
 
-  @media (min-width: $bp-s) {
+  @media (min-width: --bp-s) {
     text-align: center;
   }
 
@@ -17,7 +17,7 @@
     &::before {
       margin-left: auto;
       margin-right: auto;
-      margin-top: $s-3;
+      margin-top: --s-3;
     }
     &:last-child {
       margin-bottom: 0; //added in to stop extra gap when no sub heading added with stats
@@ -115,16 +115,16 @@
 
 .block--light_skin,
 .block--light-grey_skin {
-  background-color: $c-black-20;
+  background-color: --c-black-20;
 }
 
 .block--mid_skin,
 .block--mid-grey_skin {
-  background-color: $c-black-40;
+  background-color: --c-black-40;
 }
 
 .block--header {
-  margin-top: $pad-0;
+  margin-top: --pad-0;
 }
 
 // Dark Themes
@@ -132,20 +132,20 @@
 .block--black_skin,
 .block--hero_skin,
 .block--dark-grey_skin {
-  color: $whiteish;
+  color: --whiteish;
   * {
     color: currentColor;
   }
 }
 
 .block--dark_skin {
-  background-color: $dark-grey;
+  background-color: --dark-grey;
 }
 
 .block--black_skin,
 .block--dark-grey_skin,
 .block--hero_skin {
-  background-color: $accent-black;
+  background-color: --accent-black;
 }
 
 // Most styles in _hero-component, these are just block based styles
@@ -158,14 +158,14 @@
     height: 0 !important;
   }
 
-  @media (min-width: $bp-m) {
+  @media (min-width: --bp-m) {
     grid-column: full;
     &::before {
-      height: $pad-2 !important;
+      height: --pad-2 !important;
     }
   }
 
-  @media (min-width: $bp-l) {
+  @media (min-width: --bp-l) {
     grid-column: main;
   }
 
@@ -177,18 +177,18 @@
 
 .block--fixed-background-image + .block {
   &::before {
-    height: $pad-0;
+    height: --pad-0;
   }
 
-  @media (min-width: $bp-s) {
+  @media (min-width: --bp-s) {
     text-align: center;
     &::before {
-      height: $pad-1;
+      height: --pad-1;
     }
   }
-  @media (min-width: $bp-m) {
+  @media (min-width: --bp-m) {
     &::before {
-      height: $pad-2;
+      height: --pad-2;
     }
   }
 }
@@ -199,7 +199,7 @@
     max-width: 100%;
     margin-bottom: 0 !important;
     margin: 0 auto;
-    @media (min-width: $bp-m) {
+    @media (min-width: --bp-m) {
       max-width: 769px;
     }
   } // sorry about this
@@ -209,16 +209,16 @@
 }
 
 .block--channels .container {
-  padding-top: $pad-0;
-  padding-bottom: $pad-0;
+  padding-top: --pad-0;
+  padding-bottom: --pad-0;
 
-  @media (min-width: $bp-s) {
-    padding-top: $pad-1;
-    padding-top: $pad-1;
+  @media (min-width: --bp-s) {
+    padding-top: --pad-1;
+    padding-top: --pad-1;
   }
-  @media (min-width: $bp-m) {
-    padding-bottom: $pad-2;
-    padding-bottom: $pad-2;
+  @media (min-width: --bp-m) {
+    padding-bottom: --pad-2;
+    padding-bottom: --pad-2;
   }
 }
 
