@@ -9,8 +9,8 @@ interface Props {
 
 const Testimonials: React.SFC<Props> = ({ testimonials }) => (
   <div>
-    {testimonials.map(testimonial => (
-      <article className="message">
+    {testimonials.map((testimonial, index) => (
+      <article className="message" key={`testimonial-${index}`}>
         <div className="message-body">
           {testimonial.quote}
           <br />

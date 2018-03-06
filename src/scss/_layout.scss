@@ -7,11 +7,11 @@
     display: grid; // start with a simple auto row
     grid-auto-rows: auto; // setup grid with a main area and a named area that we can break into
     grid-template-columns:
-      [full-start] minmax(--side-gutter, 1fr) [main-start] minmax(
+      [full-start] minmax(var(--side-gutter), 1fr) [main-start] minmax(
         0,
-        --max-content-width
+        var(--max-content-width)
       )
-      [main-end] minmax(--side-gutter, 1fr) [full-end];
+      [main-end] minmax(var(--side-gutter), 1fr) [full-end];
   }
   > * {
     @supports (display: grid) {
