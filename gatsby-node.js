@@ -27,7 +27,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     }
 
     result.data.allMarkdownRemark.edges.forEach(edge => {
-      const id = edge.node.id;
+      const { id } = edge.node;
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
@@ -39,6 +39,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         }
       });
     });
+    return Promise.resolve();
   });
 };
 
