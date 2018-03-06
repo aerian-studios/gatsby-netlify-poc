@@ -1,22 +1,6 @@
 /**
  * Blocks of content in no particular grouping
  */
-
-// Light Themes
-/*
-$pad: 52px;
-$pad-0: 3 * $s-1;
-$pad-1: 58px;
-$pad-2: 58px;
-$s-over: 2px;
-$s-over-1: 26px;
-$s-over-2: 26px;
-$m-over: 0;
-$m-over-1: 74px;
-$m-over-2: 90px;
-$l-over: 92px;
-$l-over-1: 150px;
-$l-over-2: 246px;*/
 .meta-information-container {
   position: absolute;
   width: 100%;
@@ -143,12 +127,10 @@ $delay: 2s;
     height: 100vh;
     width: 100%;
 
-    // @include center();
     overflow: hidden;
 
     @supports (display: grid) {
       grid-column: full !important;
-      // position: relative;
       grid-row-start: 1;
     }
     [itemprop="image"] {
@@ -156,17 +138,6 @@ $delay: 2s;
       height: 100%;
       object-fit: cover;
     }
-  }
-}
-
-.grid > .block--hero_skin__content,
-.meta-information-container > .section-nav {
-  margin-left: $side-gutter;
-  margin-right: $side-gutter;
-
-  @supports (display: grid) {
-    margin-left: 0;
-    margin-right: 0;
   }
 }
 

@@ -5,10 +5,16 @@
 //=====================
 // TEXT
 //=====================
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
 
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 // These classes are set on the HTML element once the fonts are loaded

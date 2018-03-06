@@ -139,10 +139,10 @@
   --feature-pad-2: calc(10 * var(--vertical-rythym));
 
   // BREAKPOINTS
-  @custom-media --bp-xs (min-width: 23.125rem); // 370 > standard mobile
-  @custom-media --bp-s (min-width: 36.875rem); // 590 > mobile or no mq support
-  @custom-media --bp-m (min-width: 50rem); // 800> portrait tablet
-  @custom-media --bp-l (min-width: 67.5rem); // 1080 > most tablets
-  @custom-media --bp-xl (min-width: 73.0625rem); // 1169px; // very large screens - might need to make an xl font size
-  @custom-media --bp-xxl (min-width: 81rem); // 1296px;
+  @custom-media --bp-xs (min-width: 23.125em); // 370 > standard mobile
+  @custom-media --bp-s (min-width: 36.875em); // 590 > mobile or no mq support
+  @custom-media --bp-m (min-width: 50em); // 800> portrait tablet
+  @custom-media --bp-l (min-width: 67.5em); // 1080 > most tablets
+  @custom-media --bp-xl (min-width: 73.0625em); // 1169px; // very large screens - might need to make an xl font size
+  @custom-media --bp-xxl (min-width: 81em); // 1296px;
 }
