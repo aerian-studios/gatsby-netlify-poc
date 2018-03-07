@@ -1,7 +1,7 @@
 import * as React from "react";
 import Link from "gatsby-link";
 
-import "../scss/base-theme.scss";
+// import "../scss/base-theme.scss";
 
 interface Props {
   data: Data;

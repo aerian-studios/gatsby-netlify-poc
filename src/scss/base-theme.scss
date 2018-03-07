@@ -15,9 +15,7 @@
  */
 
 // SETTINGS
-@import "variables";
-// Fonts is added into /html-dump/html.html directly
-// @import 'font';
+// Variables are added via js in /layouts/StyleVariables.tsx
 
 // TOOLS
 @import "tools/tools";

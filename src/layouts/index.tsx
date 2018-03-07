@@ -2,10 +2,15 @@ import * as React from "react";
 import Helmet from "react-helmet";
 
 import Navbar from "../components/Navbar";
-import "./all.scss";
+import styled, { IThemeInterface } from "./index-styled";
+import "./StyleVariables";
+
+import "../scss/base-theme.scss";
 
 interface Props {
   children: () => React.Component;
+  className?: string;
+  theme?: IThemeInterface;
 }
 
 const TemplateWrapper: React.SFC<Props> = ({ children }) => (
