@@ -1,6 +1,14 @@
 // COLOURS - --c- + name
 // named colours for ease (please use the more generic colours that use them below)
 :root {
+  // BREAKPOINTS
+  @custom-media --bp-xs (min-width: 23.125em); // 370 > standard mobile
+  @custom-media --bp-s (min-width: 36.875em); // 590 > mobile or no mq support
+  @custom-media --bp-m (min-width: 50em); // 800> portrait tablet
+  @custom-media --bp-l (min-width: 67.5em); // 1080 > most tablets
+  @custom-media --bp-xl (min-width: 73.0625em); // 1169px; // very large screens - might need to make an xl font size
+  @custom-media --bp-xxl (min-width: 81em); // 1296px;
+
   --whiteish: #fff;
   --blackish: #000;
   --cnn-red: #d01825;
@@ -43,11 +51,13 @@
   // TYPOGRAPHY - --t- + name
   // https://projects.invisionapp.com/d/main/default/#/console/10686253/226770242/preview
   // NOTE: this is mobile first
+  --t-font-basic: Helvetica Neue, Verdana, Helvetica, Arial, Utkal, sans-serif;
+  --t-font: Helvetica Neue, Verdana, Helvetica, Arial, Utkal, sans-serif;
+  --t-button: 14px;
+  --t-xxs: 10px;
 
   // needs to be here for the text calculations
   --t: 16; // base font size without units
-  --t1: 16; // base font size without units
-  --t2: 16; // base font size without units
 
   // XSmall
   --t-base: calc(var(--t) * 1px); // normal text size
@@ -65,40 +75,42 @@
   --t-xxl: calc(48 * 1px);
   --t-menu: 20;
 
-  // Medium
-  --t1-base: calc(var(--t1) * 1px); // normal text size
-  --t1-h1: 58;
-  --t1-h2: 32;
-  --t1-h3: 18;
-  --t1-h4: calc((20 / var(--t1)) * 1em);
-  --t1-h5: calc((18 / var(--t1)) * 1em);
-  --t1-h6: calc((16 / var(--t1)) * 1em);
-  --t1-intro: calc((20 / var(--t1)) * 1em);
-  --t1-small: 16px;
-  --t1-xsmall: 14px;
-  --t1-xl: calc(42 * 1px);
-  --t1-xxl: calc(82 * 1px);
-  --t1-menu: 27;
+  @media (--bp-s) {
+    --t: 16;
+    // Medium
+    --t-base: calc(var(--t) * 1px); // normal text size
+    --t-h1: 58;
+    --t-h2: 32;
+    --t-h3: 18;
+    --t-h4: calc((20 / var(--t)) * 1em);
+    --t-h5: calc((18 / var(--t)) * 1em);
+    --t-h6: calc((16 / var(--t)) * 1em);
+    --t-intro: calc((20 / var(--t)) * 1em);
+    --t-small: 16px;
+    --t-xsmall: 14px;
+    --t-xl: calc(42 * 1px);
+    --t-xxl: calc(82 * 1px);
+    --t-menu: 27;
+  }
 
-  // Large
-  --t2-base: calc(var(--t2) * 1px); // normal text size
-  --t2-h1: 65;
-  --t2-h2: 50;
-  --t2-h3: 18;
-  --t2-h4: calc((24 / var(--t2)) * 1em);
-  --t2-h5: calc((18 / var(--t2)) * 1em);
-  --t2-h6: calc((16 / var(--t2)) * 1em);
-  --t2-intro: calc((20 / var(--t2)) * 1em);
-  --t2-small: 16px;
-  --t2-xsmall: 14px;
-  --t2-xl: calc(50 * 1px);
-  --t2-xxl: calc(90 * 1px);
-  --t2-menu: 40;
+  @media (--bp-m) {
+    --t: 16;
+    // Large
+    --t-base: calc(var(--t) * 1px); // normal text size
+    --t-h1: 65;
+    --t-h2: 50;
+    --t-h3: 18;
+    --t-h4: calc((24 / var(--t)) * 1em);
+    --t-h5: calc((18 / var(--t)) * 1em);
+    --t-h6: calc((16 / var(--t)) * 1em);
+    --t-intro: calc((20 / var(--t)) * 1em);
+    --t-small: 16px;
+    --t-xsmall: 14px;
+    --t-xl: calc(50 * 1px);
+    --t-xxl: calc(90 * 1px);
+    --t-menu: 40;
+  }
 
-  --t-font-basic: Helvetica Neue, Verdana, Helvetica, Arial, Utkal, sans-serif;
-  --t-font: Helvetica Neue, Verdana, Helvetica, Arial, Utkal, sans-serif;
-  --t-button: 14px;
-  --t-xxs: 10px;
   // SPACING - --s- + name
   --s-1: 12px;
   --s-2: 20px;
@@ -123,13 +135,16 @@
   --grid-column: 5.82%;
 
   //Header Spacing
-  --s-h2-xs: calc(4 * var(--vertical-rythym));
-  --s-h2-s: calc(5 * var(--vertical-rythym));
-  --s-h2-m: calc(6 * var(--vertical-rythym));
-
-  --s-h3-xs: calc(4 * var(--vertical-rythym));
-  --s-h3-s: calc(4 * var(--vertical-rythym));
-  --s-h3-m: calc(4 * var(--vertical-rythym));
+  --s-h2: calc(4 * var(--vertical-rythym));
+  --s-h3: calc(4 * var(--vertical-rythym));
+  @media (--bp-s) {
+    --s-h2: calc(5 * var(--vertical-rythym));
+    --s-h3: calc(4 * var(--vertical-rythym));
+  }
+  @media (--bp-m) {
+    --s-h2: calc(6 * var(--vertical-rythym));
+    --s-h3: calc(4 * var(--vertical-rythym));
+  }
 
   --pad-0: calc(8 * var(--vertical-rythym));
   --pad-1: calc(12 * var(--vertical-rythym));
@@ -137,12 +152,4 @@
   --feature-pad-0: calc(5 * var(--vertical-rythym));
   --feature-pad-1: calc(8 * var(--vertical-rythym));
   --feature-pad-2: calc(10 * var(--vertical-rythym));
-
-  // BREAKPOINTS
-  @custom-media --bp-xs (min-width: 23.125em); // 370 > standard mobile
-  @custom-media --bp-s (min-width: 36.875em); // 590 > mobile or no mq support
-  @custom-media --bp-m (min-width: 50em); // 800> portrait tablet
-  @custom-media --bp-l (min-width: 67.5em); // 1080 > most tablets
-  @custom-media --bp-xl (min-width: 73.0625em); // 1169px; // very large screens - might need to make an xl font size
-  @custom-media --bp-xxl (min-width: 81em); // 1296px;
 }

@@ -1,14 +1,14 @@
 // some of these are from
 // rem fallback - credits: http://zerosixthree.se/
 
-@function calculateRem($size, $bp: "xs") {
+@function calculateRem($size) {
   $remSize: calc((#{$size} / 16));
   @return calc(#{$remSize} * 1rem);
 }
 
-@mixin font-size($size, $bp: "xs") {
+@mixin font-size($size) {
   font-size: calc((#{$size}) * 1px);
-  font-size: calculateRem($size, $bp);
+  font-size: calculateRem($size);
 }
 
 @function pxem($pixel-size, $pixel-context: $t) {
@@ -57,19 +57,19 @@
   } @else if $name == "strong-5" {
     @include shadows(0, $fr * 4, $fr * 5);
   } @else if $name == "light-1" {
-    @include shadows(0, $fr / 4, $fr, 0, --c-shadow-light);
+    @include shadows(0, $fr / 4, $fr, 0, var(--c-shadow-light));
   } @else if $name == "light-2" {
-    @include shadows(0, $fr, $fr * 2, 0, --c-shadow-light);
+    @include shadows(0, $fr, $fr * 2, 0, var(--c-shadow-light));
   } @else if $name == "light-3" {
-    @include shadows(0, $fr * 2, $fr * 3, 0, --c-shadow-light);
+    @include shadows(0, $fr * 2, $fr * 3, 0, var(--c-shadow-light));
   } @else if $name == "light-4" {
-    @include shadows(0, $fr * 3, $fr * 4, 0, --c-shadow-light);
+    @include shadows(0, $fr * 3, $fr * 4, 0, var(--c-shadow-light));
   } @else if $name == "light-5" {
-    @include shadows(0, $fr * 4, $fr * 5, 0, --c-shadow-light);
+    @include shadows(0, $fr * 4, $fr * 5, 0, var(--c-shadow-light));
   }
 }
 
-@mixin shadows($left, $top, $blur, $offset: 0, $colour: --c-shadow) {
+@mixin shadows($left, $top, $blur, $offset: 0, $colour: var(--c-shadow)) {
   box-shadow: $left $top $blur $offset $colour;
 }
 
@@ -117,7 +117,7 @@ Inspired by Andreas Larson - https://github.com/larsenwork
 https://css-tricks.com/easing-linear-gradients/
 */
 
-@mixin scrimGradient($startColor: $blackish, $direction: "to bottom") {
+@mixin scrimGradient($startColor: var(--blackish), $direction: "to bottom") {
   $scrimCoordinates: (
     0: 1,
     47: 0.9,
@@ -148,7 +148,10 @@ https://css-tricks.com/easing-linear-gradients/
   background: linear-gradient(unquote($direction), $stops);
 }
 
-@mixin smoothScrimGradient($startColor: $blackish, $direction: "to bottom") {
+@mixin smoothScrimGradient(
+  $startColor: var(--blackish),
+  $direction: "to bottom"
+) {
   $hue: hue($startColor);
   $saturation: saturation($startColor);
   $lightness: lightness($startColor);

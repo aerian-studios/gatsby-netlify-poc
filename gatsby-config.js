@@ -16,7 +16,6 @@ module.exports = {
     `gatsby-plugin-react-next`, // use react 16
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-postcss-sass`,
       options: {
@@ -24,7 +23,8 @@ module.exports = {
         precision: 8 // SASS default: 5
       }
     },
-
+    // I think this needs to come after the sass
+    `gatsby-plugin-typescript-css-modules`,
     // @TODO: make this into a section controlled by site-config
     {
       resolve: "gatsby-source-filesystem",

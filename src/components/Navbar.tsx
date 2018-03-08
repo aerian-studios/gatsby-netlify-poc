@@ -1,29 +1,15 @@
 import * as React from "react";
 import Link from "gatsby-link";
-import styled from "styled-components";
 
-import {
-  NavbarHeader,
-  BurgerMenuWrapper,
-  MenuToggle,
-  MenuToggleLabel,
-  MenuMain,
-  BurgerMenuContentIcon,
-  MenuOnwardJourneys
-} from "./NavBarStyles";
+import styles from "./navBarStyles.module.scss";
 
 import * as github from "../img/github-icon.svg";
 import * as logo from "../img/logo.svg";
 
-const LogoWrapper = styled.figure`
-  align-self: flex-start;
-  height: 55px;
-`;
-
 const Navbar: React.SFC = () => (
-  <NavbarHeader id="page-header" className="block--full">
+  <header id="page-header" className={`${styles.NavbarHeader} block--full`}>
     <nav className="navbar layout-grid grid">
-      <LogoWrapper className="navbar-brand">
+      <figure className={`${styles.LogoWrapper} navbar-brand`}>
         <Link to="/" className="navbar-item" title="Aerian Studios brand">
           <figure className="logo" style={{ width: "88px" }}>
             <svg>
@@ -31,9 +17,13 @@ const Navbar: React.SFC = () => (
             </svg>
           </figure>
         </Link>
-      </LogoWrapper>
-      <BurgerMenuWrapper className="burger-menu-wrapper">
-        <MenuToggle />
+      </figure>
+      <div className={styles.BurgerMenuWrapper}>
+        <input
+          type="checkbox"
+          id="menu-toggle"
+          className={`${styles.MenuToggle} menu-toggle`}
+        />
         <MenuToggleLabel htmlFor="menu-toggle">
           <BurgerMenuContentIcon
             className="burger-menu__content-icon"
@@ -90,9 +80,9 @@ const Navbar: React.SFC = () => (
             </div>
           </MenuOnwardJourneys>
         </MenuMain>
-      </BurgerMenuWrapper>
+      </div>
     </nav>
-  </NavbarHeader>
+  </header>
 );
 
 export default Navbar;
