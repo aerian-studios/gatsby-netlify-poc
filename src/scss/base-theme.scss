@@ -13,10 +13,10 @@
  * write css in specificity order.
  *
  */
-
 // SETTINGS
-// Variables are added via js in /layouts/StyleVariables.tsx
-
+@import "variables";
+// Fonts is added into /html-dump/html.html directly
+// @import 'font';
 // TOOLS
 @import "tools/tools";
 @import "animations";

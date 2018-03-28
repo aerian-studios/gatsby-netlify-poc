@@ -4,6 +4,7 @@ import { injectGlobal } from "./index-styled";
 injectGlobal`
 :root {
   // BREAKPOINTS - --bp- + name
+  // BREAKPOINTS
   @custom-media --bp-xs (min-width: 23.125em); // 370 > standard mobile
   @custom-media --bp-s (min-width: 36.875em); // 590 > mobile or no mq support
   @custom-media --bp-m (min-width: 50em); // 800> portrait tablet
@@ -66,6 +67,11 @@ injectGlobal`
   --s-h2: calc(4 * var(--vertical-rythym));
   --s-h3: calc(4 * var(--vertical-rythym));
   
+  --t-button: 14px;
+  --t-xxs: 10px;
+
+  // needs to be here for the text calculations
+  --t: 16; // base font size without units
 
   // XSmall
   --t-base: calc(var(--t) * 1px); // normal text size
@@ -88,6 +94,9 @@ injectGlobal`
     --s-h3: calc(4 * var(--vertical-rythym));
     // Medium
     --t: 16; // base font size without units
+  @media (--bp-s) {
+    --t: 16;
+    // Medium
     --t-base: calc(var(--t) * 1px); // normal text size
     --t-h1: 58;
     --t-h2: 32;

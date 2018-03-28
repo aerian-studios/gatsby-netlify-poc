@@ -41,13 +41,11 @@ body {
   overflow-x: hidden;
 
   @media (--bp-s) {
-    font-size: var(--t1-base);
-    line-height: calculateRem(24, "m");
+    line-height: calculateRem(24);
   }
 
   @media (--bp-m) {
-    font-size: var(--t2-base);
-    line-height: calculateRem(24, "l");
+    line-height: calculateRem(24);
   }
 }
 
@@ -77,19 +75,17 @@ p {
 
 h1,
 .block--hero_skin h2 {
-  @include font-size(var(--t-h1), "s");
-  line-height: calculateRem(40, "s");
+  @include font-size(var(--t-h1));
+  line-height: calculateRem(40);
   letter-spacing: 0.3px;
   font-weight: 100;
 
   @media (--bp-s) {
-    @include font-size(var(--t1-h1), "m");
-    line-height: calculateRem(48, "m");
+    line-height: calculateRem(48);
   }
 
   @media (--bp-m) {
-    @include font-size(var(--t2-h1), "l");
-    line-height: calculateRem(72, "l");
+    line-height: calculateRem(72);
   }
 }
 
@@ -101,7 +97,7 @@ h1,
 }
 
 h2 {
-  @include font-size(var(--t-h2), "s");
+  @include font-size(var(--t-h2));
   font-weight: 100;
   line-height: (40 / 30) * 1em;
   margin-bottom: calc(var(--s-h2-xs) - 8px); // -8 is for the descenders
@@ -109,30 +105,26 @@ h2 {
   margin-top: -6px;
 
   @media (--bp-s) {
-    @include font-size(var(--t1-h2), "m");
     line-height: (64 / 48) * 1em;
     margin-bottom: calc(var(--s-h2-s) - 8px); // -8 is for the descenders
   }
   @media (--bp-m) {
-    @include font-size(var(--t2-h2), "l");
     line-height: (64 / 64) * 1em;
     margin-bottom: calc(var(--s-h2-m) - 8px); // -8 is for the descenders
   }
 }
 
 h3 {
-  @include font-size(var(--t-h3), "s");
+  @include font-size(var(--t-h3));
   line-height: (40 / 30) * 1em;
   margin-bottom: calc(var(--s-h3-xs) - 3px);
 
   @media (--bp-s) {
-    @include font-size(var(--t-h3), "m");
     line-height: (64 / 48) * 1em;
     margin-bottom: calc(var(--s-h3-s) - 3px);
   }
 
   @media (--bp-m) {
-    @include font-size(var(--t-h3), "l");
     line-height: (64 / 64) * 1em;
     margin-bottom: cacl(var(--s-h3-m) - 3px);
   }
