@@ -5,8 +5,8 @@
  * Generic - normalisers/rules setters
  * Base - Unclassed HTML elements (type selectors) last layer we see these
  * Objects - Cosmetic free design patterns
- * Components - Designed components - chunks of UI
- * Trumps - helpers and overrides
+ * Components - Designed components - chunks of UI - these will usually accompany a react component
+ * Trumps - helpers and overrides ususally have !important
  *
  * All rules only ever ADD and INHERIT from previous layers
  * Order stylesheets from generic to localised (as above)
@@ -15,8 +15,7 @@
  */
 // SETTINGS
 @import "variables";
-// Fonts is added into /html-dump/html.html directly
-// @import 'font';
+
 // TOOLS
 @import "tools/tools";
 @import "animations";

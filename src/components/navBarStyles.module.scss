@@ -1,4 +1,6 @@
+@import "../scss/variables";
 @import "../scss/tools/_tools";
+
 $gradientH: 125px;
 $subMenuIndicatorSpace: calc(27px + var(--s-4));
 
@@ -49,7 +51,7 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
 
   &:checked {
     + label {
-      .burger-menu__content-icon {
+      .BurgerMenu__ContentIcon {
         opacity: 0.6;
         background-color: transparent;
         &::before {
@@ -63,8 +65,8 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
         }
       }
     }
-    ~ .menu--main,
-    .menu--main:focus {
+    ~ .MenuMain,
+    .MenuMain:focus {
       position: fixed;
       width: 100vw;
       z-index: 500;
@@ -158,25 +160,19 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
     align-items: stretch;
     justify-items: end;
   }
+}
 
-  button {
-    appearance: none;
-    background: none;
-    height: 1em;
-  }
+.Menu {
+  overflow: auto;
 
-  a {
-    border: 0;
-  }
-
-  .menu:hover {
+  &:hover {
     .menu-item {
       opacity: 0.5;
     }
   }
 
-  .menu {
-    overflow: auto;
+  a {
+    border: 0;
   }
 
   .menu-item {
@@ -235,7 +231,11 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
   }
 }
 
-.menu--main__content-wrap {
+.FirstLevelMenu {
+  composes: Menu;
+}
+
+.MenuMain__ContentWrap {
   margin-top: 39px;
   flex: 1;
   color: var(--whiteish);
