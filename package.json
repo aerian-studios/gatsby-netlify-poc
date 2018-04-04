@@ -20,7 +20,6 @@
     "gatsby-plugin-sharp": "^1.6.39",
     "gatsby-plugin-svg-sprite": "^1.0.0",
     "gatsby-plugin-typescript": "^1.4.17",
-    "gatsby-plugin-typescript-css-modules": "^1.0.4",
     "gatsby-remark-images": "^1.5.55",
     "gatsby-source-filesystem": "^1.5.26",
     "gatsby-transformer-remark": "^1.7.34",

@@ -1,7 +1,7 @@
 import * as React from "react";
 import Link from "gatsby-link";
 
-import * as styles from "./navBarStyles.module.scss";
+import * as styles from "./navBarStyles.scss";
 
 import * as logo from "../img/logo.svg";
 import MainMenu from "./MainMenu";

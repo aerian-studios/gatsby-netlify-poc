@@ -162,7 +162,8 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
   }
 }
 
-.Menu {
+.Menu,
+.FirstLevelMenu {
   overflow: auto;
 
   &:hover {
@@ -229,10 +230,6 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
   .menu-item--active-trail {
     opacity: 1;
   }
-}
-
-.FirstLevelMenu {
-  composes: Menu;
 }
 
 .MenuMain__ContentWrap {
@@ -350,7 +347,6 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
 }
 
 .MainMenuSubMenu {
-  composes: layout-grid from global;
   grid-auto-rows: max-content;
   position: fixed;
   width: 0;
