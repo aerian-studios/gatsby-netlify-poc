@@ -1,7 +1,7 @@
 import * as React from "react";
 import Link from "gatsby-link";
 
-import * as styles from "./navBarStyles.scss";
+import "./navBarStyles.scss";
 
 import * as github from "../img/github-icon.svg";
 
@@ -22,26 +22,24 @@ class MainMenu extends React.Component {
 
   render() {
     return (
-      <div className={styles.BurgerMenuWrapper}>
+      <div className="BurgerMenuWrapper">
         <input
           type="checkbox"
           id="menu-toggle"
-          className={`${styles.MenuToggle} menu-toggle`}
+          className="MenuToggle menu-toggle"
           onChange={this.onChange}
         />
-        <label htmlFor="menu-toggle" className={styles.MenuToggleLabel}>
-          <span className={styles.BurgerMenuContentIcon} aria-hidden="true" />
+        <label htmlFor="menu-toggle" className="MenuToggleLabel">
+          <span className="BurgerMenuContentIcon" aria-hidden="true" />
           <span className="helper-text">Toggle menu open and closed</span>
         </label>
 
         <nav
           id="menu--main"
-          className={`${styles.MenuMain} ${
-            this.state.menuActive ? "active" : ""
-          }`}
+          className={`MenuMain ${this.state.menuActive ? "active" : ""}`}
         >
-          <div className={styles.MenuMain__ContentWap}>
-            <ul className={styles.FirstLevelMenu}>
+          <div className="MenuMain__ContentWap">
+            <ul className="FirstLevelMenu">
               <li className="menu-item list-plain">
                 <Link className="navbar-item" to="/">
                   Home
@@ -60,7 +58,7 @@ class MainMenu extends React.Component {
             </ul>
           </div>
 
-          <div className={`block--full grid ${styles.MenuOnwardJourneys}`}>
+          <div className="block--full grid MenuOnwardJourneys">
             <div className="subscribe-wrapper">
               <p className="subscribe-text">Subscribe</p>
               <a className="subscribe_link" href="/">

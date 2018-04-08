@@ -65,17 +65,18 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
         }
       }
     }
-    ~ .MenuMain,
-    .MenuMain:focus {
-      position: fixed;
-      width: 100vw;
-      z-index: 500;
-      opacity: 1;
+  }
+}
 
-      .menu-item {
-        opacity: 1;
-      }
-    }
+.MenuToggle:checked ~ .MenuMain,
+.MenuMain:focus {
+  position: fixed;
+  width: 100vw;
+  z-index: 500;
+  opacity: 1;
+
+  .menu-item {
+    opacity: 1;
   }
 }
 
@@ -145,9 +146,10 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
   height: calc(100vh - 55px);
   width: 0;
   top: 55px;
-  left: 0;
+  right: 0;
   opacity: 0;
-  transition: all 0.8s ease-in-out 0.5s;
+  transition: width 0.2s ease 0.2s, opacity 0.2s ease 0s,
+    position 0.1s linear 0.2s;
   background: var(--c-black-90);
   z-index: -1;
 

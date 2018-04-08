@@ -7,9 +7,9 @@ import * as logo from "../img/logo.svg";
 import MainMenu from "./MainMenu";
 
 const Navbar: React.SFC = () => (
-  <header id="page-header" className={`${styles.NavbarHeader} block--full`}>
+  <header id="page-header" className="NavbarHeader block--full">
     <div className="navbar layout-grid grid">
-      <figure className={`${styles.LogoWrapper}`}>
+      <figure className="LogoWrapper">
         <Link to="/" title="Aerian Studios brand">
           <figure className="logo" style={{ width: "88px" }}>
             <svg>
