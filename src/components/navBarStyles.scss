@@ -12,13 +12,13 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
 .NavbarHeader {
   position: fixed;
   width: 100%;
-  background-color: var(--c-black-90, #0c0c0c);
+  background-color: $c-black-90;
   top: 0;
   left: 0;
   z-index: 300;
   transition: transform 0.5s ease 0s, opacity 0.2s ease 0.2s;
   height: 55px;
-  color: var(--whiteish, #fff);
+  color: $whiteish;
 
   & svg {
     height: 55px;
@@ -115,7 +115,7 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
   right: 0;
   height: 1px;
   margin-top: -4px;
-  background-color: var(--whiteish);
+  background-color: $whiteish;
   text-align: center;
 
   &::before,
@@ -150,7 +150,7 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
   opacity: 0;
   transition: width 0.2s ease 0.2s, opacity 0.2s ease 0s,
     position 0.1s linear 0.2s;
-  background: var(--c-black-90);
+  background: $c-black-90;
   z-index: -1;
 
   display: flex;
@@ -197,13 +197,13 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
 
     > a {
       display: inline-block;
-      color: var(--whiteish);
+      color: $whiteish;
       font-weight: 100;
       padding: var(--vertical-rythym) 0;
 
       &:hover,
       &:visited {
-        color: var(--whiteish);
+        color: $whiteish;
       }
     }
 
@@ -237,7 +237,7 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
 .MenuMain__ContentWrap {
   margin-top: 39px;
   flex: 1;
-  color: var(--whiteish);
+  color: $whiteish;
   height: calc(100vh - 55px);
   width: 100%;
 
@@ -294,7 +294,7 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  color: var(--social-link-colour) !important;
+  color: $social-link-colour !important;
   padding-bottom: calc(4 * var(--vertical-rythym));
   @include scrimGradient(#0c0c0c, "to top");
 
@@ -317,7 +317,7 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
     padding: 0;
     flex: 1;
     display: block;
-    color: var(--social-link-colour);
+    color: $social-link-colour;
     pointer-events: all;
 
     * {
@@ -358,7 +358,7 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
   z-index: -1;
   transform: translateX(100%);
   opacity: 0;
-  background: var(--c-black-90);
+  background: $c-black-90;
 
   .menu-item {
     opacity: 0;

@@ -1,72 +1,97 @@
+// STATIC varaibles (don't change with context) can be sass variables (e.g. $variable-name)
+
+// BREAKPOINTS - --bp- + name
+@custom-media --bp-xs (min-width: 23.125em); // 370 > standard mobile
+@custom-media --bp-s (min-width: 36.875em); // 590 > mobile or no mq support
+@custom-media --bp-m (min-width: 50em); // 800> portrait tablet
+@custom-media --bp-l (min-width: 67.5em); // 1080 > most tablets
+@custom-media --bp-xl (min-width: 73.0625em); // 1169px; // very large screens - might need to make an xl font size
+@custom-media --bp-xxl (min-width: 81em); // 1296px;
+
+// COLOURS - --c- + name
+// named colours for ease (please use the more generic colours that use them below)
+$whiteish: #fff;
+$blackish: #000;
+$cnn-red: #d01825;
+$red: #e42025;
+$blue: #368aec;
+$menu-red: #ed2025;
+
+$c-black-90: #0c0c0c;
+$c-black-80: #231f20;
+$c-black-70: #282828;
+$c-black-60: #333;
+$c-black-50: #535456;
+$c-black-40: #919191;
+$c-black-35: #acadaf;
+$c-black-30: #dddedf;
+$c-black-20: #f1f1f2; // light-grey bg
+$c-black-10: #f7f7f7;
+$c-black-0: #fff;
+
+$accent-black: #18191a;
+$c-alt-bg: #18191a;
+$dark-grey: #151515;
+$light-grey: #f5f5f5;
+$social-link-colour: #808080;
+
+// Generic variable names for use in the code (so that the colours only need changing on one place)
+$c-brand-a: $cnn-red;
+$c-brand-b: $red;
+$c-brand-c: $blue;
+$c-text: $c-black-60;
+$c-text-alt: #868788;
+$c-link: $c-black-60;
+$c-link-active: $cnn-red;
+$c-link-visited: $c-black-40;
+
+$c-separator: #d8d8d8;
+$c-shadow: rgba(42, 40, 40, 0.4);
+$c-shadow-light: rgba(42, 40, 40, 0.16);
+
+// TYPOGRAPHY - $t- + name or --t- + name (see below)
+$t-font-basic: Helvetica, Verdana, Arial, Utkal, sans-serif;
+$t-font: Helvetica, Verdana, Arial, Utkal, sans-serif;
+
+// VARIABLES (that change with context e.g. breakpoint, etc) can use CSS custom property syntax
 :root {
-  // BREAKPOINTS - --bp- + name
-  // BREAKPOINTS
-  @custom-media --bp-xs (min-width: 23.125em); // 370 > standard mobile
-  @custom-media --bp-s (min-width: 36.875em); // 590 > mobile or no mq support
-  @custom-media --bp-m (min-width: 50em); // 800> portrait tablet
-  @custom-media --bp-l (min-width: 67.5em); // 1080 > most tablets
-  @custom-media --bp-xl (min-width: 73.0625em); // 1169px; // very large screens - might need to make an xl font size
-  @custom-media --bp-xxl (min-width: 81em); // 1296px;
+  // MISC
+  --border-radius: 10px;
+  --max-content-width: 1168px;
+  --min-content-width: 280px;
+  --side-gutter: var(--s-2);
+  --h-grid-spacing: 2.5%;
+  --h-grid-spacing-1: calc(var(--s-1) * 2);
+  --h-grid-spacing-2: var(--s-4);
+  --v-grid-spacing: var(--s-1);
+  --vertical-rythym: 8px;
+  --grid-gap: 2.74%;
+  --grid-column: 5.82%;
 
-  // COLOURS - --c- + name
-  // named colours for ease (please use the more generic colours that use them below)
-  --whiteish: #fff;
-  --blackish: #000;
-  --cnn-red: #d01825;
-  --red: #e42025;
-  --blue: #368aec;
-  --menu-red: #ed2025;
-
-  --c-black-90: #0c0c0c;
-  --c-black-80: #231f20;
-  --c-black-70: #282828;
-  --c-black-60: #333;
-  --c-black-50: #535456;
-  --c-black-40: #919191;
-  --c-black-35: #acadaf;
-  --c-black-30: #dddedf;
-  --c-black-20: #f1f1f2; // light-grey bg
-  --c-black-10: #f7f7f7;
-  --c-black-0: #fff;
-
-  --accent-black: #18191a;
-  --c-alt-bg: #18191a;
-  --dark-grey: #151515;
-  --light-grey: #f5f5f5;
-  --social-link-colour: #808080;
-
-  // Generic variable names for use in the code (so that the colours only need changing on one place)
-  --c-brand-a: --cnn-red;
-  --c-brand-b: --red;
-  --c-brand-c: --blue;
-  --c-text: --c-black-60;
-  --c-text-alt: #868788;
-  --c-link: --c-black-60;
-  --c-link-active: --cnn-red;
-  --c-link-visited: --c-black-40;
-
-  --c-separator: #d8d8d8;
-  --c-shadow: rgba(42, 40, 40, 0.4);
-  --c-shadow-light: rgba(42, 40, 40, 0.16);
-
-  // TYPOGRAPHY - --t- + name
-  // https://projects.invisionapp.com/d/main/default/#/console/10686253/226770242/preview
-  // NOTE: this is mobile first
-  --t-font-basic: Helvetica Neue, Verdana, Helvetica, Arial, Utkal, sans-serif;
-  --t-font: Helvetica Neue, Verdana, Helvetica, Arial, Utkal, sans-serif;
-
-  // needs to be here for the text calculations
-  --t: 16; // base font size without units
-
-  --t-xxs: 10px;
+  // SPACING - --s- + name  !! needs cleaning up
+  --s-1: 12px;
+  --s-2: 20px;
+  --s-3: 30px;
+  --s-4: 32px;
+  --s-5: 100px;
+  --s-6: 10px;
+  --s-7: 10px;
+  --s-8: 10px;
   --s-h2: calc(4 * var(--vertical-rythym));
   --s-h3: calc(4 * var(--vertical-rythym));
-
-  --t-button: 14px;
-  --t-xxs: 10px;
+  --pad-0: calc(8 * var(--vertical-rythym));
+  --pad-1: calc(12 * var(--vertical-rythym));
+  --pad-2: calc(14 * var(--vertical-rythym));
+  --feature-pad-0: calc(5 * var(--vertical-rythym));
+  --feature-pad-1: calc(8 * var(--vertical-rythym));
+  --feature-pad-2: calc(10 * var(--vertical-rythym));
 
   // needs to be here for the text calculations
   --t: 16; // base font size without units
+  $t: 16;
+
+  --t-xxs: 10px;
+  --t-button: 14px;
 
   // XSmall
   --t-base: calc(var(--t) * 1px); // normal text size
@@ -83,36 +108,6 @@
   --t-xl: calc(28 * 1px);
   --t-xxl: calc(48 * 1px);
   --t-menu: 20;
-
-  // SPACING - --s- + name  !! needs cleaning up
-  --s-1: 12px;
-  --s-2: 20px;
-  --s-3: 30px;
-  --s-4: 32px;
-  --s-5: 100px;
-  --s-6: 10px;
-  --s-7: 10px;
-  --s-8: 10px;
-
-  // MISC
-  --border-radius: 10px;
-  --max-content-width: 1168px;
-  --min-content-width: 280px;
-  --side-gutter: var(--s-2);
-  --h-grid-spacing: 2.5%;
-  --h-grid-spacing-1: calc(var(--s-1) * 2);
-  --h-grid-spacing-2: var(--s-4);
-  --v-grid-spacing: var(--s-1);
-  --vertical-rythym: 8px;
-  --grid-gap: 2.74%;
-  --grid-column: 5.82%;
-
-  --pad-0: calc(8 * var(--vertical-rythym));
-  --pad-1: calc(12 * var(--vertical-rythym));
-  --pad-2: calc(14 * var(--vertical-rythym));
-  --feature-pad-0: calc(5 * var(--vertical-rythym));
-  --feature-pad-1: calc(8 * var(--vertical-rythym));
-  --feature-pad-2: calc(10 * var(--vertical-rythym));
 }
 
 @media (--bp-s) {

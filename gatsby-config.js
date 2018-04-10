@@ -5,7 +5,12 @@ const customMedia = require("postcss-custom-media");
 const postCssPlugins = [
   customMedia(),
   cssnext({
-    browsers: ["last 2 versions", "IE 11", "iOS 9"]
+    browsers: ["last 2 versions", "IE 11", "iOS 9"],
+    features: {
+      customProperties: {
+        warnings: false
+      }
+    }
   })
 ];
 

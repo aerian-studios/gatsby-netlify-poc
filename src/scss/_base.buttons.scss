@@ -1,35 +1,35 @@
 /**
  * Buttons are intended to be used as .button + optional modifier class
  */
-$c-action: --c-black-60;
+$c-action: $c-black-60;
 $c-action-bg: transparent;
-$c-action-border: --c-black-60;
-$c-action-active: --whiteish;
-$c-action-hover: --whiteish;
-$c-action-active-bg: --c-black-60;
-$c-action-active-border: --c-black-60;
+$c-action-border: $c-black-60;
+$c-action-active: $whiteish;
+$c-action-hover: $whiteish;
+$c-action-active-bg: $c-black-60;
+$c-action-active-border: $c-black-60;
 
-$c-action-alt: --whiteish;
+$c-action-alt: $whiteish;
 $c-action-alt-bg: transparent;
-$c-action-alt-border: --whiteish;
-$c-action-alt-active: --c-black-60;
-$c-action-alt-hover: --c-black-60;
-$c-action-alt-active-bg: --whiteish;
-$c-action-alt-active-border: --whiteish;
+$c-action-alt-border: $whiteish;
+$c-action-alt-active: $c-black-60;
+$c-action-alt-hover: $c-black-60;
+$c-action-alt-active-bg: $whiteish;
+$c-action-alt-active-border: $whiteish;
 
-$c-action-2: --whiteish;
+$c-action-2: $whiteish;
 $c-action-2-bg: transparent;
-$c-action-2-border: --whiteish;
+$c-action-2-border: $whiteish;
 $c-action-2-active: --blackish;
-$c-action-2-active-bg: --whiteish;
+$c-action-2-active-bg: $whiteish;
 $c-action-2-active-border: --blackish;
 
-$c-action-primary: --c-black-60;
+$c-action-primary: $c-black-60;
 $c-action-primary-bg: transparent;
-$c-action-primary-border: --c-black-60;
-$c-action-primary-active: --c-black-60;
-$c-action-primary-active-bg: --whiteish;
-$c-action-primary-active-border: --c-black-60;
+$c-action-primary-border: $c-black-60;
+$c-action-primary-active: $c-black-60;
+$c-action-primary-active-bg: $whiteish;
+$c-action-primary-active-border: $c-black-60;
 
 %button-normal {
   min-width: 189px;

@@ -2,7 +2,7 @@
 // rem fallback - credits: http://zerosixthree.se/
 
 @function calculateRem($size) {
-  $remSize: calc((#{$size} / 16));
+  $remSize: calc((#{$size} / var(--t)));
   @return calc(#{$remSize} * 1rem);
 }
 
@@ -57,19 +57,19 @@
   } @else if $name == "strong-5" {
     @include shadows(0, $fr * 4, $fr * 5);
   } @else if $name == "light-1" {
-    @include shadows(0, $fr / 4, $fr, 0, var(--c-shadow-light));
+    @include shadows(0, $fr / 4, $fr, 0, $c-shadow-light);
   } @else if $name == "light-2" {
-    @include shadows(0, $fr, $fr * 2, 0, var(--c-shadow-light));
+    @include shadows(0, $fr, $fr * 2, 0, $c-shadow-light);
   } @else if $name == "light-3" {
-    @include shadows(0, $fr * 2, $fr * 3, 0, var(--c-shadow-light));
+    @include shadows(0, $fr * 2, $fr * 3, 0, $c-shadow-light);
   } @else if $name == "light-4" {
-    @include shadows(0, $fr * 3, $fr * 4, 0, var(--c-shadow-light));
+    @include shadows(0, $fr * 3, $fr * 4, 0, $c-shadow-light);
   } @else if $name == "light-5" {
-    @include shadows(0, $fr * 4, $fr * 5, 0, var(--c-shadow-light));
+    @include shadows(0, $fr * 4, $fr * 5, 0, $c-shadow-light);
   }
 }
 
-@mixin shadows($left, $top, $blur, $offset: 0, $colour: var(--c-shadow)) {
+@mixin shadows($left, $top, $blur, $offset: 0, $colour: $c-shadow) {
   box-shadow: $left $top $blur $offset $colour;
 }
 

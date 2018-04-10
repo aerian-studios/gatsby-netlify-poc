@@ -8,7 +8,7 @@
   margin: 0 auto;
 
   .content-wrap {
-    background-color: var(--whiteish);
+    background-color: $whiteish;
     position: relative;
   }
 }
@@ -62,14 +62,14 @@
   }
 
   .content:not(:last-child) {
-    margin-bottom: var(--s-h2-xs);
+    margin-bottom: var(--s-h2);
 
     @media (--bp-s) {
-      margin-bottom: var(--s-h2-s);
+      // margin-bottom: var(--s-h2);
     }
 
     @media (--bp-m) {
-      margin-bottom: var(--s-h2-m);
+      // margin-bottom: var(--s-h2);
     }
   }
 
@@ -131,7 +131,7 @@
 
   .content-wrap {
     order: 2;
-    background-color: var(--whiteish);
+    background-color: $whiteish;
     padding: 0;
     flex: 1;
     margin-left: auto;
@@ -411,7 +411,7 @@
 //     z-index: 2;
 //     height: 100%;
 //     width: 320px;
-//     color: --c-text;
+//     color: $c-text;
 
 //     @media (--bp-s) {
 //       width: 632px;
@@ -444,7 +444,7 @@
 
 //     @media (--bp-m) {
 //       min-height: 180px;
-//       padding-top: --s-h2-m;
+//       padding-top: --s-h2;
 //       margin-top: -1 * (13 * var(--vertical-rythym));
 //       padding-bottom: --pad-2 / 2;
 //     }
@@ -456,14 +456,14 @@
 //   }
 
 //   .ae-carousel-content {
-//     margin-bottom: --s-h2-xs;
+//     margin-bottom: --s-h2;
 
 //     @media (--bp-s) {
-//       margin-bottom: --s-h2-s;
+//       margin-bottom: --s-h2;
 //     }
 
 //     @media (--bp-m) {
-//       margin-bottom: --s-h2-m;
+//       margin-bottom: --s-h2;
 //     }
 //   }
 

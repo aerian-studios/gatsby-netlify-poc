@@ -19,7 +19,7 @@ html * {
 
 // These classes are set on the HTML element once the fonts are loaded
 %fonts-loaded {
-  font-family: var(--t-font);
+  font-family: $t-font;
 }
 .fonts-stage-1 body,
 .fonts-stage-2 body {
@@ -33,7 +33,7 @@ html * {
 }
 
 body {
-  font-family: var(--t-font-basic);
+  font-family: $t-font-basic;
   font-size: var(--t-base);
   line-height: calculateRem(24);
   font-weight: 200;
@@ -93,40 +93,40 @@ h1,
 .block-base-theme-page-title {
   position: absolute;
   z-index: -1;
-  color: var(--whiteish);
+  color: $whiteish;
 }
 
 h2 {
   @include font-size(var(--t-h2));
   font-weight: 100;
   line-height: (40 / 30) * 1em;
-  margin-bottom: calc(var(--s-h2-xs) - 8px); // -8 is for the descenders
+  margin-bottom: calc(var(--s-h2) - 8px); // -8 is for the descenders
   // this is for top 'extra' line height
   margin-top: -6px;
 
   @media (--bp-s) {
     line-height: (64 / 48) * 1em;
-    margin-bottom: calc(var(--s-h2-s) - 8px); // -8 is for the descenders
+    margin-bottom: calc(var(--s-h2) - 8px); // -8 is for the descenders
   }
   @media (--bp-m) {
     line-height: (64 / 64) * 1em;
-    margin-bottom: calc(var(--s-h2-m) - 8px); // -8 is for the descenders
+    margin-bottom: calc(var(--s-h2) - 8px); // -8 is for the descenders
   }
 }
 
 h3 {
   @include font-size(var(--t-h3));
   line-height: (40 / 30) * 1em;
-  margin-bottom: calc(var(--s-h3-xs) - 3px);
+  margin-bottom: calc(var(--s-h3) - 3px);
 
   @media (--bp-s) {
     line-height: (64 / 48) * 1em;
-    margin-bottom: calc(var(--s-h3-s) - 3px);
+    margin-bottom: calc(var(--s-h3) - 3px);
   }
 
   @media (--bp-m) {
     line-height: (64 / 64) * 1em;
-    margin-bottom: cacl(var(--s-h3-m) - 3px);
+    margin-bottom: cacl(var(--s-h3) - 3px);
   }
 }
 
@@ -135,12 +135,12 @@ h4 {
   line-height: (40 / 30) * 1em;
 
   @media (--bp-s) {
-    font-size: var(--t1-h4);
+    // font-size: var(--t1-h4);
     line-height: (64 / 48) * 1em;
   }
 
   @media (--bp-m) {
-    font-size: var(--t2-h4);
+    // font-size: var(--t2-h4);
     line-height: (64 / 64) * 1em;
   }
 }
@@ -150,12 +150,12 @@ h5 {
   line-height: (40 / 30) * 1em;
 
   @media (--bp-s) {
-    font-size: var(--t1-h5);
+    // font-size: var(--t1-h5);
     line-height: (64 / 48) * 1em;
   }
 
   @media (--bp-m) {
-    font-size: var(--t2-h5);
+    // font-size: var(--t2-h5);
     line-height: (64 / 64) * 1em;
   }
 }
@@ -165,12 +165,12 @@ h6 {
   line-height: (40 / 30) * 1em;
 
   @media (--bp-s) {
-    font-size: var(--t1-h6);
+    // font-size: var(--t1-h6);
     line-height: (64 / 48) * 1em;
   }
 
   @media (--bp-m) {
-    font-size: var(--t2-h6);
+    // font-size: var(--t2-h6);
     line-height: (64 / 64) * 1em;
   }
 }
@@ -221,7 +221,7 @@ ol {
 
   li {
     &::before {
-      color: var(--c-brand-a);
+      color: $c-brand-a;
       counter-increment: section; /* Increments only this instance of the section counter */
       content: counters(section, ".") ". ";
       padding-right: 4px;
@@ -235,30 +235,30 @@ li ol:first-child {
 }
 
 .content-title {
-  font-size: var(--t-base);
+  font-size: var(--t);
   margin-bottom: 0;
   font-weight: 600;
 
   @media (--bp-s) {
     margin-bottom: 0;
-    font-size: var(--t1-base);
-    line-height: calc((24 / var(--t1)) * 1em);
+    // font-size: var(--t);
+    line-height: calc((24 / var(--t)) * 1em);
   }
 
   @media (--bp-m) {
     margin-bottom: 0;
-    font-size: var(--t2-base);
-    line-height: calc((24 / var(--t2)) * 1em);
+    // font-size: var(--t);
+    line-height: calc((24 / var(--t)) * 1em);
   }
 }
 //=====================
 // LINKS
 //=====================
 a {
-  color: var(--c-link);
+  color: $c-link;
   text-decoration: none;
   border: 1px solid transparent;
-  border-bottom-color: var(--c-link);
+  border-bottom-color: $c-link;
   padding: 3px 3px 1px;
   transition: all 0.2s ease-out 0s;
   position: relative;
@@ -269,7 +269,7 @@ a {
   }
 
   &:visited {
-    color: var(--c-link-visited);
+    color: $c-link-visited;
     text-decoration: none;
     border-bottom-color: transparent;
   }
@@ -287,7 +287,7 @@ a {
 // ELEMENTS
 //=====================
 label {
-  color: var(--c-black-40);
+  color: $c-black-40;
   text-transform: uppercase;
   display: block;
   margin-bottom: var(--vertical-rythym);
@@ -297,15 +297,15 @@ select,
 textarea,
 q,
 button {
-  font-size: var(--t-base);
+  font-size: var(--t);
   font-weight: 400;
 
   @media (--bp-s) {
-    font-size: var(--t1-base);
+    // font-size: var(--t);
   }
 
   @media (--bp-m) {
-    font-size: var(--t2-base);
+    // font-size: var(--t);
   }
 }
 
@@ -350,15 +350,15 @@ q {
   &::after {
     content: '"';
     display: inline;
-    color: var(--c-brand-a);
-    font-size: var(--t-base);
+    color: $c-brand-a;
+    font-size: var(--t);
 
     @media (--bp-s) {
-      font-size: var(--t1-base);
+      // font-size: var(--t);
     }
 
     @media (--bp-m) {
-      font-size: var(--t2-base);
+      // font-size: var(--t);
     }
   }
 }

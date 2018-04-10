@@ -4,7 +4,7 @@
 .block {
   position: relative;
   z-index: 1;
-  background-color: var(--whiteish);
+  background-color: $whiteish;
   text-align: left;
   @extend %before-padding;
   @extend %after-padding;
@@ -115,12 +115,12 @@
 
 .block--light_skin,
 .block--light-grey_skin {
-  background-color: var(--c-black-20);
+  background-color: $c-black-20;
 }
 
 .block--mid_skin,
 .block--mid-grey_skin {
-  background-color: var(--c-black-40);
+  background-color: $c-black-40;
 }
 
 .block--header {
@@ -132,20 +132,20 @@
 .block--black_skin,
 .block--hero_skin,
 .block--dark-grey_skin {
-  color: var(--whiteish);
+  color: $whiteish;
   * {
     color: currentColor;
   }
 }
 
 .block--dark_skin {
-  background-color: var(--dark-grey);
+  background-color: $dark-grey;
 }
 
 .block--black_skin,
 .block--dark-grey_skin,
 .block--hero_skin {
-  background-color: var(--accent-black);
+  background-color: $accent-black;
 }
 
 // Most styles in _hero-component, these are just block based styles
