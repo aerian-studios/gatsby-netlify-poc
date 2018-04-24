@@ -4,9 +4,10 @@ import Helmet from "react-helmet";
 import Content, { HTMLContent } from "../components/Content";
 
 import { IBlogData } from "../datatypes/dataTypes";
+import { HeroBlock } from "../components/HeroBlock";
 
 interface Props {
-  content: React.DOMElement<any, any>;
+  content: React.ReactNode;
   contentComponent: React.SFC;
   description: string;
   helmet: any;
@@ -23,19 +24,13 @@ export const BlogPostTemplate: React.SFC<Props> = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <section className="section">
+    <section className="section section--blog">
       {helmet || ""}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-          </div>
-        </div>
-      </div>
+      <HeroBlock>
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </HeroBlock>
+      <PostContent content={content} />
     </section>
   );
 };
