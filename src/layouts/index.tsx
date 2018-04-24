@@ -8,7 +8,6 @@ import "../scss/base-theme.scss";
 interface Props {
   children: () => React.Component;
   className?: string;
-  theme?: IThemeInterface;
 }
 
 const TemplateWrapper: React.SFC<Props> = ({ children }) => (
