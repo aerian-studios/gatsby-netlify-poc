@@ -15,7 +15,7 @@ const TemplateWrapper: React.SFC<Props> = ({ children }) => (
   <div className="layout-container">
     <Helmet title="Home | Gatsby + Netlify CMS" />
     <Navbar />
-    <div>{children()}</div>
+    <div id="content-wrapper">{children()}</div>
   </div>
 );
 

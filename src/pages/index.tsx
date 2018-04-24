@@ -14,7 +14,7 @@ export default class IndexPage extends React.Component<Props> {
 
     return (
       <main className="layout-grid">
-        <header className="block--hero_skin block--full block">
+        <header className="block--hero_skin block--full block layout-grid">
           <h1>Latest Stories</h1>
         </header>
         {posts

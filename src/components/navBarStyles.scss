@@ -148,8 +148,7 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
   top: 55px;
   right: 0;
   opacity: 0;
-  transition: width 0.2s ease 0.2s, opacity 0.2s ease 0s,
-    position 0.1s linear 0.2s;
+  transition: opacity 0.2s ease 0s;
   background: $c-black-90;
   z-index: -1;
 
@@ -158,10 +157,10 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
   justify-content: space-around;
   align-items: flex-end;
 
-  @supports (display: grid) {
-    align-items: stretch;
-    justify-items: end;
-  }
+  // @supports (display: grid) {
+  //   align-items: stretch;
+  //   justify-items: end;
+  // }
 }
 
 .Menu,

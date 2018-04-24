@@ -3,26 +3,21 @@ import Link from "gatsby-link";
 
 import "./navBarStyles.scss";
 
-import * as github from "../img/github-icon.svg";
+import { OnWardJourneys } from "./OnwardJourneys";
 
 //@TODO tie the opening of the menu with central state
 class MainMenu extends React.Component {
-  constructor(props) {
-    super(props);
+  public state = {
+    menuActive: false
+  };
 
-    this.state = {
-      menuActive: false,
-      subMenuElement: null
-    };
-  }
-
-  onChange = event => {
-    this.setState({ menuActive: event.target.checked });
+  onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ menuActive: event.currentTarget.checked });
   };
 
   render() {
     return (
-      <div className="BurgerMenuWrapper">
+      <div className="BurgerMenuWrapper layout-grid">
         <input
           type="checkbox"
           id="menu-toggle"
@@ -36,7 +31,9 @@ class MainMenu extends React.Component {
 
         <nav
           id="menu--main"
-          className={`MenuMain ${this.state.menuActive ? "active" : ""}`}
+          className={`MenuMain layout-grid ${
+            this.state.menuActive ? "active" : ""
+          }`}
         >
           <div className="MenuMain__ContentWap">
             <ul className="FirstLevelMenu">
@@ -58,34 +55,7 @@ class MainMenu extends React.Component {
             </ul>
           </div>
 
-          <div className="block--full grid MenuOnwardJourneys">
-            <div className="subscribe-wrapper">
-              <p className="subscribe-text">Subscribe</p>
-              <a className="subscribe_link" href="/">
-                <svg className="icon icon--subscribe">
-                  <use xlinkHref="#subscribe" />
-                </svg>
-                <span className="helper-text">Subscribe to us</span>
-              </a>
-            </div>
-            <div className="social-wrapper">
-              <p className="social-text">Follow us</p>
-              <div className="social-links-wrapper">
-                <a
-                  className="navbar-item"
-                  href="https://github.com/aerian-studios"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Visit Aerian studios' github account"
-                >
-                  <svg className="icon">
-                    <use xlinkHref={`#${github.id}`} />
-                  </svg>
-                  <span className="helper-text">Visit us on Github</span>
-                </a>
-              </div>
-            </div>
-          </div>
+          <OnWardJourneys />
         </nav>
       </div>
     );
