@@ -1,6 +1,24 @@
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 
+// exports.modifyWebpackConfig = ({ config, stage }) => {
+//   if (stage === "build-javascript") {
+//     config.loader("cms-css", current => {
+//       const constructedLoaders = current.loader.map(loader => ({
+//         loader: loader.loader,
+//         query: loader.options ? loader.options : {}
+//       }));
+//       const newCurrent = {
+//         test: current.test,
+//         include: current.include,
+//         loaders: constructedLoaders
+//       };
+
+//       return newCurrent;
+//     });
+//   }
+// };
+
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
