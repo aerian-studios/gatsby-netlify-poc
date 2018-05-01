@@ -18,9 +18,13 @@ module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: config.siteMetadata,
   plugins: [
-    `gatsby-plugin-react-next`, // use react 16
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
+    {
+      resolve: "gatsby-plugin-netlify-cms",
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.ts`
+      }
+    },
     {
       resolve: `gatsby-plugin-postcss-sass`,
       options: {
@@ -28,6 +32,8 @@ module.exports = {
         precision: 8 // SASS default: 5
       }
     },
+    `gatsby-plugin-react-next`, // use react 16
+    `gatsby-plugin-react-helmet`,
     // @TODO: make this into a section controlled by site-config
     {
       resolve: "gatsby-source-filesystem",
@@ -43,9 +49,6 @@ module.exports = {
         name: "images"
       }
     },
-    // transform all iamge files
-    `gatsby-plugin-sharp`, // Used manipulate images
-    `gatsby-transformer-sharp`, // used to insert images
     `gatsby-plugin-svg-sprite`, // creates sprite from imported svg when used as sprites
     {
       resolve: "gatsby-transformer-remark", // to modify MD
@@ -61,20 +64,16 @@ module.exports = {
         ]
       }
     },
-    {
-      resolve: "gatsby-plugin-netlify-cms",
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.ts`
-      }
-    },
-    `gatsby-plugin-accessibilityjs`, // Inserts accessibility warnings in the code
+    // transform all iamge files
+    `gatsby-plugin-sharp`, // Used manipulate images
+    `gatsby-transformer-sharp`, // used to insert images
     // Manifest for AppCache and PWA compatibility
     {
       resolve: `gatsby-plugin-manifest`,
       options: config.manifest
     },
-    // must come AFTER manifest plugin
-    // Generates a service worker and AppShell
-    `gatsby-plugin-offline`
+    // must come AFTER manifest plugin, Generates a service worker and AppShell
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-accessibilityjs` // Inserts accessibility warnings in the code
   ]
 };
