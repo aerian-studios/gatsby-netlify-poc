@@ -5,7 +5,7 @@ import Content, { HTMLContent } from "../components/Content";
 
 import { IBlogData } from "../datatypes/dataTypes";
 import { HeroBlock } from "../components/HeroBlock";
-import { FullScreenImage } from "../components/FullScreenImage";
+import { FullScreenMedia } from "../components/FullScreenMedia";
 
 interface Props {
   content: React.ReactNode | React.ReactChildren;
@@ -30,9 +30,9 @@ export const BlogPostTemplate: React.SFC<Props> = ({
     <section className="section section--blog">
       {helmet || ""}
       <HeroBlock>
-        <FullScreenImage image={heroimage} altText={description} />
+        <FullScreenMedia image={heroimage} altText={description} />
         <div className="block--hero__content">
-          <h1 clasName="block--hero__title">{title}</h1>
+          <h1 className="block--hero__title">{title}</h1>
           <p>{description}</p>
         </div>
       </HeroBlock>

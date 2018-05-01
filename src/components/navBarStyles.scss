@@ -48,24 +48,6 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
     outline-color: transparent;
     outline-width: 0;
   }
-
-  &:checked {
-    + label {
-      .BurgerMenu__ContentIcon {
-        opacity: 0.6;
-        background-color: transparent;
-        &::before {
-          top: 0;
-          transform: rotate(135deg);
-        }
-
-        &::after {
-          bottom: 0;
-          transform: rotate(-135deg);
-        }
-      }
-    }
-  }
 }
 
 .MenuToggle:checked ~ .MenuMain,
@@ -80,7 +62,24 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
   }
 }
 
+.MenuToggle:checked ~ .MenuToggleLabel {
+  .BurgerMenuContentIcon {
+    opacity: 0.6;
+    background-color: transparent;
+    &::before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+
+    &::after {
+      bottom: 0;
+      transform: rotate(-135deg);
+    }
+  }
+}
+
 .MenuToggleLabel {
+  pointer-events: none;
   position: absolute;
   top: 18px;
   right: 0;

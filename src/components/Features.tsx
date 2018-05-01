@@ -6,15 +6,13 @@ interface Props {
   gridItems: IProductIntro;
 }
 const FeatureGrid: React.SFC<Props> = ({ gridItems }) => (
-  <div className="columns is-multiline">
+  <div className="card-grid">
     {gridItems.blurbs.map(item => (
-      <div key={item.image} className="column is-6">
-        <section className="section">
-          <p className="has-text-centered">
-            <img alt="" src={item.image} />
-          </p>
-          <p>{item.text}</p>
-        </section>
+      <div className="card card--product media-content" key={item.image}>
+        <figure className="media-content__media">
+          <img alt="" src={item.image} />
+        </figure>
+        <p className="media-content__content">{item.text}</p>
       </div>
     ))}
   </div>

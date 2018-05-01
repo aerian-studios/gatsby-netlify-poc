@@ -1,5 +1,7 @@
 import * as React from "react";
 import Link from "gatsby-link";
+import { HeroBlock } from "../components/HeroBlock";
+import { FullScreenMedia } from "../components/FullScreenMedia";
 
 // import "../scss/base-theme.scss";
 
@@ -15,34 +17,32 @@ export default class IndexPage extends React.Component<Props> {
       const { edges: posts } = data.allMarkdownRemark;
       return (
         <main className="layout-grid">
-          <header className="block--hero_skin block--full block layout-grid">
+          <HeroBlock>
+            <FullScreenMedia video="/img/687898845.mp4" />
             <h1>Latest Stories</h1>
-          </header>
-          {posts
-            .filter(post => post.node.frontmatter.templateKey === "blog-post")
-            .map(({ node: post }) => (
-              <div
-                className="content"
-                style={{ border: "1px solid #eaecee", padding: "2em 4em" }}
-                key={post.id}
-              >
-                <p>
+          </HeroBlock>
+          <section className="block card-grid">
+            {posts
+              .filter(post => post.node.frontmatter.templateKey === "blog-post")
+              .map(({ node: post }) => (
+                <div className="card" key={post.id}>
                   <Link className="has-text-primary" to={post.fields.slug}>
-                    {post.frontmatter.title}
+                    <div className="card__content">
+                      <h2 className="card__title">
+                        {post.frontmatter.title}
+
+                        <span> &bull; </span>
+                        <small>{post.frontmatter.date}</small>
+                      </h2>
+                      <p>
+                        {post.excerpt}
+                        Keep Reading →
+                      </p>
+                    </div>
                   </Link>
-                  <span> &bull; </span>
-                  <small>{post.frontmatter.date}</small>
-                </p>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button is-small" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
-              </div>
-            ))}
+                </div>
+              ))}
+          </section>
         </main>
       );
     }

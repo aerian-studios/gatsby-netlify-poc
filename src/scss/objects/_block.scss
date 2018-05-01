@@ -25,10 +25,8 @@
   }
 }
 
-.block:not(.block--hero_skin) {
-  &:first-of-type {
-    @extend %before-padding--extended;
-  }
+.block:first-of-type {
+  @extend %before-padding--extended;
 }
 
 .block--white_skin,
@@ -130,7 +128,7 @@
 // Dark Themes
 .block--dark_skin,
 .block--black_skin,
-.block--hero_skin,
+.block--hero,
 .block--dark-grey_skin {
   color: $whiteish;
   * {
@@ -144,7 +142,7 @@
 
 .block--black_skin,
 .block--dark-grey_skin,
-.block--hero_skin {
+.block--hero {
   background-color: $accent-black;
 }
 
@@ -193,41 +191,48 @@
   }
 }
 
-.block--text-hero {
-  padding-top: 0 !important;
-  > .content-wrap {
-    max-width: 100%;
-    margin-bottom: 0 !important;
-    margin: 0 auto;
-    @media (--bp-m) {
-      max-width: 769px;
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(120px, calc(33% - var(--s-3) * 2))
+  );
+  grid-auto-flow: dense;
+  grid-gap: calc(var(--s-3) * 2);
+  grid-auto-rows: auto;
+  align-items: stretch;
+}
+
+.block--image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: var(--vertical-rythym);
+
+  * {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    * {
+      object-fit: cover;
+      min-width: 100%;
+      height: 100%;
+      // position: absolute;
     }
-  } // sorry about this
-  .content {
-    margin-bottom: 0;
   }
-}
 
-.block--channels .container {
-  padding-top: var(--pad-0);
-  padding-bottom: var(--pad-0);
+  *:first-child {
+    grid-row: 1/3;
+    grid-column: 1/2;
 
-  @media (--bp-s) {
-    padding-top: var(--pad-1);
-    padding-top: var(--pad-1);
+    * {
+      width: auto;
+    }
   }
-  @media (--bp-m) {
-    padding-bottom: var(--pad-2);
-    padding-bottom: var(--pad-2);
+  *:last-child {
+    grid-row: 2/3;
   }
-}
-
-.paragraph--type--full-width-image-with-title-and- {
-  @extend %no-before-padding;
-}
-
-.block--hero_skin,
-.block--channels {
-  @extend %no-before-padding;
-  @extend %no-after-padding;
 }

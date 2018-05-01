@@ -5,24 +5,33 @@ import "./navBarStyles.scss";
 
 import { OnWardJourneys } from "./OnwardJourneys";
 
-//@TODO tie the opening of the menu with central state
-class MainMenu extends React.Component {
-  public state = {
-    menuActive: false
-  };
+interface State {
+  menuActive: boolean;
+}
 
-  onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ menuActive: event.currentTarget.checked });
+interface Props {}
+
+const DEFAULT_STATE: State = {
+  menuActive: false
+};
+//@TODO tie the opening of the menu with central state
+class MainMenu extends React.Component<Props, State> {
+  public readonly state = DEFAULT_STATE;
+
+  toggleMenu = () => {
+    console.log("it is here", this.state.menuActive);
+
+    this.setState({ menuActive: !this.state.menuActive });
   };
 
   render() {
     return (
-      <div className="BurgerMenuWrapper layout-grid">
+      <div className="BurgerMenuWrapper layout-grid" onClick={this.toggleMenu}>
         <input
           type="checkbox"
           id="menu-toggle"
           className="MenuToggle menu-toggle"
-          onChange={this.onChange}
+          checked={this.state.menuActive}
         />
         <label htmlFor="menu-toggle" className="MenuToggleLabel">
           <span className="BurgerMenuContentIcon" aria-hidden="true" />

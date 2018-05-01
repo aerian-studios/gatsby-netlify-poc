@@ -2,7 +2,7 @@
 templateKey: 'about-page'
 path: /about
 title: About our values
-heroimage: /img/chemex.jpg
+heroimage: '/img/chemex.jpg'
 ---
 
 ### Shade-grown coffee
