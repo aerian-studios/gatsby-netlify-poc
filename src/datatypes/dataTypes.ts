@@ -49,6 +49,7 @@ export interface IProductFrontmatter {
   testimonials: Array<ITestimonial>;
   full_image: string;
   pricing: IProductPricing;
+  heroimage: string;
 }
 
 export interface IProductData {
@@ -64,11 +65,12 @@ interface IBlogFrontmatter {
   title: string;
   data: string;
   description: string;
+  heroimage: string;
 }
 
 interface IBlogContent {
   id: string;
-  html: any;
+  html: React.ReactChildren | React.SFC;
   frontmatter: IBlogFrontmatter;
 }
 

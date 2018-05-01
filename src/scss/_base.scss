@@ -73,8 +73,7 @@ p {
   }
 }
 
-h1,
-.block--hero_skin h2 {
+h1 {
   @include font-size(var(--t-h1));
   line-height: calculateRem(40);
   letter-spacing: 0.3px;

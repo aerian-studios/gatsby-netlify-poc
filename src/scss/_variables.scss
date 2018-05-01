@@ -111,45 +111,41 @@ $t-font: Helvetica, Verdana, Arial, Utkal, sans-serif;
 }
 
 @media (--bp-s) {
-  :root {
-    --s-h2: calc(5 * var(--vertical-rythym));
-    --s-h3: calc(4 * var(--vertical-rythym));
+  --s-h2: calc(5 * var(--vertical-rythym));
+  --s-h3: calc(4 * var(--vertical-rythym));
 
-    // Medium
-    --t-base: calc(var(--t) * 1px); // normal text size
-    --t-h1: 58;
-    --t-h2: 32;
-    --t-h3: 18;
-    --t-h4: calc((20 / var(--t)) * 1em);
-    --t-h5: calc((18 / var(--t)) * 1em);
-    --t-h6: calc((16 / var(--t)) * 1em);
-    --t-intro: calc((20 / var(--t)) * 1em);
-    --t-small: 16px;
-    --t-xsmall: 14px;
-    --t-xl: calc(42 * 1px);
-    --t-xxl: calc(82 * 1px);
-    --t-menu: 27;
-  }
+  // Medium
+  --t-base: calc(var(--t) * 1px); // normal text size
+  --t-h1: calc(58 / var(--t) * 1rem);
+  --t-h2: 32;
+  --t-h3: 18;
+  --t-h4: calc((20 / var(--t)) * 1em);
+  --t-h5: calc((18 / var(--t)) * 1em);
+  --t-h6: calc((16 / var(--t)) * 1em);
+  --t-intro: calc((20 / var(--t)) * 1em);
+  --t-small: 16px;
+  --t-xsmall: 14px;
+  --t-xl: calc(42 * 1px);
+  --t-xxl: calc(82 * 1px);
+  --t-menu: 27;
 }
 
 @media (--bp-m) {
-  :root {
-    --s-h2: calc(6 * var(--vertical-rythym));
-    --s-h3: calc(4 * var(--vertical-rythym));
-    // Large
-    --t: 16; // base font size without units
-    --t-base: calc(var(--t) * 1px); // normal text size
-    --t-h1: 65;
-    --t-h2: 50;
-    --t-h3: 18;
-    --t-h4: calc((24 / var(--t)) * 1em);
-    --t-h5: calc((18 / var(--t)) * 1em);
-    --t-h6: calc((16 / var(--t)) * 1em);
-    --t-intro: calc((20 / var(--t)) * 1em);
-    --t-small: 16px;
-    --t-xsmall: 14px;
-    --t-xl: calc(50 * 1px);
-    --t-xxl: calc(90 * 1px);
-    --t-menu: 40;
-  }
+  --s-h2: calc(6 * var(--vertical-rythym));
+  --s-h3: calc(4 * var(--vertical-rythym));
+  // Large
+  --t: 16; // base font size without units
+  --t-base: calc(var(--t) * 1px); // normal text size
+  --t-h1: calc(65 / var(--t) * 1rem);
+  --t-h2: 50;
+  --t-h3: 18;
+  --t-h4: calc((24 / var(--t)) * 1em);
+  --t-h5: calc((18 / var(--t)) * 1em);
+  --t-h6: calc((16 / var(--t)) * 1em);
+  --t-intro: calc((20 / var(--t)) * 1em);
+  --t-small: 16px;
+  --t-xsmall: 14px;
+  --t-xl: calc(50 * 1px);
+  --t-xxl: calc(90 * 1px);
+  --t-menu: 40;
 }

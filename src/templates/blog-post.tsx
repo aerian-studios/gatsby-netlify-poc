@@ -5,13 +5,15 @@ import Content, { HTMLContent } from "../components/Content";
 
 import { IBlogData } from "../datatypes/dataTypes";
 import { HeroBlock } from "../components/HeroBlock";
+import { FullScreenImage } from "../components/FullScreenImage";
 
 interface Props {
-  content: React.ReactNode;
+  content: React.ReactNode | React.ReactChildren;
   contentComponent: React.SFC;
   description: string;
   helmet: any;
   title: string;
+  heroimage: string;
 }
 
 export const BlogPostTemplate: React.SFC<Props> = ({
@@ -19,7 +21,8 @@ export const BlogPostTemplate: React.SFC<Props> = ({
   contentComponent,
   description,
   title,
-  helmet
+  helmet,
+  heroimage
 }) => {
   const PostContent = contentComponent || Content;
 
@@ -27,10 +30,16 @@ export const BlogPostTemplate: React.SFC<Props> = ({
     <section className="section section--blog">
       {helmet || ""}
       <HeroBlock>
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <FullScreenImage image={heroimage} altText={description} />
+        <div className="block--hero__content">
+          <h1 clasName="block--hero__title">{title}</h1>
+          <p>{description}</p>
+        </div>
       </HeroBlock>
-      <PostContent content={content} />
+      <PostContent
+        content={content}
+        className="block--full block layout-grid"
+      />
     </section>
   );
 };
@@ -45,6 +54,7 @@ const Blog: React.SFC<IBlogData> = props => {
       description={post.frontmatter.description}
       helmet={<Helmet title={`Blog | ${post.frontmatter.title}`} />}
       title={post.frontmatter.title}
+      heroimage={post.frontmatter.heroimage}
     />
   );
 };
@@ -60,6 +70,7 @@ export const pageQuery: IBlogData = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
+        heroimage
       }
     }
   }
