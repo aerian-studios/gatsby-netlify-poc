@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "./public/static/",
+    // "outDir": "./public/",
+    "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "esnext",
     "jsx": "react",
     "allowJs": true,
-    "lib": ["dom", "es2015", "es2017"]
+    "lib": ["dom", "esnext"]
   },
-  "include": ["./src/**/*", "./custom.d.ts"]
+  "include": ["./src/**/*"]
 }
