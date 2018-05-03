@@ -229,11 +229,11 @@ label[for="menu-toggle"] {
     line-height: 1.2em;
     @include font-size($t-menu, "s");
 
-    @media (--bp-s) {
+    @media (min-width: $bp-s) {
       @include font-size($t1-menu, "m");
     }
 
-    @media (--bp-m) {
+    @media (min-width: $bp-m) {
       @include font-size($t2-menu, "l");
     }
 
@@ -283,7 +283,7 @@ label[for="menu-toggle"] {
   height: calc(100vh - 55px);
   width: 100%;
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     flex: 0;
     margin-top: 0;
   }

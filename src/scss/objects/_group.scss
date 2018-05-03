@@ -10,12 +10,12 @@
   .group-item {
     flex: unset;
 
-    @media (--bp-s) {
+    @media (min-width: $bp-s) {
       flex: 100% 1 1;
       margin-bottom: var(--s-4);
     }
 
-    @media (--bp-m) {
+    @media (min-width: $bp-m) {
       //width: 32%;
       //flex: unset;
       flex: 32% 1 1;
@@ -54,15 +54,15 @@
 //       }
 //     }
 
-//     @media (--bp-s) {
+//     @media (min-width: $bp-s) {
 //       margin-top: --feature-pad-1;
 //     }
 
-//     @media (--bp-m) {
+//     @media (min-width: $bp-m) {
 //       margin-top: --feature-pad-2;
 //     }
 
-//     @media (--bp-xl) {
+//     @media (min-width: $bp-xl) {
 //       flex-basis: 0;
 //       &:before {
 //         display: block;
@@ -93,7 +93,7 @@
 //     left: 50%;
 //     bottom: auto;
 //     margin-top: -0.5em;
-//     @media (--bp-s) {
+//     @media (min-width: $bp-s) {
 //       top: auto;
 //       margin-top: 0;
 //     }
@@ -111,13 +111,13 @@
     }
   }
   // uses tools/atoms to pull in on small screen
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     @supports (display: grid) {
       grid-column-gap: var(--s-2);
       margin-bottom: 0;
     }
   }
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     @supports (display: grid) {
       min-width: none;
       margin-bottom: 0;
@@ -152,7 +152,7 @@
 //       rgba(0, 0, 0, 0)
 //     );
 
-//     @media (--bp-s) {
+//     @media (min-width: $bp-s) {
 //       display: none;
 //     }
 //   }
@@ -180,7 +180,7 @@
 //       min-width: 172px;
 //     }
 
-//     @media (--bp-s) {
+//     @media (min-width: $bp-s) {
 //       background-color: transparent;
 //       margin-left: --side-gutter;
 //       margin-right: --side-gutter;
@@ -198,7 +198,7 @@
 //         }
 //       }
 //     }
-//     @media (--bp-m) {
+//     @media (min-width: $bp-m) {
 //       margin-left: auto;
 //       margin-right: auto;
 //       @supports (display: grid) {

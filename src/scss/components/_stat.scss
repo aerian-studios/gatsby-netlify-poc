@@ -9,18 +9,18 @@
   font-size: $t-xsmall;
   padding: $s-6 0 $s-1;
   margin: 0 auto;
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     max-width: 228px;
     font-size: $t1-small;
     padding: $s-2 0;
   }
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     max-width: 300px;
     font-size: $t2-small;
   }
 
-  @media (--bp-l) {
+  @media (min-width: $bp-l) {
     max-width: none;
     padding: $s-3;
   }
@@ -70,15 +70,15 @@
   margin-bottom: $s-1 / 2;
   font-weight: 100 !important;
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     font-size: $t2-xl;
   }
   strong {
     font-weight: 100;
-    @media (--bp-s) {
+    @media (min-width: $bp-s) {
       font-size: $t1-xxl;
     }
-    @media (--bp-m) {
+    @media (min-width: $bp-m) {
       font-size: $t2-xxl;
     }
   }
@@ -89,7 +89,7 @@
   overflow: hidden;
   height: 0.8em;
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     font-size: $t2-xxl;
   }
 }

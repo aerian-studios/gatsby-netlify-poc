@@ -9,7 +9,7 @@
   @extend %before-padding;
   @extend %after-padding;
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     text-align: center;
   }
 
@@ -23,10 +23,6 @@
       margin-bottom: 0; //added in to stop extra gap when no sub heading added with stats
     }
   }
-}
-
-.block:first-of-type {
-  @extend %before-padding--extended;
 }
 
 .block--white_skin,
@@ -156,14 +152,14 @@
     height: 0 !important;
   }
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     grid-column: full;
     &::before {
       height: var(--pad-2) !important;
     }
   }
 
-  @media (--bp-l) {
+  @media (min-width: $bp-l) {
     grid-column: main;
   }
 
@@ -178,13 +174,13 @@
     height: var(--pad-0);
   }
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     text-align: center;
     &::before {
       height: var(--pad-1);
     }
   }
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     &::before {
       height: var(--pad-2);
     }

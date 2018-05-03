@@ -15,8 +15,8 @@ export const AboutPageTemplate = ({
   return (
     <section className="section section--about">
       <HeroBlock>
-        <FullScreenMedia image={heroimage} altText={title} />
-        <div className="block--hero__content">
+        <FullScreenMedia image={heroimage} altText={title} video="" />
+        <div className="block--hero__content-wrap">
           <h1 className="block--hero__title">{title}</h1>
         </div>
       </HeroBlock>

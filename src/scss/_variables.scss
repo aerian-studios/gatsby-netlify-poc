@@ -1,12 +1,14 @@
+// @import "../../node_modules/css-vars/css-vars";
+// $css-vars-debug-log: true;
 // STATIC varaibles (don't change with context) can be sass variables (e.g. $variable-name)
 
-// BREAKPOINTS - --bp- + name
-@custom-media --bp-xs (min-width: 23.125em); // 370 > standard mobile
-@custom-media --bp-s (min-width: 36.875em); // 590 > mobile or no mq support
-@custom-media --bp-m (min-width: 50em); // 800> portrait tablet
-@custom-media --bp-l (min-width: 67.5em); // 1080 > most tablets
-@custom-media --bp-xl (min-width: 73.0625em); // 1169px; // very large screens - might need to make an xl font size
-@custom-media --bp-xxl (min-width: 81em); // 1296px;
+// BREAKPOINTS - $bp- + name
+$bp-xs: 23.125em; // 370 > standard mobile
+$bp-s: 36.875em; // 590 > mobile or no mq support
+$bp-m: 50em; // 800> portrait tablet
+$bp-l: 67.5em; // 1080 > most tablets
+$bp-xl: 73.0625em; // 1169px; // very large screens - might need to make an xl font size
+$bp-xxl: 81em; // 1296px;
 
 // COLOURS - --c- + name
 // named colours for ease (please use the more generic colours that use them below)
@@ -98,9 +100,9 @@ $t-font: Helvetica, Verdana, Arial, Utkal, sans-serif;
   --t-h1: 30;
   --t-h2: 24;
   --t-h3: 18;
-  --t-h4: calc((18 / var(--t)) * 1em);
-  --t-h5: calc((16 / var(--t)) * 1em);
-  --t-h6: calc((14 / var(--t)) * 1em);
+  --t-h4: 18;
+  --t-h5: 16;
+  --t-h6: 14;
   --t-intro: calc((18 / var(--t)) * 1em);
   --t-small: 16px;
   --t-xsmall: 12px;
@@ -110,42 +112,42 @@ $t-font: Helvetica, Verdana, Arial, Utkal, sans-serif;
   --t-menu: 20;
 }
 
-@media (--bp-s) {
-  --s-h2: calc(5 * var(--vertical-rythym));
-  --s-h3: calc(4 * var(--vertical-rythym));
+@media (min-width: $bp-s) {
+  :root {
+    --s-h2: calc(5 * var(--vertical-rythym));
+    --s-h3: calc(4 * var(--vertical-rythym));
 
-  // Medium
-  --t-base: calc(var(--t) * 1px); // normal text size
-  --t-h1: calc(58 / var(--t) * 1rem);
-  --t-h2: 32;
-  --t-h3: 18;
-  --t-h4: calc((20 / var(--t)) * 1em);
-  --t-h5: calc((18 / var(--t)) * 1em);
-  --t-h6: calc((16 / var(--t)) * 1em);
-  --t-intro: calc((20 / var(--t)) * 1em);
-  --t-small: 16px;
-  --t-xsmall: 14px;
-  --t-xl: calc(42 * 1px);
-  --t-xxl: calc(82 * 1px);
-  --t-menu: 27;
+    --t-h1: 48;
+    --t-h2: 32;
+    --t-h3: 18;
+    --t-h4: 20;
+    --t-h5: 18;
+    --t-h6: 16;
+    --t-intro: calc((20 / var(--t)) * 1em);
+    --t-small: 16px;
+    --t-xsmall: 14px;
+    --t-xl: calc(42 * 1px);
+    --t-xxl: calc(82 * 1px);
+    --t-menu: 27;
+  }
 }
 
-@media (--bp-m) {
-  --s-h2: calc(6 * var(--vertical-rythym));
-  --s-h3: calc(4 * var(--vertical-rythym));
-  // Large
-  --t: 16; // base font size without units
-  --t-base: calc(var(--t) * 1px); // normal text size
-  --t-h1: calc(65 / var(--t) * 1rem);
-  --t-h2: 50;
-  --t-h3: 18;
-  --t-h4: calc((24 / var(--t)) * 1em);
-  --t-h5: calc((18 / var(--t)) * 1em);
-  --t-h6: calc((16 / var(--t)) * 1em);
-  --t-intro: calc((20 / var(--t)) * 1em);
-  --t-small: 16px;
-  --t-xsmall: 14px;
-  --t-xl: calc(50 * 1px);
-  --t-xxl: calc(90 * 1px);
-  --t-menu: 40;
+@media (min-width: $bp-m) {
+  :root {
+    --s-h2: calc(6 * var(--vertical-rythym));
+    --s-h3: calc(4 * var(--vertical-rythym));
+
+    --t-h1: 72;
+    --t-h2: 50;
+    --t-h3: 18;
+    --t-h4: 24;
+    --t-h5: 18;
+    --t-h6: 16;
+    --t-intro: calc((20 / var(--t)) * 1em);
+    --t-small: 16px;
+    --t-xsmall: 14px;
+    --t-xl: calc(50 * 1px);
+    --t-xxl: calc(90 * 1px);
+    --t-menu: 40;
+  }
 }

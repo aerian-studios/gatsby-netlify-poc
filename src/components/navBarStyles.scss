@@ -185,14 +185,6 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
     line-height: 1.2em;
     @include font-size(var(--t-menu));
 
-    // @media (--bp-s) {
-    //   @include font-size(var(--t)1-menu);
-    // }
-
-    // @media (--bp-m) {
-    //   @include font-size(var(--t)2-menu);
-    // }
-
     > a {
       display: inline-block;
       color: $whiteish;
@@ -239,7 +231,7 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
   height: calc(100vh - 55px);
   width: 100%;
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     flex: 0;
     margin-top: 0;
   }
@@ -249,7 +241,7 @@ $subMenuIndicatorSpace: calc(27px + var(--s-4));
     padding-right: $subMenuIndicatorSpace + 2px;
     max-height: calc(100% - #{$gradientH});
 
-    @media (min-width: --bp-xxl) {
+    @media (min-width: $bp-xxl) {
       padding-right: $subMenuIndicatorSpace + 20px;
       margin-right: -($subMenuIndicatorSpace + 20px);
     }

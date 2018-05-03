@@ -55,6 +55,8 @@ $c-action-primary-active-border: $c-black-60;
   &:hover {
     border: solid 1px $c-action-active-bg;
     background: $c-action-active-bg;
+    color: $c-action-hover;
+
     a,
     input[type="submit"] {
       color: $c-action-hover;
@@ -91,6 +93,7 @@ $c-action-primary-active-border: $c-black-60;
 .block--dark-grey_skin .button,
 .block--hero_skin .button {
   border-color: $c-action-alt-border;
+  color: $c-action-alt;
   background: transparent;
   &:after {
     background: $c-action-alt;
@@ -98,6 +101,8 @@ $c-action-primary-active-border: $c-black-60;
   &:hover {
     border-color: $c-action-alt-border;
     background: $c-action-alt-active-bg;
+    color: $c-action-alt-hover;
+
     a,
     input[type="submit"] {
       color: $c-action-alt-hover;

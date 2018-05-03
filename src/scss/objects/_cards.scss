@@ -14,7 +14,7 @@ and open the template in the editor.
   margin-bottom: var(--s-4);
   background: $whiteish;
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     margin-bottom: 0;
   }
 
@@ -28,11 +28,11 @@ and open the template in the editor.
     color: $c-link;
     border: 1px solid $c-separator;
 
-    @media (--bp-s) {
+    @media (min-width: $bp-s) {
       flex-direction: row;
     }
 
-    @media (--bp-m) {
+    @media (min-width: $bp-m) {
       flex-direction: column;
     }
 
@@ -48,13 +48,13 @@ and open the template in the editor.
   //   top: 14px;
   //   right: 12px;
 
-  //   @media (--bp-s) {
+  //   @media (min-width: $bp-s) {
   //     width: 154px;
   //     left: calc(48% - 170px);
   //     right: auto;
   //     top: 16px;
   //   }
-  //   @media (--bp-m) {
+  //   @media (min-width: $bp-m) {
   //     left: auto;
   //     right: 16px;
   //   }
@@ -65,7 +65,7 @@ and open the template in the editor.
   //   bottom: $s-2;
   //   left: $s-2;
 
-  //   @media (--bp-s) {
+  //   @media (min-width: $bp-s) {
   //     bottom: $s-4;
   //     left: $s-4;
   //   }
@@ -95,7 +95,7 @@ and open the template in the editor.
   //     }
   //   }
 
-  //   @media (--bp-s) {
+  //   @media (min-width: $bp-s) {
   //     font-size: $t1-h6;
   //   }
   // }
@@ -111,11 +111,11 @@ and open the template in the editor.
       transform: scale(1.1);
     }
   }
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     flex-basis: 48%;
   }
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     flex-basis: 0%;
   }
 }
@@ -126,14 +126,14 @@ and open the template in the editor.
   text-align: left;
   padding: var(--s-2) var(--s-4); // extra padding below to leave space for tags
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     min-height: 192px;
     flex-basis: 52%;
     padding-left: var(--s-3);
     padding-right: var(--s-3);
   }
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     min-height: 177px;
     flex-basis: 0%;
     padding-left: var(--s-4);
@@ -146,7 +146,7 @@ and open the template in the editor.
   font-weight: 700;
   margin: 0;
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     line-height: 1.333em;
   }
 }

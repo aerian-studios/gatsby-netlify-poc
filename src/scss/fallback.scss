@@ -47,7 +47,7 @@
 //_hero-components fallbacks
 #section-nav + .scroll-icon-container,
 .meta-information--hero + .scroll-icon-container {
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     margin-left: calc(100% - 42px);
   }
 }
@@ -88,7 +88,7 @@
 //_two_columns fallbacks
 .paragraph--type--video-or-image-led-two-column-te {
   .content-wrap {
-    @media (--bp-m) {
+    @media (min-width: $bp-m) {
       display: -ms-grid;
       -ms-grid-columns: 1fr 1fr 1fr;
 
@@ -155,16 +155,16 @@
 //_cards fallbacks
 .card .card__media {
   min-height: 200px;
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     min-height: 194px;
   }
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     min-height: 179px;
   }
-  @media (--bp-l) {
+  @media (min-width: $bp-l) {
     min-height: 245px;
   }
-  @media (--bp-xl) {
+  @media (min-width: $bp-xl) {
     min-height: 275px;
   }
 }
@@ -207,7 +207,7 @@
 }
 
 .block--fg-bg-controlled-carousel .container .fg-bg-controlled-carousel {
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     max-width: 95% !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -250,10 +250,10 @@
 .pagination-nav__item:not(.landing) {
   a {
     height: 34 * $vertical-rythym;
-    @media (--bp-s) {
+    @media (min-width: $bp-s) {
       height: 52 * $vertical-rythym;
     }
-    @media (--bp-m) {
+    @media (min-width: $bp-m) {
       height: 54 * $vertical-rythym;
     }
   }

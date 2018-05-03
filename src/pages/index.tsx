@@ -9,47 +9,44 @@ interface Props {
   data: Data;
 }
 
-export default class IndexPage extends React.Component<Props> {
-  render() {
-    const { data } = this.props;
+const IndexPage: React.SFC<Props> = ({ data }) => {
+  const { edges: posts } = data.allMarkdownRemark;
 
-    if (data) {
-      const { edges: posts } = data.allMarkdownRemark;
-      return (
-        <main className="layout-grid">
-          <HeroBlock>
-            <FullScreenMedia video="/img/687898845.mp4" />
-            <h1>Latest Stories</h1>
-          </HeroBlock>
-          <section className="block card-grid">
-            {posts
-              .filter(post => post.node.frontmatter.templateKey === "blog-post")
-              .map(({ node: post }) => (
-                <div className="card" key={post.id}>
-                  <Link className="has-text-primary" to={post.fields.slug}>
-                    <div className="card__content">
-                      <h2 className="card__title">
-                        {post.frontmatter.title}
-
-                        <span> &bull; </span>
-                        <small>{post.frontmatter.date}</small>
-                      </h2>
-                      <p>
-                        {post.excerpt}
-                        Keep Reading →
-                      </p>
-                    </div>
+  return (
+    <main className="layout-grid">
+      <HeroBlock>
+        <FullScreenMedia video="/img/687898845.mp4" image="" />
+        <div className="block--hero__content-wrap">
+          <h1>Latest Stories</h1>
+        </div>
+      </HeroBlock>
+      <div className="block--full">
+        {posts
+          .filter(post => post.node.frontmatter.templateKey === "blog-post")
+          .map(({ node: post }, index) => (
+            <section
+              className={`block layout-grid ${
+                index % 2 !== 0 ? "block--dark-grey_skin" : "block--white_skin"
+              }`}
+              key={post.id}
+            >
+              <div className="content-wrap">
+                <div className="media-content">
+                  <h2 className="section-title">{post.frontmatter.title}</h2>
+                  <small>{post.frontmatter.date}</small>
+                  <p>{post.excerpt}</p>
+                  <Link className="button" to={post.fields.slug}>
+                    Keep Reading →
                   </Link>
                 </div>
-              ))}
-          </section>
-        </main>
-      );
-    }
-
-    return <main className="layout-grid" />;
-  }
-}
+              </div>
+            </section>
+          ))}
+      </div>
+    </main>
+  );
+};
+export default IndexPage;
 
 interface FrontMatter {
   title: string;

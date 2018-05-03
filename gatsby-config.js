@@ -1,10 +1,8 @@
 const config = require("./site-config");
-const cssnext = require("postcss-cssnext");
-const customMedia = require("postcss-custom-media");
+const autoprefixer = require("autoprefixer");
 
 const postCssPlugins = [
-  customMedia(),
-  cssnext({
+  autoprefixer({
     browsers: ["last 2 versions", "IE 11", "iOS 9"]
   })
 ];
@@ -13,20 +11,31 @@ module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: config.siteMetadata,
   plugins: [
+    {
+      resolve: "gatsby-plugin-sass",
+      options: {
+        sourcemaps: true,
+        // sourceMapEmbed: true,
+        sourceComments: true,
+        outFile: `${__dirname}/src/pages`,
+        precision: 8,
+        outputStyle: "compressed"
+      }
+    },
     `gatsby-plugin-typescript`,
-    {
-      resolve: "gatsby-plugin-netlify-cms",
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.ts`
-      }
-    },
-    {
-      resolve: `gatsby-plugin-postcss-sass`,
-      options: {
-        postCssPlugins,
-        precision: 8 // SASS default: 5
-      }
-    },
+    // {
+    //   resolve: "gatsby-plugin-netlify-cms",
+    //   options: {
+    //     modulePath: `${__dirname}/src/cms/cms.ts`
+    //   }
+    // },
+    // {
+    //   resolve: `gatsby-plugin-postcss-sass`,
+    //   options: {
+    //     postCssPlugins,
+    //     precision: 8 // SASS default: 5
+    //   }
+    // },
     `gatsby-plugin-react-next`, // use react 16
     `gatsby-plugin-react-helmet`,
     // @TODO: make this into a section controlled by site-config

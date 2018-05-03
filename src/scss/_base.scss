@@ -40,11 +40,11 @@ body {
   text-rendering: auto;
   overflow-x: hidden;
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     line-height: calculateRem(24);
   }
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     line-height: calculateRem(24);
   }
 }
@@ -68,24 +68,16 @@ p {
   &:last-child {
     margin: 0;
   }
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     margin-bottom: calc(var(--vertical-rythym) * 4);
   }
 }
 
 h1 {
   @include font-size(var(--t-h1));
-  line-height: calculateRem(40);
+  line-height: calculateRem(var(--t-h1));
   letter-spacing: 0.3px;
   font-weight: 100;
-
-  @media (--bp-s) {
-    line-height: calculateRem(48);
-  }
-
-  @media (--bp-m) {
-    line-height: calculateRem(72);
-  }
 }
 
 // h1 is used primarily for useful page title (as opposed to actual copy), but isn't explicitly visible
@@ -103,11 +95,11 @@ h2 {
   // this is for top 'extra' line height
   margin-top: -6px;
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     line-height: (64 / 48) * 1em;
     margin-bottom: calc(var(--s-h2) - 8px); // -8 is for the descenders
   }
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     line-height: (64 / 64) * 1em;
     margin-bottom: calc(var(--s-h2) - 8px); // -8 is for the descenders
   }
@@ -118,12 +110,12 @@ h3 {
   line-height: (40 / 30) * 1em;
   margin-bottom: calc(var(--s-h3) - 3px);
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     line-height: (64 / 48) * 1em;
     margin-bottom: calc(var(--s-h3) - 3px);
   }
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     line-height: (64 / 64) * 1em;
     margin-bottom: cacl(var(--s-h3) - 3px);
   }
@@ -133,12 +125,12 @@ h4 {
   font-size: var(--t-h4);
   line-height: (40 / 30) * 1em;
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     // font-size: var(--t1-h4);
     line-height: (64 / 48) * 1em;
   }
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     // font-size: var(--t2-h4);
     line-height: (64 / 64) * 1em;
   }
@@ -148,12 +140,12 @@ h5 {
   font-size: var(--t-h5);
   line-height: (40 / 30) * 1em;
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     // font-size: var(--t1-h5);
     line-height: (64 / 48) * 1em;
   }
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     // font-size: var(--t2-h5);
     line-height: (64 / 64) * 1em;
   }
@@ -163,12 +155,12 @@ h6 {
   font-size: var(--t-h6);
   line-height: (40 / 30) * 1em;
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     // font-size: var(--t1-h6);
     line-height: (64 / 48) * 1em;
   }
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     // font-size: var(--t2-h6);
     line-height: (64 / 64) * 1em;
   }
@@ -238,13 +230,13 @@ li ol:first-child {
   margin-bottom: 0;
   font-weight: 600;
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     margin-bottom: 0;
     // font-size: var(--t);
     line-height: calc((24 / var(--t)) * 1em);
   }
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     margin-bottom: 0;
     // font-size: var(--t);
     line-height: calc((24 / var(--t)) * 1em);
@@ -299,11 +291,11 @@ button {
   font-size: var(--t);
   font-weight: 400;
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     // font-size: var(--t);
   }
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     // font-size: var(--t);
   }
 }
@@ -352,11 +344,11 @@ q {
     color: $c-brand-a;
     font-size: var(--t);
 
-    @media (--bp-s) {
+    @media (min-width: $bp-s) {
       // font-size: var(--t);
     }
 
-    @media (--bp-m) {
+    @media (min-width: $bp-m) {
       // font-size: var(--t);
     }
   }

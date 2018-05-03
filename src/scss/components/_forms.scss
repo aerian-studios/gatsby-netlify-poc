@@ -103,7 +103,7 @@ legend {
       flex: 1 0 50%;
       text-align: center;
       margin-bottom: 0;
-      @media (--bp-s) {
+      @media (min-width: $bp-s) {
         max-width: 30%;
         flex-basis: 33%;
       }

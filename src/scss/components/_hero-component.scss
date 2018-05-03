@@ -15,7 +15,7 @@
   margin-top: 75vh;
   @include smoothScrimGradient(rgba(0, 0, 0, 0.7), "to top");
 
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     min-height: 91px;
     margin-top: calc(75vh - 91px);
   }
@@ -39,7 +39,7 @@
 
 #section-nav + .scroll-icon-container,
 .meta-information--hero + .scroll-icon-container {
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     @supports (display: grid) {
       margin-left: calc(100% - 22px);
     }
@@ -149,10 +149,10 @@ $delay: 2s;
   padding: 0;
   transform: translateY(-100%);
 
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     min-height: 14 * $vertical-rythym;
   }
-  @media (--bp-m) {
+  @media (min-width: $bp-m) {
     min-height: 16 * $vertical-rythym;
   }
 }
@@ -204,14 +204,14 @@ $delay: 2s;
       transform: translate(-5px, -139%) rotate(45deg);
     }
 
-    @media (--bp-s) {
+    @media (min-width: $bp-s) {
       flex: 50% 1 1;
       &::after {
         display: none;
       }
     }
 
-    @media (--bp-m) {
+    @media (min-width: $bp-m) {
       flex: 33.3% 1 1;
     }
 
@@ -219,7 +219,7 @@ $delay: 2s;
       display: none;
 
       // display only on desktop
-      @media (--bp-m) {
+      @media (min-width: $bp-m) {
         display: block;
       }
     }
@@ -227,13 +227,13 @@ $delay: 2s;
     &:last-child {
       display: none;
 
-      @media (--bp-s) {
+      @media (min-width: $bp-s) {
         display: flex;
         justify-content: flex-end;
         align-items: flex-start;
       }
 
-      @media (--bp-m) {
+      @media (min-width: $bp-m) {
         justify-content: space-between;
         min-width: 300px; // min width to allow enough room for button and tags
       }
@@ -334,7 +334,7 @@ $timing: 1s;
   align-items: flex-start;
   // for grid
   grid-row-start: 2;
-  @media (--bp-s) {
+  @media (min-width: $bp-s) {
     margin-left: calc((100% - #{(9 * $h-grid-spacing-1)}) / 12);
   }
 }
