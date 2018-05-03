@@ -1,14 +1,29 @@
-.full-screen {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  z-index: 0;
-  overflow: hidden;
+@import "../scss/tools/tools";
 
-  * {
-    display: block;
-    height: 100%;
-    min-width: 100%;
-    object-fit: cover;
-  }
+.full-screen {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100%;
+    position: absolute;
+    z-index: 0;
+    overflow: hidden;
+    grid-column: full;
+
+    * {
+        display: block;
+        height: 100%;
+        min-width: 100%;
+        object-fit: cover;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        height: 100%;
+        width: 100%;
+        @include smoothScrimGradient(rgba(0, 0, 0, 0.7), "to top");
+    }
 }

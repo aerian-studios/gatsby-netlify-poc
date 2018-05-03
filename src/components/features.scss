@@ -1,0 +1,11 @@
+@import "../scss/variables";
+
+.card--product {
+    border: 1px solid $c-separator;
+    padding: var(--s-3) var(--s-2);
+
+    .media-content__media {
+        width: 50%;
+        margin: 0 auto var(--s-3);
+    }
+}

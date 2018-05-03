@@ -3,32 +3,30 @@ import * as React from "react";
 import { IProductPlan } from "../datatypes/dataTypes";
 
 interface Props {
-  data: Array<IProductPlan>;
+    data: Array<IProductPlan>;
 }
 
+const backgroundStyle = {
+    backgroundColor: "rgba(255, 0, 10, 0.1)",
+    padding: "var(--s-2) var(--s-1) 0",
+    borderRadius: "5px",
+};
+
 const Pricing: React.SFC<Props> = ({ data }) => (
-  <div className="columns">
-    {data.map(price => (
-      <div key={price.plan} className="column">
-        <section className="section">
-          <h4 className="has-text-centered has-text-weight-semibold">
-            {price.plan}
-          </h4>
-          <h2 className="is-size-1 has-text-weight-bold has-text-primary has-text-centered">
-            ${price.price}
-          </h2>
-          <p className="has-text-weight-semibold">{price.description}</p>
-          <ul>
-            {price.items.map(item => (
-              <li key={item} className="is-size-5">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </section>
-      </div>
-    ))}
-  </div>
+    <section className="group">
+        {data.map((price) => (
+            <div
+                key={price.plan}
+                className="group__item content-wrap"
+                style={backgroundStyle}
+            >
+                <h3 className="">{price.plan}</h3>
+                <h4 className="">${price.price}</h4>
+                <p className="">{price.description}</p>
+                <ul>{price.items.map((item) => <li key={item}>{item}</li>)}</ul>
+            </div>
+        ))}
+    </section>
 );
 
 export default Pricing;

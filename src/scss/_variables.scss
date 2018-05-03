@@ -57,97 +57,89 @@ $t-font: Helvetica, Verdana, Arial, Utkal, sans-serif;
 
 // VARIABLES (that change with context e.g. breakpoint, etc) can use CSS custom property syntax
 :root {
-  // MISC
-  --border-radius: 10px;
-  --max-content-width: 1168px;
-  --min-content-width: 280px;
-  --side-gutter: var(--s-2);
-  --h-grid-spacing: 2.5%;
-  --h-grid-spacing-1: calc(var(--s-1) * 2);
-  --h-grid-spacing-2: var(--s-4);
-  --v-grid-spacing: var(--s-1);
-  --vertical-rythym: 8px;
-  --grid-gap: 2.74%;
-  --grid-column: 5.82%;
+    // MISC
+    --border-radius: 10px;
+    --max-content-width: 1168px;
+    --min-content-width: 280px;
+    --side-gutter: var(--s-2);
+    --h-grid-spacing: 2.5%;
+    --h-grid-spacing-1: calc(var(--s-1) * 2);
+    --h-grid-spacing-2: var(--s-4);
+    --v-grid-spacing: var(--s-1);
+    --vertical-rythym: 8px;
+    --grid-gap: 2.74%;
+    --grid-column: 5.82%;
 
-  // SPACING - --s- + name  !! needs cleaning up
-  --s-1: 12px;
-  --s-2: 20px;
-  --s-3: 30px;
-  --s-4: 32px;
-  --s-5: 100px;
-  --s-6: 10px;
-  --s-7: 10px;
-  --s-8: 10px;
-  --s-h2: calc(4 * var(--vertical-rythym));
-  --s-h3: calc(4 * var(--vertical-rythym));
-  --pad-0: calc(8 * var(--vertical-rythym));
-  --pad-1: calc(12 * var(--vertical-rythym));
-  --pad-2: calc(14 * var(--vertical-rythym));
-  --feature-pad-0: calc(5 * var(--vertical-rythym));
-  --feature-pad-1: calc(8 * var(--vertical-rythym));
-  --feature-pad-2: calc(10 * var(--vertical-rythym));
+    // SPACING - --s- + name  !! needs cleaning up
+    --s-1: 12px;
+    --s-2: 20px;
+    --s-3: 30px;
+    --s-4: 32px;
+    --s-5: 100px;
+    --s-6: 10px;
+    --s-7: 10px;
+    --s-8: 10px;
+    --s-h2: calc(4 * var(--vertical-rythym));
+    --s-h3: calc(2 * var(--vertical-rythym));
+    --pad-0: calc(8 * var(--vertical-rythym));
+    --pad-1: calc(12 * var(--vertical-rythym));
+    --pad-2: calc(14 * var(--vertical-rythym));
+    --feature-pad-0: calc(5 * var(--vertical-rythym));
+    --feature-pad-1: calc(8 * var(--vertical-rythym));
+    --feature-pad-2: calc(10 * var(--vertical-rythym));
 
-  // needs to be here for the text calculations
-  --t: 16; // base font size without units
-  $t: 16;
+    // needs to be here for the text calculations
+    --t: 16; // base font size without units
+    $t: 16;
 
-  --t-xxs: 10px;
-  --t-button: 14px;
+    --t-xxs: 10px;
+    --t-button: 14px;
 
-  // XSmall
-  --t-base: calc(var(--t) * 1px); // normal text size
-  --t-h1: 30;
-  --t-h2: 24;
-  --t-h3: 18;
-  --t-h4: 18;
-  --t-h5: 16;
-  --t-h6: 14;
-  --t-intro: calc((18 / var(--t)) * 1em);
-  --t-small: 16px;
-  --t-xsmall: 12px;
-  // as these are very large, not making them ems
-  --t-xl: calc(28 * 1px);
-  --t-xxl: calc(48 * 1px);
-  --t-menu: 20;
+    // XSmall
+    --t-base: calc(var(--t) * 1px); // normal text size
+    --t-h1: 30;
+    --t-h2: 24;
+    --t-h3: 18;
+    --t-h4: 18;
+    --t-h5: 16;
+    --t-h6: 14;
+    --t-intro: calc((18 / var(--t)) * 1em);
+    --t-small: 16px;
+    --t-xsmall: 12px;
+    // as these are very large, not making them ems
+    --t-xl: calc(28 * 1px);
+    --t-xxl: calc(48 * 1px);
+    --t-menu: 20;
 }
 
 @media (min-width: $bp-s) {
-  :root {
-    --s-h2: calc(5 * var(--vertical-rythym));
-    --s-h3: calc(4 * var(--vertical-rythym));
+    :root {
+        --s-h2: calc(5 * var(--vertical-rythym));
 
-    --t-h1: 48;
-    --t-h2: 32;
-    --t-h3: 18;
-    --t-h4: 20;
-    --t-h5: 18;
-    --t-h6: 16;
-    --t-intro: calc((20 / var(--t)) * 1em);
-    --t-small: 16px;
-    --t-xsmall: 14px;
-    --t-xl: calc(42 * 1px);
-    --t-xxl: calc(82 * 1px);
-    --t-menu: 27;
-  }
+        --t-h1: 48;
+        --t-h2: 32;
+        --t-h3: 26;
+        --t-h4: 22;
+        --t-h5: 18;
+        --t-h6: 16;
+        --t-intro: calc((20 / var(--t)) * 1em);
+        --t-small: 16px;
+        --t-xsmall: 14px;
+        --t-xl: calc(42 * 1px);
+        --t-xxl: calc(82 * 1px);
+        --t-menu: 27;
+    }
 }
 
 @media (min-width: $bp-m) {
-  :root {
-    --s-h2: calc(6 * var(--vertical-rythym));
-    --s-h3: calc(4 * var(--vertical-rythym));
+    :root {
+        --s-h2: calc(6 * var(--vertical-rythym));
 
-    --t-h1: 72;
-    --t-h2: 50;
-    --t-h3: 18;
-    --t-h4: 24;
-    --t-h5: 18;
-    --t-h6: 16;
-    --t-intro: calc((20 / var(--t)) * 1em);
-    --t-small: 16px;
-    --t-xsmall: 14px;
-    --t-xl: calc(50 * 1px);
-    --t-xxl: calc(90 * 1px);
-    --t-menu: 40;
-  }
+        --t-h1: 72;
+        --t-h2: 50;
+
+        --t-xl: calc(50 * 1px);
+        --t-xxl: calc(90 * 1px);
+        --t-menu: 40;
+    }
 }
