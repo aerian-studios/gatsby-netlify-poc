@@ -1,19 +1,22 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "es6": true,
-  },
-  "plugins": [
-    "react",
-  ],
-  "globals": {
-    "graphql": false,
-  },
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true,
+    extends: ["airbnb-base", "prettier"],
+    env: {
+        browser: true,
+        es6: true,
+        "jest/globals": true,
     },
-  }
-}
+    plugins: ["react", "jest"],
+    globals: {
+        graphql: false,
+    },
+    parserOptions: {
+        sourceType: "module",
+        ecmaFeatures: {
+            experimentalObjectRestSpread: true,
+            jsx: true,
+        },
+    },
+    rules: {
+        "import/extensions": false,
+    },
+};
