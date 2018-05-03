@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as CMS from "netlify-cms";
+import CMS from "netlify-cms";
 import "netlify-cms/dist/cms.css";
 
 import BlogPostPreview from "./preview-templates/BlogPostPreview";
