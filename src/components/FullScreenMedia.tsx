@@ -1,14 +1,17 @@
 import * as React from "react";
+import Img from "gatsby-image";
+
+import { heroImageProps } from "../datatypes/dataTypes";
 
 import "./fullScreenMedia.scss";
 
 interface Props {
-    image?: string | null;
+    image?: heroImageProps;
     altText: string | null;
     video?: string | null;
 }
 
-//@TODO: make into responsive/multi-source
+//@TODO: sort out the readability and logic of the ternaries
 export const FullScreenMedia: React.SFC<Props> = ({
     image,
     altText,
@@ -27,7 +30,7 @@ export const FullScreenMedia: React.SFC<Props> = ({
                 <source src={video} type="video/mp4" />
             </video>
         ) : (
-            <img src={image} alt={altText} />
+            <Img sizes={image} />
         )}
     </figure>
 );

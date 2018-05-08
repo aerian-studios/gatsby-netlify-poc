@@ -3,8 +3,7 @@ const config = require("./site-config");
 module.exports = {
     pathPrefix: config.pathPrefix,
     siteMetadata: config.siteMetadata,
-    plugins: [
-        {
+    plugins: [{
             resolve: `gatsby-source-filesystem`,
             options: {
                 path: `${__dirname}/src/pages`,
@@ -12,13 +11,29 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/static/img`,
+                name: "images",
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/src/img`,
+                name: "furniture",
+            },
+        },
+        {
             resolve: `gatsby-transformer-remark`,
             options: {
                 plugins: [
+                    // Make responsive, blur-up images from markdown images
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
-                            maxWidth: 590,
+                            maxWidth: 1168,
+                            wrapperStyle: `margin: var(--pad-0) 0`
                         },
                     },
                     {
@@ -27,13 +42,18 @@ module.exports = {
                             wrapperStyle: `margin-bottom: 1.0725rem`,
                         },
                     },
-                    "gatsby-remark-prismjs",
                     "gatsby-remark-copy-linked-files",
-                    "gatsby-remark-smartypants",
                 ],
             },
         },
+        // This plugin identifies file nodes that are images and
+        // transforms these to create new “ImageSharp” nodes.
+        // With them you can resize images and
+        // generate responsive image thumbnails.
         `gatsby-transformer-sharp`,
+        // This plugin exposes helper functions for processing
+        // images with the NPM package “sharp”. It's used by
+        // several plugins.
         `gatsby-plugin-sharp`,
         // Manifest for AppCache and PWA compatibility
         {
@@ -44,12 +64,11 @@ module.exports = {
         `gatsby-plugin-offline`,
         `gatsby-plugin-react-helmet`,
         {
-            resolve: "gatsby-plugin-typography",
+            resolve: `gatsby-plugin-sass`,
             options: {
-                pathToConfigModule: "src/utils/typography",
-            },
+                sourceMaps: `inline`
+            }
         },
-        `gatsby-plugin-sass`,
         {
             resolve: `gatsby-plugin-netlify-cms`,
             options: {

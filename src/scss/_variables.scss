@@ -1,7 +1,6 @@
 // @import "../../node_modules/css-vars/css-vars";
 // $css-vars-debug-log: true;
 // STATIC varaibles (don't change with context) can be sass variables (e.g. $variable-name)
-
 // BREAKPOINTS - $bp- + name
 $bp-xs: 23.125em; // 370 > standard mobile
 $bp-s: 36.875em; // 590 > mobile or no mq support
@@ -9,7 +8,6 @@ $bp-m: 50em; // 800> portrait tablet
 $bp-l: 67.5em; // 1080 > most tablets
 $bp-xl: 73.0625em; // 1169px; // very large screens - might need to make an xl font size
 $bp-xxl: 81em; // 1296px;
-
 // COLOURS - --c- + name
 // named colours for ease (please use the more generic colours that use them below)
 $whiteish: #fff;
@@ -18,7 +16,6 @@ $cnn-red: #d01825;
 $red: #e42025;
 $blue: #368aec;
 $menu-red: #ed2025;
-
 $c-black-90: #0c0c0c;
 $c-black-80: #231f20;
 $c-black-70: #282828;
@@ -30,13 +27,11 @@ $c-black-30: #dddedf;
 $c-black-20: #f1f1f2; // light-grey bg
 $c-black-10: #f7f7f7;
 $c-black-0: #fff;
-
 $accent-black: #18191a;
 $c-alt-bg: #18191a;
 $dark-grey: #151515;
 $light-grey: #f5f5f5;
 $social-link-colour: #808080;
-
 // Generic variable names for use in the code (so that the colours only need changing on one place)
 $c-brand-a: $cnn-red;
 $c-brand-b: $red;
@@ -45,16 +40,21 @@ $c-text: $c-black-60;
 $c-text-alt: #868788;
 $c-link: $c-black-60;
 $c-link-active: $cnn-red;
-$c-link-visited: $c-black-40;
-
+$c-link-visited: $c-black-50;
 $c-separator: #d8d8d8;
 $c-shadow: rgba(42, 40, 40, 0.4);
 $c-shadow-light: rgba(42, 40, 40, 0.16);
-
 // TYPOGRAPHY - $t- + name or --t- + name (see below)
-$t-font-basic: Helvetica, Verdana, Arial, Utkal, sans-serif;
-$t-font: Helvetica, Verdana, Arial, Utkal, sans-serif;
-
+$t-font-basic: Helvetica,
+Verdana,
+Arial,
+Utkal,
+sans-serif;
+$t-font: Helvetica,
+Verdana,
+Arial,
+Utkal,
+sans-serif;
 // VARIABLES (that change with context e.g. breakpoint, etc) can use CSS custom property syntax
 :root {
     // MISC
@@ -68,9 +68,7 @@ $t-font: Helvetica, Verdana, Arial, Utkal, sans-serif;
     --v-grid-spacing: var(--s-1);
     --vertical-rythym: 8px;
     --grid-gap: 2.74%;
-    --grid-column: 5.82%;
-
-    // SPACING - --s- + name  !! needs cleaning up
+    --grid-column: 5.82%; // SPACING - --s- + name  !! needs cleaning up
     --s-1: 12px;
     --s-2: 20px;
     --s-3: 30px;
@@ -86,16 +84,11 @@ $t-font: Helvetica, Verdana, Arial, Utkal, sans-serif;
     --pad-2: calc(14 * var(--vertical-rythym));
     --feature-pad-0: calc(5 * var(--vertical-rythym));
     --feature-pad-1: calc(8 * var(--vertical-rythym));
-    --feature-pad-2: calc(10 * var(--vertical-rythym));
-
-    // needs to be here for the text calculations
+    --feature-pad-2: calc(10 * var(--vertical-rythym)); // needs to be here for the text calculations
     --t: 16; // base font size without units
     $t: 16;
-
     --t-xxs: 10px;
-    --t-button: 14px;
-
-    // XSmall
+    --t-button: 14px; // XSmall
     --t-base: calc(var(--t) * 1px); // normal text size
     --t-h1: 30;
     --t-h2: 24;
@@ -105,8 +98,7 @@ $t-font: Helvetica, Verdana, Arial, Utkal, sans-serif;
     --t-h6: 14;
     --t-intro: calc((18 / var(--t)) * 1em);
     --t-small: 16px;
-    --t-xsmall: 12px;
-    // as these are very large, not making them ems
+    --t-xsmall: 12px; // as these are very large, not making them ems
     --t-xl: calc(28 * 1px);
     --t-xxl: calc(48 * 1px);
     --t-menu: 20;
@@ -115,7 +107,6 @@ $t-font: Helvetica, Verdana, Arial, Utkal, sans-serif;
 @media (min-width: $bp-s) {
     :root {
         --s-h2: calc(5 * var(--vertical-rythym));
-
         --t-h1: 48;
         --t-h2: 32;
         --t-h3: 26;
@@ -134,10 +125,8 @@ $t-font: Helvetica, Verdana, Arial, Utkal, sans-serif;
 @media (min-width: $bp-m) {
     :root {
         --s-h2: calc(6 * var(--vertical-rythym));
-
         --t-h1: 72;
         --t-h2: 50;
-
         --t-xl: calc(50 * 1px);
         --t-xxl: calc(90 * 1px);
         --t-menu: 40;

@@ -4,7 +4,32 @@ import Content, { HTMLContent } from "../components/Content";
 import { HeroBlock } from "../components/HeroBlock";
 import { FullScreenMedia } from "../components/FullScreenMedia";
 
-export const AboutPageTemplate = ({
+import { heroImageProps } from "../datatypes/dataTypes";
+
+interface Props {
+    title: string;
+    content: React.ReactChildren;
+    contentComponent?: React.SFC;
+    heroimage: heroImageProps;
+}
+
+interface graphData {
+    data: {
+        makrkdownRemark: {
+            html: React.ReactChildren;
+            frontmatter: {
+                title: string;
+            };
+            heroImage: {
+                childImageSharp: {
+                    sizes: heroImageProps;
+                };
+            };
+        };
+    };
+}
+
+export const AboutPageTemplate: React.SFC<Props> = ({
     title,
     content,
     contentComponent,
@@ -30,26 +55,34 @@ export const AboutPageTemplate = ({
     );
 };
 
-export default ({ data }) => {
-    const { markdownRemark: post } = data;
+const AboutPage: React.SFC<graphData> = ({ data }) => {
+    console.log(data);
+    const { markdownRemark: post, heroImage: heroImage } = data;
 
     return (
         <AboutPageTemplate
             contentComponent={HTMLContent}
             title={post.frontmatter.title}
             content={post.html}
-            heroimage={post.frontmatter.heroimage}
+            heroimage={heroImage.childImageSharp.sizes}
         />
     );
 };
+export default AboutPage;
 
-export const aboutPageQuery = graphql`
+export const aboutPageQuery: graphData = graphql`
     query AboutPage($id: String!) {
         markdownRemark(id: { eq: $id }) {
             html
             frontmatter {
                 title
-                heroimage
+            }
+        }
+        heroImage: file(relativePath: { regex: "/flavor_wheel.jpg/" }) {
+            childImageSharp {
+                sizes(maxWidth: 1168, quality: 85) {
+                    ...GatsbyImageSharpSizes_withWebp
+                }
             }
         }
     }
