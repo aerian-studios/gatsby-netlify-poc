@@ -57,14 +57,14 @@ export const AboutPageTemplate: React.SFC<Props> = ({
 
 const AboutPage: React.SFC<graphData> = ({ data }) => {
     console.log(data);
-    const { markdownRemark: post, heroImage: heroImage } = data;
+    const { markdownRemark: post } = data;
 
     return (
         <AboutPageTemplate
             contentComponent={HTMLContent}
             title={post.frontmatter.title}
             content={post.html}
-            heroimage={heroImage.childImageSharp.sizes}
+            heroimage={post.frontmatter.heroimage.childImageSharp.sizes}
         />
     );
 };
@@ -76,12 +76,12 @@ export const aboutPageQuery: graphData = graphql`
             html
             frontmatter {
                 title
-            }
-        }
-        heroImage: file(relativePath: { regex: "/flavor_wheel.jpg/" }) {
-            childImageSharp {
-                sizes(maxWidth: 1168, quality: 85) {
-                    ...GatsbyImageSharpSizes_withWebp
+                heroimage {
+                    childImageSharp {
+                        sizes(maxWidth: 1168, quality: 85) {
+                            ...GatsbyImageSharpSizes_withWebp
+                        }
+                    }
                 }
             }
         }
