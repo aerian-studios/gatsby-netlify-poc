@@ -1,89 +1,98 @@
 import * as React from "react";
 
-export interface IImage {
+export interface Image {
     alt: string;
     image: string;
 }
 
-export interface ITestimonial {
+export interface ImageSharp {
+    childImageSharp: {
+        sizes: ImageSharpSizes;
+        src: string;
+    };
+}
+
+export interface Testimonial {
     author: string;
     quote: string;
 }
 
+
 // PRODUCTS
-export interface IProductIntro {
+export interface ProductIntro {
     blurbs: Array<{
-        image: string;
+        image: ImageSharp;
         text: string;
     }>;
 }
 
-interface IProductMain {
+interface ProductMain {
     heading: string;
     description: string;
-    image1: IImage;
-    image2: IImage;
-    image3: IImage;
+    image1: ImageSharp;
+    image2: ImageSharp;
+    image3: ImageSharp;
 }
 
-export interface IProductPlan {
+export interface ProductPlan {
     description: string;
     items: Array<any>;
     plan: string;
     price: number;
 }
 
-interface IProductPricing {
+interface ProductPricing {
     heading: string;
     description: string;
-    plans: Array<IProductPlan>;
+    plans: Array<ProductPlan>;
 }
 
-export interface IProductFrontmatter {
+export interface ProductFrontmatter {
     title: string;
-    image: string;
+    image: ImageSharp;
     heading: string;
     description: string;
-    intro: IProductIntro;
-    main: IProductMain;
-    testimonials: Array<ITestimonial>;
-    full_image: string;
-    pricing: IProductPricing;
-    heroimage: string;
+    intro: 
+;
+    main: ProductMain;
+    testimonials: Array<Testimonial>;
+    full_image: ImageSharp;
+    pricing: ProductPricing;
+    heroimage: ImageSharp;
 }
 
 export interface IProductData {
     data: {
         markdownRemark: {
-            frontmatter: IProductFrontmatter;
+            frontmatter: ProductFrontmatter;
         };
     };
 }
 
 // BLOGS
-interface IBlogFrontmatter {
+interface BlogFrontmatter {
     title: string;
     data: string;
     description: string;
-    heroimage: string;
+    heroimage: ImageSharp;
 }
 
-interface IBlogContent {
+interface BlogContent {
     id: string;
     html: React.ReactChildren | React.SFC;
-    frontmatter: IBlogFrontmatter;
+    frontmatter: BlogFrontmatter;
 }
 
-export interface IBlogData {
+export interface BlogData {
     data: {
-        markdownRemark: IBlogContent;
+        markdownRemark: BlogContent;
     };
 }
 
-export interface heroImageProps {
-    aspectRatio: number;
-    sizes: string;
+export interface ImageSharpSizes {
+    aspectRatio?: number;
+    sizes?: string;
     src: string;
-    srcSet: string;
-    tracedSVG: string;
+    srcSet?: string;
+    tracedSVG?: string;
 }

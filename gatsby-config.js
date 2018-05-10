@@ -3,7 +3,8 @@ const config = require("./site-config");
 module.exports = {
     pathPrefix: config.pathPrefix,
     siteMetadata: config.siteMetadata,
-    plugins: [{
+    plugins: [
+        {
             resolve: `gatsby-source-filesystem`,
             options: {
                 path: `${__dirname}/src/pages`,
@@ -18,13 +19,6 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                path: `${__dirname}/src/img`,
-                name: "furniture",
-            },
-        },
-        {
             resolve: `gatsby-transformer-remark`,
             options: {
                 plugins: [
@@ -32,8 +26,9 @@ module.exports = {
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
-                            maxWidth: 1168,
-                            wrapperStyle: `margin: var(--pad-0) 0`
+                            maxWidth: 693,
+                            wrapperStyle: ` flex: 1; margin: var(--pad-0) 0;`,
+                            linkImagesToOriginal: false,
                         },
                     },
                     {
@@ -66,8 +61,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-sass`,
             options: {
-                sourceMaps: `inline`
-            }
+                sourceMaps: `inline`,
+            },
         },
         {
             resolve: `gatsby-plugin-netlify-cms`,

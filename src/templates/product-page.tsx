@@ -1,16 +1,17 @@
 // NOTE: until I can work out why, this needs to be a *.js file
 import * as React from "react";
+import Img from "gatsby-image";
 import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
-import { IProductData, IProductFrontmatter } from "../datatypes/dataTypes";
+import { IProductData, ProductFrontmatter } from "../datatypes/dataTypes";
 
 import { HeroBlock } from "../components/HeroBlock";
 import { FullScreenMedia } from "../components/FullScreenMedia";
 
 const imageGridStyle = { borderRadius: "5px" };
 
-export const ProductPageTemplate: React.SFC<IProductFrontmatter> = ({
+export const ProductPageTemplate: React.SFC<ProductFrontmatter> = ({
     image,
     title,
     heading,
@@ -41,23 +42,23 @@ export const ProductPageTemplate: React.SFC<IProductFrontmatter> = ({
                 </div>
                 <div className="media-content--half-grid">
                     <figure className="media-content__media media-wrapper">
-                        <img
+                        <Img
                             style={imageGridStyle}
-                            src={main.image1.image}
+                            sizes={main.image1.image.childImageSharp.sizes}
                             alt={main.image1.alt}
                         />
                     </figure>
                     <figure className="media-content__media media-wrapper">
-                        <img
+                        <Img
                             style={imageGridStyle}
-                            src={main.image2.image}
+                            sizes={main.image2.image.childImageSharp.sizes}
                             alt={main.image2.alt}
                         />
                     </figure>
                     <figure className="media-content__media media-wrapper">
-                        <img
+                        <Img
                             style={imageGridStyle}
-                            src={main.image3.image}
+                            sizes={main.image3.image.childImageSharp.sizes}
                             alt={main.image3.alt}
                         />
                     </figure>
@@ -69,7 +70,7 @@ export const ProductPageTemplate: React.SFC<IProductFrontmatter> = ({
                 <FullScreenMedia
                     image={full_image}
                     altText=""
-                    aria-role="presentation"
+                    wrapperClassName="block--full"
                 />
                 <div className="section__content content-wrap">
                     <h2 className="section-title">{pricing.heading}</h2>
@@ -86,14 +87,14 @@ const ProductPage: React.SFC<IProductData> = ({ data }) => {
 
     return (
         <ProductPageTemplate
-            image={frontmatter.image}
+            image={frontmatter.image.childImageSharp.sizes}
             title={frontmatter.title}
             heading={frontmatter.heading}
             description={frontmatter.description}
             intro={frontmatter.intro}
             main={frontmatter.main}
             testimonials={frontmatter.testimonials}
-            full_image={frontmatter.full_image}
+            full_image={frontmatter.full_image.childImageSharp.sizes}
             pricing={frontmatter.pricing}
         />
     );
@@ -106,12 +107,24 @@ export const productPageQuery: IProductData = graphql`
         markdownRemark(id: { eq: $id }) {
             frontmatter {
                 title
-                image
+                image {
+                    childImageSharp {
+                        sizes(maxWidth: 1168) {
+                            ...GatsbyImageSharpSizes_withWebp
+                        }
+                    }
+                }
                 heading
                 description
                 intro {
                     blurbs {
-                        image
+                        image {
+                            childImageSharp {
+                                sizes(maxWidth: 256) {
+                                    ...GatsbyImageSharpSizes_withWebp_tracedSVG
+                                }
+                            }
+                        }
                         text
                     }
                     heading
@@ -122,22 +135,46 @@ export const productPageQuery: IProductData = graphql`
                     description
                     image1 {
                         alt
-                        image
+                        image {
+                            childImageSharp {
+                                sizes(maxWidth: 892) {
+                                    ...GatsbyImageSharpSizes_withWebp
+                                }
+                            }
+                        }
                     }
                     image2 {
                         alt
-                        image
+                        image {
+                            childImageSharp {
+                                sizes(maxWidth: 892) {
+                                    ...GatsbyImageSharpSizes_withWebp
+                                }
+                            }
+                        }
                     }
                     image3 {
                         alt
-                        image
+                        image {
+                            childImageSharp {
+                                sizes(maxWidth: 892) {
+                                    ...GatsbyImageSharpSizes_withWebp
+                                }
+                            }
+                        }
                     }
                 }
                 testimonials {
                     author
                     quote
                 }
-                full_image
+                full_image {
+                    childImageSharp {
+                        sizes(maxWidth: 1168) {
+                            ...GatsbyImageSharpSizes_withWebp
+                        }
+                    }
+                }
                 pricing {
                     heading
                     description

@@ -1,4 +1,5 @@
 import * as React from "react";
+import Img from "gatsby-image";
 
 import { IProductIntro } from "../datatypes/dataTypes";
 import "./features.scss";
@@ -11,10 +12,10 @@ const FeatureGrid: React.SFC<Props> = ({ gridItems }) => (
         {gridItems.blurbs.map((item) => (
             <div
                 className="group__item group--pair__item card--product media-content"
-                key={item.image}
+                key={item.image.childImageSharp.sizes.src}
             >
                 <figure className="media-content__media">
-                    <img alt="" src={item.image} />
+                    <Img alt="" sizes={item.image.childImageSharp.sizes} />
                 </figure>
                 <p className="media-content__content">{item.text}</p>
             </div>

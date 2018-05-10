@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import { IProductPlan } from "../datatypes/dataTypes";
+import { ProductPlan } from "../datatypes/dataTypes";
 
 interface Props {
-    data: Array<IProductPlan>;
+    data: Array<ProductPlan>;
 }
 
 const backgroundStyle = {

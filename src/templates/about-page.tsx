@@ -4,13 +4,13 @@ import Content, { HTMLContent } from "../components/Content";
 import { HeroBlock } from "../components/HeroBlock";
 import { FullScreenMedia } from "../components/FullScreenMedia";
 
-import { heroImageProps } from "../datatypes/dataTypes";
+import { ImageSharp, ImageSharpSizes } from "../datatypes/dataTypes";
 
 interface Props {
     title: string;
     content: React.ReactChildren;
     contentComponent?: React.SFC;
-    heroimage: heroImageProps;
+    heroImage: ImageSharpSizes;
 }
 
 interface graphData {
@@ -20,11 +20,7 @@ interface graphData {
             frontmatter: {
                 title: string;
             };
-            heroImage: {
-                childImageSharp: {
-                    sizes: heroImageProps;
-                };
-            };
+            heroImage: ImageSharp;
         };
     };
 }
@@ -33,14 +29,14 @@ export const AboutPageTemplate: React.SFC<Props> = ({
     title,
     content,
     contentComponent,
-    heroimage,
+    heroImage,
 }) => {
     const PageContent = contentComponent || Content;
 
     return (
         <section className="section section--about">
             <HeroBlock>
-                <FullScreenMedia image={heroimage} altText={title} video="" />
+                <FullScreenMedia image={heroImage} altText={title} video="" />
                 <div className="block--hero__content-wrap">
                     <h1 className="block--hero__title">{title}</h1>
                 </div>
@@ -56,15 +52,14 @@ export const AboutPageTemplate: React.SFC<Props> = ({
 };
 
 const AboutPage: React.SFC<graphData> = ({ data }) => {
-    console.log(data);
-    const { markdownRemark: post, heroImage: heroImage } = data;
+    const { markdownRemark: post } = data;
 
     return (
         <AboutPageTemplate
             contentComponent={HTMLContent}
             title={post.frontmatter.title}
             content={post.html}
-            heroimage={heroImage.childImageSharp.sizes}
+            heroImage={post.frontmatter.heroImage.childImageSharp.sizes}
         />
     );
 };
@@ -76,12 +71,12 @@ export const aboutPageQuery: graphData = graphql`
             html
             frontmatter {
                 title
-            }
-        }
-        heroImage: file(relativePath: { regex: "/flavor_wheel.jpg/" }) {
-            childImageSharp {
-                sizes(maxWidth: 1168, quality: 85) {
-                    ...GatsbyImageSharpSizes_withWebp
+                heroImage {
+                    childImageSharp {
+                        sizes(maxWidth: 1168, quality: 85) {
+                            ...GatsbyImageSharpSizes_withWebp
+                        }
+                    }
                 }
             }
         }

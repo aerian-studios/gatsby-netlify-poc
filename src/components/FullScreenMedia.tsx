@@ -1,14 +1,15 @@
 import * as React from "react";
 import Img from "gatsby-image";
 
-import { heroImageProps } from "../datatypes/dataTypes";
+import { ImageSharpSizes } from "../datatypes/dataTypes";
 
 import "./fullScreenMedia.scss";
 
 interface Props {
-    image?: heroImageProps;
+    image?: ImageSharpSizes;
     altText: string | null;
     video?: string | null;
+    wrapperClassName?: string | null;
 }
 
 //@TODO: sort out the readability and logic of the ternaries
@@ -16,8 +17,9 @@ export const FullScreenMedia: React.SFC<Props> = ({
     image,
     altText,
     video,
+    wrapperClassName,
 }) => (
-    <figure className="full-screen">
+    <figure className={`full-screen ${wrapperClassName}`}>
         {video ? (
             <video
                 preload="auto"
