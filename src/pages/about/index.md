@@ -11,7 +11,7 @@ form, and traditionally was grown commercially under other trees that provided
 shade. The forest-like structure of shade coffee farms provides habitat for a
 great number of migratory and resident species.
 
-![Excellent coffee](../../../static/img/products-full-width.jpg)
+![Excellent coffee](/img/products-full-width.jpg)
 
 ### Single origin
 
