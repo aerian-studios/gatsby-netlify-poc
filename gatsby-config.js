@@ -15,7 +15,7 @@ module.exports = {
             resolve: `gatsby-source-filesystem`,
             options: {
                 path: `${__dirname}/static/img`,
-                name: "images",
+                name: "uploads",
             },
         },
         {
@@ -29,7 +29,7 @@ module.exports = {
                         options: {
                             // Set the name option to the same
                             // name you set for gatsby-source-filesystem
-                            name: "images", // default
+                            name: "uploads", // default
                         },
                     },
                     // Make responsive, blur-up images from markdown images
