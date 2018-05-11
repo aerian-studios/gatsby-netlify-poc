@@ -3,6 +3,7 @@ import * as React from "react";
 import Content, { HTMLContent } from "../components/Content";
 import { HeroBlock } from "../components/HeroBlock";
 import { FullScreenMedia } from "../components/FullScreenMedia";
+import Image from "gatsby-image";
 
 import { ImageSharp, ImageSharpSizes } from "../datatypes/dataTypes";
 
@@ -36,7 +37,8 @@ export const AboutPageTemplate: React.SFC<Props> = ({
     return (
         <section className="section section--about">
             <HeroBlock>
-                <FullScreenMedia image={heroImage} altText={title} video="" />
+                {/* <FullScreenMedia image={heroImage} altText={title} video="" /> */}
+                <img src={heroImage} />
                 <div className="block--hero__content-wrap">
                     <h1 className="block--hero__title">{title}</h1>
                 </div>
@@ -59,7 +61,7 @@ const AboutPage: React.SFC<graphData> = ({ data }) => {
             contentComponent={HTMLContent}
             title={post.frontmatter.title}
             content={post.html}
-            heroImage={post.frontmatter.heroImage.childImageSharp.sizes}
+            heroImage={post.frontmatter.heroImage}
         />
     );
 };
@@ -71,13 +73,7 @@ export const aboutPageQuery: graphData = graphql`
             html
             frontmatter {
                 title
-                heroImage {
-                    childImageSharp {
-                        sizes(maxWidth: 1168, quality: 85) {
-                            ...GatsbyImageSharpSizes_withWebp
-                        }
-                    }
-                }
+                heroImage
             }
         }
     }
