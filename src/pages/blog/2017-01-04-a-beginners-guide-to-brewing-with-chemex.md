@@ -6,10 +6,10 @@ description: >-
   Brewing with a Chemex probably seems like a complicated, time-consuming
   ordeal, but once you get used to the process, it becomes a soothing ritual
   that's worth the effort every time.
-heroimage: ../../../static/chemex.jpg
+heroimage: ../../../static/img/chemex.jpg
 ---
 
-![chemex](../../../static/chemex.jpg)
+![chemex](../../../static/img/chemex.jpg)
 
 This week we’ll look at the steps required to make astonishing coffee with a
 Chemex at home. The Chemex Coffeemaker is a manual, "_pour-over_" style

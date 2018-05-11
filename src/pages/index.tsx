@@ -6,89 +6,99 @@ import { FullScreenMedia } from "../components/FullScreenMedia";
 // import "../scss/base-theme.scss";
 
 interface Props {
-  data: Data;
+    data: Data;
 }
 
 const IndexPage: React.SFC<Props> = ({ data }) => {
-  const { edges: posts } = data.allMarkdownRemark;
+    const { edges: posts } = data.allMarkdownRemark;
 
-  return (
-    <main className="layout-grid">
-      <HeroBlock>
-        <FullScreenMedia video="/img/687898845.mp4" image="" />
-        <div className="block--hero__content-wrap">
-          <h1>Latest Stories</h1>
-        </div>
-      </HeroBlock>
-      <div className="block--full">
-        {posts
-          .filter(post => post.node.frontmatter.templateKey === "blog-post")
-          .map(({ node: post }, index) => (
-            <section
-              className={`block layout-grid ${
-                index % 2 !== 0 ? "block--dark-grey_skin" : "block--white_skin"
-              }`}
-              key={post.id}
-            >
-              <div className="content-wrap">
-                <div className="media-content">
-                  <h2 className="section-title">{post.frontmatter.title}</h2>
-                  <small>{post.frontmatter.date}</small>
-                  <p>{post.excerpt}</p>
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
+    return (
+        <main className="layout-grid">
+            <HeroBlock>
+                <FullScreenMedia video="/img/687898845.mp4" />
+                <div className="block--hero__content-wrap">
+                    <h1>Latest Stories</h1>
                 </div>
-              </div>
-            </section>
-          ))}
-      </div>
-    </main>
-  );
+            </HeroBlock>
+            <div className="block--full">
+                {posts
+                    .filter(
+                        (post) =>
+                            post.node.frontmatter.templateKey === "blog-post"
+                    )
+                    .map(({ node: post }, index) => (
+                        <section
+                            className={`block layout-grid ${
+                                index % 2 !== 0
+                                    ? "block--dark-grey_skin"
+                                    : "block--white_skin"
+                            }`}
+                            key={post.id}
+                        >
+                            <div className="content-wrap">
+                                <div className="media-content">
+                                    <h2 className="section-title">
+                                        {post.frontmatter.title}
+                                    </h2>
+                                    <small>{post.frontmatter.date}</small>
+                                    <p>{post.excerpt}</p>
+                                    <Link
+                                        className="button"
+                                        to={post.fields.slug}
+                                    >
+                                        Keep Reading →
+                                    </Link>
+                                </div>
+                            </div>
+                        </section>
+                    ))}
+            </div>
+        </main>
+    );
 };
 export default IndexPage;
 
 interface FrontMatter {
-  title: string;
-  templateKey: string;
-  date: string;
-  heroimage: string;
+    title: string;
+    templateKey: string;
+    date: string;
+    heroimage: string;
 }
 
 interface GNode {
-  excerpt: string;
-  id: string;
-  fields: {
-    slug: string;
-  };
-  frontmatter: FrontMatter;
+    excerpt: string;
+    id: string;
+    fields: {
+        slug: string;
+    };
+    frontmatter: FrontMatter;
 }
 
 interface Data {
-  allMarkdownRemark: {
-    edges: Array<{
-      node: GNode;
-    }>;
-  };
+    allMarkdownRemark: {
+        edges: Array<{
+            node: GNode;
+        }>;
+    };
 }
 
 export const pageQuery: Data = graphql`
-  query IndexQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          excerpt(pruneLength: 400)
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            templateKey
-            date(formatString: "MMMM DD, YYYY")
-          }
+    query IndexQuery {
+        allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+            edges {
+                node {
+                    excerpt(pruneLength: 400)
+                    id
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        title
+                        templateKey
+                        date(formatString: "MMMM DD, YYYY")
+                    }
+                }
+            }
         }
-      }
     }
-  }
 `;
