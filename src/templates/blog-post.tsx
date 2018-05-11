@@ -30,7 +30,9 @@ export const BlogPostTemplate: React.SFC<Props> = ({
         <section className="section section--blog">
             {helmet || ""}
             <HeroBlock>
-                <FullScreenMedia image={heroimage} altText={description} />
+                {heroimage ? (
+                    <FullScreenMedia image={heroimage} altText={description} />
+                ) : null}
                 <div className="block--hero__content">
                     <h1 className="block--hero__title">{title}</h1>
                     <p>{description}</p>
@@ -54,7 +56,11 @@ const Blog: React.SFC<BlogData> = (props) => {
             description={post.frontmatter.description}
             helmet={<Helmet title={`Blog | ${post.frontmatter.title}`} />}
             title={post.frontmatter.title}
-            heroimage={post.frontmatter.heroimage.childImageSharp.sizes}
+            heroimage={
+                post.frontmatter.heroimage
+                    ? post.frontmatter.heroimage.childImageSharp.sizes
+                    : null
+            }
         />
     );
 };
