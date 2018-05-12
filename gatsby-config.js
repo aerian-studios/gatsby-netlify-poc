@@ -14,8 +14,15 @@ module.exports = {
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                path: `${__dirname}/static/img`,
+                path: `${__dirname}/src/u`,
                 name: "uploads",
+            },
+        },
+        {
+            resolve: `gatsby-plugin-move-assets`,
+            options: {
+                srcPath: `${__dirname}/src/u`,
+                destinationPath: `${__dirname}/public/u`,
             },
         },
         {
@@ -23,15 +30,15 @@ module.exports = {
             options: {
                 plugins: [
                     // gatsby-remark-relative-images must
-                    // go before gatsby-remark-images
-                    {
-                        resolve: `gatsby-remark-relative-images`,
-                        options: {
-                            // Set the name option to the same
-                            // name you set for gatsby-source-filesystem
-                            name: "uploads", // default
-                        },
-                    },
+                    // // go before gatsby-remark-images
+                    // {
+                    //     resolve: `gatsby-remark-relative-images`,
+                    //     options: {
+                    //         // Set the name option to the same
+                    //         // name you set for gatsby-source-filesystem
+                    //         name: "uploads", // default
+                    //     },
+                    // },
                     // Make responsive, blur-up images from markdown images
                     {
                         resolve: `gatsby-remark-images`,
