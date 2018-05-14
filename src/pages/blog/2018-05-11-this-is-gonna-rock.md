@@ -6,7 +6,7 @@ description: >-
   I really don't know anything about anything, so obviously this is gonna rock
   as far as blog posts go... better put a seatbelt on your mind, because I am
   about to take it for a ride...
-heroimage: /../../u/products-full-width.jpg
+heroimage: ../../u/products-full-width.jpg
 ---
 
 So let's talk about coffee. On the one hand it is a fragile little lamb that
