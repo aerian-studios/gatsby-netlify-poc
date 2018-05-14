@@ -1,7 +1,7 @@
 ---
 templateKey: about-page
 title: About us and our values
-heroimage: ../../u/products-grid3.jpg
+heroimage: ../../../static/assets/products-grid3.jpg
 ---
 
 ### Shade-grown coffee
@@ -11,7 +11,7 @@ form, and traditionally was grown commercially under other trees that provided
 shade. The forest-like structure of shade coffee farms provides habitat for a
 great number of migratory and resident species.
 
-![Excellent coffee](../../u/products-grid2.jpg)
+![Excellent coffee](/assets/products-grid2.jpg)
 
 ### Single origin
 

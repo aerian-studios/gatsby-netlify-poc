@@ -15,7 +15,7 @@ const IndexPage: React.SFC<Props> = ({ data }) => {
     return (
         <main className="layout-grid">
             <HeroBlock>
-                <FullScreenMedia video="/u/687898845.mp4" />
+                <FullScreenMedia video="/assets/687898845.mp4" />
                 <div className="block--hero__content-wrap">
                     <h1>Latest Stories</h1>
                 </div>

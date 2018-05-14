@@ -1,5 +1,5 @@
 // Use this in package.json to move the assets into public folder
-const fse = require("fs-extra");
+import fse from "fs-extra";
 
 const copyTheFiles = async (srcPath, destinationPath) => {
     const options = {
@@ -14,7 +14,7 @@ const copyTheFiles = async (srcPath, destinationPath) => {
     }
 };
 
-exports.onPostBuild = async ({}, { srcPath, destinationPath }) => {
+export const onPostBuild = async ({}, { srcPath, destinationPath }) => {
     if (!srcPath || !destinationPath) {
         return console.error(
             "The asset move plugin needs at least a srcPath and a destinationPath"

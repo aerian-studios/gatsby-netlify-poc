@@ -7,7 +7,7 @@ import "./fullScreenMedia.scss";
 
 interface Props {
     image?: ImageSharpSizes;
-    altText: string | null;
+    altText?: string | null;
     video?: string | null;
     wrapperClassName?: string | null;
 }
