@@ -4,18 +4,20 @@ module.exports = {
     pathPrefix: config.pathPrefix,
     siteMetadata: config.siteMetadata,
     plugins: [
-        {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                path: `${__dirname}/src/pages`,
-                name: "pages",
-            },
-        },
+        `gatsby-plugin-react-next`,
+        `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
                 path: `${__dirname}/static/assets`,
                 name: "uploads",
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/src/pages`,
+                name: "pages",
             },
         },
         {
@@ -26,11 +28,6 @@ module.exports = {
                     // go before gatsby-remark-images
                     {
                         resolve: `gatsby-remark-relative-images`,
-                        options: {
-                            // Set the name option to the same
-                            // name you set for gatsby-source-filesystem
-                            name: "uploads", // default
-                        },
                     },
                     // Make responsive, blur-up images from markdown images
                     {
@@ -67,7 +64,6 @@ module.exports = {
         },
         // must come AFTER manifest plugin, Generates a service worker and AppShell
         `gatsby-plugin-offline`,
-        `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-plugin-sass`,
             options: {

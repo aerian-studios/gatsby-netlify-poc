@@ -1,7 +1,7 @@
 ---
 templateKey: about-page
 title: About us and our values
-heroimage: ../../../static/assets/products-grid3.jpg
+heroimage: /assets/products-grid3.jpg
 ---
 
 ### Shade-grown coffee
