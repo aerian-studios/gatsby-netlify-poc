@@ -1,21 +1,36 @@
 import * as React from "react";
 import Img from "gatsby-image";
 
-import { IProductIntro } from "../datatypes/dataTypes";
+import { ProductIntro, ImageSharp } from "../datatypes/dataTypes";
 import "./features.scss";
 
+const isImageSharp = (image: string | ImageSharp): boolean => {
+    return typeof image !== "string";
+};
 interface Props {
-    gridItems: IProductIntro;
+    gridItems: ProductIntro;
 }
 const FeatureGrid: React.SFC<Props> = ({ gridItems }) => (
     <div className="group group--pair">
         {gridItems.blurbs.map((item) => (
             <div
                 className="group__item group--pair__item card--product media-content"
-                key={item.image.childImageSharp.sizes.src}
+                key={
+                    isImageSharp(item.image)
+                        ? item.image.childImageSharp.sizes.src
+                        : item.image
+                }
             >
                 <figure className="media-content__media">
-                    <Img alt="" sizes={item.image.childImageSharp.sizes} />
+                    {isImageSharp(item.image) ? (
+                        <Img
+                            alt=""
+                            sizes={item.image.childImageSharp.sizes}
+                            aria-hidden="true"
+                        />
+                    ) : (
+                        <img alt="" src={item.image} aria-hidden="true" />
+                    )}
                 </figure>
                 <p className="media-content__content">{item.text}</p>
             </div>

@@ -20,7 +20,7 @@ export interface Testimonial {
 // PRODUCTS
 export interface ProductIntro {
     blurbs: Array<{
-        image: ImageSharp;
+        image: ImageSharp | string;
         text: string;
     }>;
 }
@@ -28,9 +28,9 @@ export interface ProductIntro {
 interface ProductMain {
     heading: string;
     description: string;
-    image1: ImageSharp;
-    image2: ImageSharp;
-    image3: ImageSharp;
+    image1: ImageSharp | string;
+    image2: ImageSharp | string;
+    image3: ImageSharp | string;
 }
 
 export interface ProductPlan {
@@ -40,7 +40,7 @@ export interface ProductPlan {
     price: number;
 }
 
-interface ProductPricing {
+export interface ProductPricing {
     heading: string;
     description: string;
     plans: Array<ProductPlan>;

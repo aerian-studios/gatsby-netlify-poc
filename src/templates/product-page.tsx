@@ -8,6 +8,7 @@ import {
     IProductData,
     ProductFrontmatter,
     ProductFrontmatterProps,
+    ImageSharp,
 } from "../datatypes/dataTypes";
 
 import { HeroBlock } from "../components/HeroBlock";
@@ -15,7 +16,10 @@ import { FullScreenMedia } from "../components/FullScreenMedia";
 
 const imageGridStyle = { borderRadius: "5px" };
 
-const getAppropriateImg = (entry) =>
+const getAppropriateImg = (entry: {
+    image: string | ImageSharp;
+    alt?: string;
+}) =>
     entry && entry.image ? (
         typeof entry.image === "string" ? (
             <img

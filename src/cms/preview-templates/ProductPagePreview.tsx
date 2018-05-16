@@ -1,5 +1,10 @@
 import * as React from "react";
 import { ProductPageTemplate } from "../../templates/product-page";
+import {
+    Testimonial,
+    ProductPricing,
+    ProductIntro,
+} from "../../datatypes/dataTypes";
 
 interface Props {
     entry: any;
@@ -8,13 +13,17 @@ interface Props {
 
 const ProductPagePreview: React.SFC<Props> = ({ entry, getAsset }) => {
     const entryBlurbs = entry.getIn(["data", "intro", "blurbs"]);
-    const blurbs = entryBlurbs ? entryBlurbs.toJS() : [];
+    const blurbs: ProductIntro = entryBlurbs ? entryBlurbs.toJS() : [];
 
     const entryTestimonials = entry.getIn(["data", "testimonials"]);
-    const testimonials = entryTestimonials ? entryTestimonials.toJS() : [];
+    const testimonials: Array<Testimonial> = entryTestimonials
+        ? entryTestimonials.toJS()
+        : [];
 
     const entryPricingPlans = entry.getIn(["data", "pricing", "plans"]);
-    const pricingPlans = entryPricingPlans ? entryPricingPlans.toJS() : [];
+    const pricingPlans: ProductPricing = entryPricingPlans
+        ? entryPricingPlans.toJS()
+        : [];
 
     return (
         <ProductPageTemplate
