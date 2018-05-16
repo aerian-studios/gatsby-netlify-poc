@@ -4,15 +4,36 @@ import Img from "gatsby-image";
 import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
-import { IProductData, ProductFrontmatter } from "../datatypes/dataTypes";
+import {
+    IProductData,
+    ProductFrontmatter,
+    ProductFrontmatterProps,
+} from "../datatypes/dataTypes";
 
 import { HeroBlock } from "../components/HeroBlock";
 import { FullScreenMedia } from "../components/FullScreenMedia";
 
 const imageGridStyle = { borderRadius: "5px" };
 
-export const ProductPageTemplate: React.SFC<ProductFrontmatter> = ({
-    image,
+const getAppropriateImg = (entry) =>
+    entry && entry.image ? (
+        typeof entry.image === "string" ? (
+            <img
+                src={entry.image}
+                alt=""
+                aria-hidden="true"
+                style={imageGridStyle}
+            />
+        ) : (
+            <Img
+                style={imageGridStyle}
+                sizes={entry.image.childImageSharp.sizes}
+                alt={entry.alt}
+            />
+        )
+    ) : null;
+export const ProductPageTemplate: React.SFC<ProductFrontmatterProps> = ({
+    heroImage,
     title,
     heading,
     description,
@@ -24,7 +45,22 @@ export const ProductPageTemplate: React.SFC<ProductFrontmatter> = ({
 }) => (
     <section className="section section--product">
         <HeroBlock>
-            <FullScreenMedia image={image} altText={description} />
+            {typeof heroImage === "string" ? (
+                // Cover the situation where there is no imageSharp (e.g. in the cms)
+                <img
+                    className="full-screen"
+                    src={heroImage}
+                    alt=""
+                    aria-hidden="true"
+                />
+            ) : (
+                <FullScreenMedia
+                    image={heroImage}
+                    altText=""
+                    video=""
+                    aria-hidden="true"
+                />
+            )}
             <div className="block--hero__content">
                 <h1 className="block--hero__title">{title}</h1>
                 <p>{description}</p>
@@ -42,36 +78,34 @@ export const ProductPageTemplate: React.SFC<ProductFrontmatter> = ({
                 </div>
                 <div className="media-content--half-grid">
                     <figure className="media-content__media media-wrapper">
-                        <Img
-                            style={imageGridStyle}
-                            sizes={main.image1.image.childImageSharp.sizes}
-                            alt={main.image1.alt}
-                        />
+                        {getAppropriateImg(main.image1)}
                     </figure>
                     <figure className="media-content__media media-wrapper">
-                        <Img
-                            style={imageGridStyle}
-                            sizes={main.image2.image.childImageSharp.sizes}
-                            alt={main.image2.alt}
-                        />
+                        {getAppropriateImg(main.image2)}
                     </figure>
                     <figure className="media-content__media media-wrapper">
-                        <Img
-                            style={imageGridStyle}
-                            sizes={main.image3.image.childImageSharp.sizes}
-                            alt={main.image3.alt}
-                        />
+                        {getAppropriateImg(main.image3)}
                     </figure>
                 </div>
             </section>
 
             <Testimonials testimonials={testimonials} />
             <section className="block--full layout-grid block block--dark_skin">
-                <FullScreenMedia
-                    image={full_image}
-                    altText=""
-                    wrapperClassName="block--full"
-                />
+                {typeof full_image === "string" ? (
+                    // Cover the situation where there is no imageSharp (e.g. in the cms)
+                    <img
+                        src={full_image}
+                        alt=""
+                        aria-hidden="true"
+                        className="block--full"
+                    />
+                ) : (
+                    <FullScreenMedia
+                        image={full_image}
+                        altText=""
+                        wrapperClassName="block--full"
+                    />
+                )}
                 <div className="section__content content-wrap">
                     <h2 className="section-title">{pricing.heading}</h2>
                     <p className="is-size-5">{pricing.description}</p>
@@ -87,14 +121,22 @@ const ProductPage: React.SFC<IProductData> = ({ data }) => {
 
     return (
         <ProductPageTemplate
-            image={frontmatter.image.childImageSharp.sizes}
+            heroImage={
+                typeof frontmatter.image === "string"
+                    ? frontmatter.image
+                    : frontmatter.image.childImageSharp.sizes
+            }
             title={frontmatter.title}
             heading={frontmatter.heading}
             description={frontmatter.description}
             intro={frontmatter.intro}
             main={frontmatter.main}
             testimonials={frontmatter.testimonials}
-            full_image={frontmatter.full_image.childImageSharp.sizes}
+            full_image={
+                typeof frontmatter.full_image === "string"
+                    ? frontmatter.full_image
+                    : frontmatter.full_image.childImageSharp.sizes
+            }
             pricing={frontmatter.pricing}
         />
     );

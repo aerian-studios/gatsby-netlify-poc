@@ -15,12 +15,12 @@ interface Props {
 
 interface graphData {
     data: {
-        makrkdownRemark: {
+        markdownRemark: {
             html: React.ReactChildren;
             frontmatter: {
                 title: string;
+                heroimage: ImageSharp | string;
             };
-            heroImage: ImageSharp;
         };
     };
 }
@@ -37,7 +37,13 @@ export const AboutPageTemplate: React.SFC<Props> = ({
         <section className="section section--about">
             <HeroBlock>
                 {typeof heroImage === "string" ? (
-                    <img src={heroImage} alt="" aria-hidden="true" />
+                    // Cover the situation where there is no imageSharp (e.g. in the cms)
+                    <img
+                        className="full-screen"
+                        src={heroImage}
+                        alt=""
+                        aria-hidden="true"
+                    />
                 ) : (
                     <FullScreenMedia
                         image={heroImage}

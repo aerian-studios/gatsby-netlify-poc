@@ -17,7 +17,6 @@ export interface Testimonial {
     quote: string;
 }
 
-
 // PRODUCTS
 export interface ProductIntro {
     blurbs: Array<{
@@ -47,18 +46,29 @@ interface ProductPricing {
     plans: Array<ProductPlan>;
 }
 
-export interface ProductFrontmatter {
+export interface ProductFrontmatterProps {
     title: string;
-    image: ImageSharp;
+    heroImage?: ImageSharpSizes | string;
     heading: string;
     description: string;
-    intro: 
-;
+    intro: ProductIntro;
+
     main: ProductMain;
     testimonials: Array<Testimonial>;
-    full_image: ImageSharp;
+    full_image: ImageSharpSizes | string;
     pricing: ProductPricing;
-    heroimage: ImageSharp;
+}
+export interface ProductFrontmatter {
+    title: string;
+    image?: ImageSharp | string;
+    heading: string;
+    description: string;
+    intro: ProductIntro;
+
+    main: ProductMain;
+    testimonials: Array<Testimonial>;
+    full_image: ImageSharp | string;
+    pricing: ProductPricing;
 }
 
 export interface IProductData {
