@@ -10,7 +10,7 @@ interface Props {
     title: string;
     content: React.ReactChildren;
     contentComponent?: React.SFC;
-    heroImage: ImageSharpSizes;
+    heroImage: ImageSharpSizes | string;
 }
 
 interface graphData {
@@ -36,7 +36,15 @@ export const AboutPageTemplate: React.SFC<Props> = ({
     return (
         <section className="section section--about">
             <HeroBlock>
-                <FullScreenMedia image={heroImage} altText={title} video="" />
+                {typeof heroImage === "string" ? (
+                    <img src={heroImage} alt="" aria-hidden="true" />
+                ) : (
+                    <FullScreenMedia
+                        image={heroImage}
+                        altText={title}
+                        video=""
+                    />
+                )}
                 <div className="block--hero__content-wrap">
                     <h1 className="block--hero__title">{title}</h1>
                 </div>
@@ -59,7 +67,11 @@ const AboutPage: React.SFC<graphData> = ({ data }) => {
             contentComponent={HTMLContent}
             title={post.frontmatter.title}
             content={post.html}
-            heroImage={post.frontmatter.heroimage.childImageSharp.sizes}
+            heroImage={
+                typeof post.frontmatter.heroimage === "string"
+                    ? post.frontmatter.heroimage
+                    : post.frontmatter.heroimage.childImageSharp.sizes
+            }
         />
     );
 };
