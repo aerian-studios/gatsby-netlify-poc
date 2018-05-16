@@ -1,8 +1,8 @@
 import * as React from "react";
 
 export interface Image {
-    alt: string;
-    image: string;
+    alt?: string;
+    image: string | ImageSharp;
 }
 
 export interface ImageSharp {
@@ -28,9 +28,9 @@ export interface ProductIntro {
 interface ProductMain {
     heading: string;
     description: string;
-    image1: ImageSharp | string;
-    image2: ImageSharp | string;
-    image3: ImageSharp | string;
+    image1: Image;
+    image2: Image;
+    image3: Image;
 }
 
 export interface ProductPlan {
