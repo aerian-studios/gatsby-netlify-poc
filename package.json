@@ -19,7 +19,7 @@
         "gatsby-plugin-sharp": "^1.6.44",
         "gatsby-remark-copy-linked-files": "^1.5.32",
         "gatsby-remark-images": "^1.5.63",
-        "gatsby-remark-relative-images": "0.0.6",
+        "gatsby-remark-relative-images": "^0.1.1",
         "gatsby-remark-responsive-iframe": "^1.4.18",
         "gatsby-source-filesystem": "^1.5.35",
         "gatsby-transformer-remark": "^1.7.40",
