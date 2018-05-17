@@ -19,7 +19,7 @@ const imageGridStyle = { borderRadius: "5px" };
 
 const getAppropriateImg = (entry: Image) =>
     entry && entry.image ? (
-        typeof entry.image === "string" ? (
+        typeof entry.image.childImageSharp === "undefined" ? (
             <img
                 src={entry.image}
                 alt=""
@@ -124,7 +124,7 @@ const ProductPage: React.SFC<IProductData> = ({ data }) => {
     return (
         <ProductPageTemplate
             heroImage={
-                typeof frontmatter.image === "string"
+                typeof frontmatter.image.childImageSharp === "undefined"
                     ? frontmatter.image
                     : frontmatter.image.childImageSharp.sizes
             }
