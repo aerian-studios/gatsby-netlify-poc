@@ -24,7 +24,7 @@
         "gatsby-source-filesystem": "^1.5.36",
         "gatsby-transformer-remark": "^1.7.41",
         "gatsby-transformer-sharp": "^1.6.24",
-        "netlify-cms": "^1.7.0"
+        "netlify-cms": "^1.8.0"
     },
     "devDependencies": {
         "babel-preset-es2017": "^6.24.1",
