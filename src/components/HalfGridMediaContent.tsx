@@ -8,7 +8,7 @@ const imageGridStyle = { borderRadius: "5px" };
 
 const getAppropriateImg = (entry: Image) =>
     entry && entry.image ? (
-        !entry.image.childImageSharp === "undefined" ? (
+        !entry.image.childImageSharp ? (
             <img
                 src={entry.image}
                 alt=""
