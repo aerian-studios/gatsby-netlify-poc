@@ -25,7 +25,7 @@ export interface ProductIntro {
     }>;
 }
 
-interface ProductMain {
+export interface ProductMain {
     heading: string;
     description: string;
     image1: Image;

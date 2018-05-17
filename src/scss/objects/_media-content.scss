@@ -15,7 +15,7 @@
 // not all content is correctly nested
 .content-wrap,
 .block--hero__content-wrap,
-.media-content--rtf-content>* {
+.media-content--rtf-content > * {
     max-width: 78ch;
     z-index: 1;
 }
@@ -44,7 +44,7 @@
     }
     .content,
     .section-title {
-        >*:last-child {
+        > *:last-child {
             margin-bottom: 0;
         }
     }
@@ -74,38 +74,9 @@
     }
 }
 
-.media-content--half-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: var(--vertical-rythym);
-    * {
-        grid-column: 2/3;
-        grid-row: 1/2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        * {
-            object-fit: cover;
-            min-width: 100%;
-            height: 100%;
-        }
-    }
-    *:first-child {
-        grid-row: 1/3;
-        grid-column: 1/2;
-        * {
-            width: auto;
-        }
-    }
-    *:last-child {
-        grid-row: 2/3;
-    }
-}
-
 // Content created by rich text
 .media-content--rtf-content {
-    >* {
+    > * {
         margin-left: auto;
         margin-right: auto;
         display: flex;

@@ -1,6 +1,6 @@
 // NOTE: until I can work out why, this needs to be a *.js file
 import * as React from "react";
-import Img from "gatsby-image";
+
 import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
@@ -14,26 +14,8 @@ import {
 
 import { HeroBlock } from "../components/HeroBlock";
 import { FullScreenMedia } from "../components/FullScreenMedia";
+import HalfGridMediaContent from "../components/HalfGridMediaContent";
 
-const imageGridStyle = { borderRadius: "5px" };
-
-const getAppropriateImg = (entry: Image) =>
-    entry && entry.image ? (
-        typeof entry.image.childImageSharp === "undefined" ? (
-            <img
-                src={entry.image}
-                alt=""
-                aria-hidden="true"
-                style={imageGridStyle}
-            />
-        ) : (
-            <Img
-                style={imageGridStyle}
-                sizes={entry.image.childImageSharp.sizes}
-                alt={entry.alt}
-            />
-        )
-    ) : null;
 export const ProductPageTemplate: React.SFC<ProductFrontmatterProps> = ({
     heroImage,
     title,
@@ -78,17 +60,7 @@ export const ProductPageTemplate: React.SFC<ProductFrontmatterProps> = ({
                     <h2 className="section-title">{main.heading}</h2>
                     <p>{main.description}</p>
                 </div>
-                <div className="media-content--half-grid">
-                    <figure className="media-content__media media-wrapper">
-                        {getAppropriateImg(main.image1)}
-                    </figure>
-                    <figure className="media-content__media media-wrapper">
-                        {getAppropriateImg(main.image2)}
-                    </figure>
-                    <figure className="media-content__media media-wrapper">
-                        {getAppropriateImg(main.image3)}
-                    </figure>
-                </div>
+                <HalfGridMediaContent mediaContent={main} />
             </section>
 
             <Testimonials testimonials={testimonials} />
