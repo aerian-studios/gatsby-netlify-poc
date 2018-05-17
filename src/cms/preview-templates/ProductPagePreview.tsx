@@ -7,7 +7,9 @@ import {
 } from "../../datatypes/dataTypes";
 
 interface Props {
-    entry: any;
+    entry: {
+        getIn: (pathArray: string[]) => { toJS: () => any } | any;
+    };
     getAsset: (asset: string) => string;
 }
 
@@ -55,7 +57,7 @@ const ProductPagePreview: React.SFC<Props> = ({ entry, getAsset }) => {
                 },
             }}
             testimonials={testimonials}
-            fullImage={entry.getIn(["data", "full_image"])}
+            full_image={entry.getIn(["data", "full_image"])}
             pricing={{
                 heading: entry.getIn(["data", "pricing", "heading"]),
                 description: entry.getIn(["data", "pricing", "description"]),
