@@ -1,12 +1,9 @@
 import * as React from "react";
 import Img from "gatsby-image";
 
-import { ProductIntro, ImageSharp } from "../datatypes/dataTypes";
+import { ProductIntro, ImageSharp, isImageSharp } from "../datatypes/dataTypes";
 import "./features.scss";
 
-const isImageSharp = (image: string | ImageSharp): boolean => {
-    return typeof image !== "string";
-};
 interface Props {
     gridItems: ProductIntro;
 }
