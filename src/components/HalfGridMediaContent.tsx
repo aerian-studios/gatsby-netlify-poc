@@ -1,6 +1,11 @@
 import * as React from "react";
 import Img from "gatsby-image";
-import { Image, ProductMain } from "../datatypes/dataTypes";
+import {
+    Image,
+    ProductMain,
+    ImageSharp,
+    isImageSharp,
+} from "../datatypes/dataTypes";
 
 import "./halfGridMediaContent.scss";
 
@@ -8,7 +13,7 @@ const imageGridStyle = { borderRadius: "5px" };
 
 const getAppropriateImg = (entry: Image) =>
     entry && entry.image ? (
-        !entry.image.childImageSharp ? (
+        !isImageSharp(entry.image) ? (
             <img
                 src={entry.image}
                 alt=""

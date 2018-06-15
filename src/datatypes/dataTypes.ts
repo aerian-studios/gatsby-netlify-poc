@@ -1,5 +1,11 @@
 import * as React from "react";
 
+export const isImageSharp = (
+    image: ImageSharp | string
+): image is ImageSharp => {
+    return typeof image !== "string";
+};
+
 export interface Image {
     alt?: string;
     image: string | ImageSharp;
